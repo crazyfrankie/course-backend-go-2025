@@ -666,7 +666,7 @@ func main() {
 
 下面面这张图充分体现了 Go 的 I/O 操作，都是以 `io` 库为中心发散的
 
-![](./img/img01.png)
+![](/images/lesson04-img/img01.png)
 #### 接口
 
 >基本接口
@@ -729,7 +729,7 @@ type ReaderFrom interface {
 }
 ```
 
-![](./img/img02.png)
+![](/images/lesson04-img/img02.png)
 #### 函数
 
 >Copy
@@ -831,7 +831,7 @@ func NewReader(rd io.Reader) *Reader                    // 获取一个以 rd �
 func NewReaderSize(rd io.Reader, size int) *Reader      // 获取一个以 rd 作为底层 io.Reaer 缓冲区大小为 size 的 bufio.Reaer
 ```
 
-![](./img/img03.png)
+![](/images/lesson04-img/img03.png)
 
 `r`，`w` 是两个偏移量表示缓冲区中读写的位置。当从缓冲区中读取数据时，`r` 增加，当调用底层 `io.Reader` 的 `Read` 方法读取数据到缓冲区时，`w` 增加。
 
@@ -1098,7 +1098,7 @@ https://github.com/trending
 2. Fort 数量
 3. 项目代码更新日期
 
-![](./img/img04.png)
+![](/images/lesson04-img/img04.png)
 
 #### 技术论坛
 

@@ -13,7 +13,7 @@ description: >
 在上本节课之前，你需要了解到的一些前置知识。
 ### viper (配置管理)
 
-![viper](./images/viper.PNG)
+![viper](/images/lesson11/viper.PNG)
 
 通常，在一个或多个项目中我们需要使用定义一些配置（数据库的配置，项目功能的参数配置），从而我们可以在项目的开发或上线过程中可以快速的自定义项目的一些功能，以便满足我们的一些特定需求，那么项目中的配置如何管理呢，在 Go 中我们需要用到叫做 Viper 配置管理器。
 尽管 Go 有官方库可以读取配置，但是通常情况下，推荐使用viper库来读取配置文件， viper 支持以下功能：
@@ -33,7 +33,7 @@ description: >
 
 ### logger(日志管理）
 
-![zap](./images/zap.PNG)
+![zap](/images/lesson11/zap.PNG)
 
 
 > 程序员的日常离不开日志，日志就好比私人秘书，负责运行周期一切 trace 工作。优秀的日志实践能极大帮助地程序员快速定位问题，减少在线错误报警。
@@ -53,16 +53,16 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 我们都知道，gin 是一个 http 框架，http 是传输协议，那么 gin 框架也就是和 web（World Wide Web) 息息相关，也是 Go 作为一款擅长于后端编程的核心框架之一（当然 http 框架还有很多），为什么我们用 gin 框架写一个接口（API）就能处理请求呢，最后又把消息返回给谁了呢，这些问题都会在这节课得到解答。
 
 我们以一个真实场景作为示例
-![bilibili1](./images/bilibili1.PNG)
+![bilibili1](/images/lesson11/bilibili1.PNG)
 打开 B 站会看到一个页面，上面有很多功能和分类，看起来十分眼花缭乱，但是其实如果我们只以简单的功能为目的实现去做一个这样的 web 项目其实不是很难，我们只要一点点去完成基础功能——CRUD（增删改查)即可，但是如果有更高要求比如应对高并发，性能优化等等可能就比较困难了
 
 进入正题，我们打开首页会看到这样一个界面，那么为什么我们可以看到这个界面？
 后端有一个很好的伙伴，他就是前端，前端负责直接与客户端交互，而前端为了拿到一些数据需要和后端进行交互
 这里的数据可以是，视频封面图，视频播放链接，用户信息令牌，用户头像等等
 
-![bilibili2](./images/bilibili2.png)
+![bilibili2](/images/lesson11/bilibili2.png)
 按下 f12 进入开发者模式然后刷新页面，我们可以看到第一个请求为
-![bilibili3](./images/bilibili3.png)
+![bilibili3](/images/lesson11/bilibili3.png)
 所以当我们敲下这个网址，整个页面才会为我们加载，剩下的很多乱七八糟的就不多赘述了，学后端的不懂这些（
 
 那我们后端需要为前端提供哪些东西呢？还是以 B 站首页为例，首先第一个我们需要提供很多视频给用户看
@@ -133,7 +133,7 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 
 ### **需求理解不一致**
 
-![tree](./images/tree.png)**客户**：我家有三个小孩，我需要一个能三个人用的秋千。它是由一绳子吊在我园子里的树上。
+![tree](/images/lesson11/tree.png)**客户**：我家有三个小孩，我需要一个能三个人用的秋千。它是由一绳子吊在我园子里的树上。
 
 **项目经理**：秋千这东西太简单了，就是一块板子，两边用绳子吊起来，挂在树上的两个枝子上。
 
@@ -161,11 +161,11 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 
 在软件架构中，经典三层架构自顶向下由用户界面层、业务逻辑层、数据访问层组成。在提出该分层架构的时代，多数系统往往较为简单，本质上都是一个单体架构的数据库管理系统。这种分层架构有效地隔离了业务逻辑与数据访问逻辑，使得这两个不同关注点能够相对自由和独立地演化。经典的三层架构如下所示：
 
-![structure1](./images/structure1.png)
+![structure1](/images/lesson11/structure1.png)
 
 **分层的设计原则是：保证同一层的组件处于同一个抽象层次**。即所谓的“单一抽象层次原则”。这一原则可以运用到分层架构中。比如下图所示：
 
-![structure2](./images/structure2.png)
+![structure2](/images/lesson11/structure2.png)
 
 #### **封装**
 
@@ -201,21 +201,21 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 
 #### **系统关系：**
 
-![system_relations](./images/system_relations.png)**场景(用例)**
+![system_relations](/images/lesson11/system_relations.png)**场景(用例)**
 
 从用户的角度，我们看到的用户场景如下：
 
-![system_user](./images/system_user.png)
+![system_user](/images/lesson11/system_user.png)
 
 **用例图：**
 
-![structure_example](./images/structure_example.png)
+![structure_example](/images/lesson11/structure_example.png)
 
 #### **功能**
 
 **订单系统业务架构：**
 
-![structure_ability](./images/structure_ability.png)
+![structure_ability](/images/lesson11/structure_ability.png)
 
 **（1）订单服务**
 
@@ -233,7 +233,7 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 
 #### **实体**
 
-![real_instance](./images/real_instance.png)
+![real_instance](/images/lesson11/real_instance.png)
 
 #### **流程**
 
@@ -241,13 +241,13 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 
 下面以一个通用B2C商城的订单系统为例，根据其实际业务场景，其订单流程可抽象为5大步骤：**订单创建>订单支付>订单生产>订单确认>订单完成。** 如下图：
 
-![flow_chart](./images/flow_chart.PNG)
+![flow_chart](/images/lesson11/flow_chart.PNG)
 
 ## 如何写好一个项目
 
 ### 代码规范
 
-![GOLint](./images/GOLint.png)
+![GOLint](/images/lesson11/GOLint.png)
 
 **代码规范**其实是一个老生常谈的问题，我们也不能免俗还是要简单介绍一下相关的内容，Go 语言比较常见并且使用广泛的代码规范就是官方提供的 [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)，无论你是短期还是长期使用 Go 语言编程，都应该**至少完整地阅读一遍这个官方的代码规范指南**，它既是我们在写代码时应该遵守的规则，也是在代码审查时需要注意的规范。
 
@@ -273,7 +273,7 @@ https://github.com/maodou1990/code_review_comments_cn 中文翻译
 
 ▐ **恶魔小时候也可爱**
 
-![demon](./images/demon.png)
+![demon](/images/lesson11/demon.png)
 
 一个不太好的架构，在项目初期有时难以察觉，因为此时项目模块少，功能少，依赖关系显而易见，一切显得毫无恶意，甚至有点简洁美。但是，恶魔小时候往往也很可爱。随着项目的增长，模块增加了，开发人员变多了，恶魔长大了。架构带来的问题逐渐暴露了出来，混乱的层次关系，毫无章法的依赖关系，模块权责不清等问题接踵而至。
 
@@ -289,7 +289,7 @@ https://github.com/maodou1990/code_review_comments_cn 中文翻译
 
 也就是说，架构良好的项目随着业务复杂度增加，项目理解成本增长也是缓慢的。架构不合理的项目随着业务复杂度的增加，整体理解成本可能是指数增长的。
 
-![structure3](./images/structure3.png)
+![structure3](/images/lesson11/structure3.png)
 
 ### **通用应用目录分层**
 
@@ -485,7 +485,7 @@ REST（英文：Representational State Transfer，简称REST，直译过来表�
 - 客户端和服务器之间，传递这种资源的某种表现层；
 - 客户端通过四个 HTTP 动词，对服务器端资源进行操作，实现 “表现层状态转化”。
 
-![RESTful](./images/RESTful.png)
+![RESTful](/images/lesson11/RESTful.png)
 
 ▐ **URI指向资源**
 
@@ -678,7 +678,7 @@ POST: http://www.goodhr.com/api/v1/companies/66/employees
 
 ## **🔧 实操**
 
-![blue_cat_worm](./images/blue_cat_worm.jpeg)
+![blue_cat_worm](/images/lesson11/blue_cat_worm.jpeg)
 
 
 
