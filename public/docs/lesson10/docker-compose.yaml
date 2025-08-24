@@ -1,0 +1,6 @@
+version: '3'
+services:
+  hello:
+    image: liuxian123/hello:latest
+    ports:
+      - "6677:8080"  # 如果你的 Go 程序在容器中监听的端口是 8080，将其映射到宿主机的 6677 端口

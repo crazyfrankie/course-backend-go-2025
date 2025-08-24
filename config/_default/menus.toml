@@ -1,0 +1,14 @@
+[[main]]
+name = "课程首页"
+url = "/"
+weight = 10
+
+[[main]]
+name = "课程文档"
+url = "/docs/"
+weight = 20
+
+[[main]]
+name = "GitHub"
+url = "https://github.com/CrazyForCode/course-backend-go-2025"
+weight = 30

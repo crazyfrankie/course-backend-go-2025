@@ -1,0 +1,514 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>从 0 开始学 Go | Go 后端开发教程</title>
+<meta name="description" content="从 0 开始学 Go">
+<meta property="og:url" content="http://localhost:1313/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/">
+  <meta property="og:site_name" content="Go 后端开发教程">
+  <meta property="og:title" content="从 0 开始学 Go">
+  <meta property="og:description" content="从 0 开始学 Go">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+  <meta itemprop="name" content="从 0 开始学 Go">
+  <meta itemprop="description" content="从 0 开始学 Go">
+  <meta itemprop="wordCount" content="335">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="从 0 开始学 Go">
+  <meta name="twitter:description" content="从 0 开始学 Go">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Go 后端开发教程</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/"><span>课程首页</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>课程文档</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/CrazyForCode/course-backend-go-2025" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">课程文档</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li">
+  <a href="/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/" title="从 0 开始学 Go" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go"><span class="td-sidebar-nav-active-item">第0课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li">
+  <a href="/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson0202-li">
+  <a href="/docs/lesson02/02/" title="数组和切片" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson0202"><span class="">第2课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li">
+  <a href="/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/" title="包、指针、结构体和接口" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6"><span class="">第3课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li">
+  <a href="/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/" title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe"><span class="">第4课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson05e5b9b6e58f91-li">
+  <a href="/docs/lesson05/%E5%B9%B6%E5%8F%91/" title="并发编程" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson05e5b9b6e58f91"><span class="">第5课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson06readme-li">
+  <a href="/docs/lesson06/readme/" title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson06readme"><span class="">第6课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson07lesson7-li">
+  <a href="/docs/lesson07/lesson7/" title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson07lesson7"><span class="">第7课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson08readme-li">
+  <a href="/docs/lesson08/readme/" title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson08readme"><span class="">第8课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09readme-li">
+  <a href="/docs/lesson09/readme/" title="第九课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09readme"><span class="">第9课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson10docker-li">
+  <a href="/docs/lesson10/docker/" title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson10docker"><span class="">第10课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson11readme-li">
+  <a href="/docs/lesson11/readme/" title="单体架构实战" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson11readme"><span class="">第11课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson12e6b688e681afe9989fe58897-li">
+  <a href="/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" title="第十二课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson12e6b688e681afe9989fe58897"><span class="">第12课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson13lesson13-li">
+  <a href="/docs/lesson13/lesson13/" title="微服务入门" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson13lesson13"><span class="">第13课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson14lesson14-li">
+  <a href="/docs/lesson14/lesson14/" title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson14lesson14"><span class="">第14课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson15readme-li">
+  <a href="/docs/lesson15/readme/" title="第十五课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson15readme"><span class="">第15课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson16readme-li">
+  <a href="/docs/lesson16/readme/" title="负载均衡" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson16readme"><span class="">第16课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li">
+  <a href="/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/" title="第十七课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe"><span class="">第17课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li">
+  <a href="/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/" title="第十八课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180"><span class="">第18课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09example2baidu-li">
+  <a href="/docs/lesson09/example2/baidu/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09example2baidu"><span class=""></span></a>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/your-username/course-backend-go-2025/tree/main/content/docs/lesson00/%e4%bb%8e%200%20%e5%bc%80%e5%a7%8b%e5%ad%a6%20Go.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/your-username/course-backend-go-2025/edit/main/content/docs/lesson00/%e4%bb%8e%200%20%e5%bc%80%e5%a7%8b%e5%ad%a6%20Go.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/your-username/course-backend-go-2025/new/main/content/docs/lesson00?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/your-username/course-backend-go-2025/issues/new?title=%e4%bb%8e%200%20%e5%bc%80%e5%a7%8b%e5%ad%a6%20Go" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#提问的智慧">提问的智慧</a>
+      <ul>
+        <li><a href="#问题">🐂🐎问题</a></li>
+        <li><a href="#例子">例子</a></li>
+        <li><a href="#我们为什么对你们提的问题感到厌烦">我们为什么对你们提的问题感到厌烦？</a></li>
+        <li><a href="#问问题要讲究策略">问问题要讲究策略</a></li>
+        <li><a href="#怎么问问题">怎么问问题？</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装软件以及一些工具的使用">安装软件以及一些工具的使用</a>
+      <ul>
+        <li><a href="#一些懂的都懂的东西">一些懂的都懂的东西</a></li>
+        <li><a href="#学会使用-chatgpt">学会使用 ChatGPT</a></li>
+        <li><a href="#github">Github</a></li>
+        <li><a href="#jetbrains">JetBrains</a></li>
+        <li><a href="#goland">Goland</a></li>
+        <li><a href="#git">Git</a></li>
+        <li><a href="#typora">Typora</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何高效学习">如何高效学习</a>
+      <ul>
+        <li><a href="#入门-go-的一些资源">入门 Go 的一些资源</a></li>
+        <li><a href="#coding-能力">Coding 能力</a></li>
+        <li><a href="#时间管理能力">时间管理能力</a></li>
+      </ul>
+    </li>
+    <li><a href="#后记">后记</a></li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">课程文档</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    第0课</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>从 0 开始学 Go</h1>
+	<div class="lead">从 0 开始学 Go</div>
+	<header class="article-meta">
+		
+</header>
+	<h1 id="从-0-开始学-go">从 0 开始学 Go</h1>
+<p>接下来我会教大家如何成为一个入门级别的 Go 软件工程师，这个教程里面不会包含如何敲代码，但是包括了一些软件工程师的基本素养（很多都是代代相传的</p>
+<p>因为是面向 0 基础写的教程，所以很多地方比如说安装软件我会写的很细，以后的课程中可能就不会有这么细了</p>
+<p>不论你是否有基础相信都能有所收获</p>
+<h2 id="前言">前言</h2>
+<p>如果你想问我想学好互联网开发，当一个成功的码农最重要的是什么</p>
+<p>我觉得首先很重要的是<strong>探索精神</strong></p>
+<ol>
+<li>好奇心：探索精神源于好奇心，即对世界和知识的渴望。好奇心驱使人们主动寻求新的经验、知识和理解，不满足于现有的答案和常规的思维模式。它激发人们对问题的提出、现象的解释和现实的改变。</li>
+<li>探索未知：探索精神鼓励人们主动面对未知领域和挑战。它推动人们跨越舒适区，积极探索新的领域、新的观点和新的经验。探索者愿意接受风险和不确定性，勇于面对失败和困难，以获取新的知识和发现。</li>
+<li>创新思维：探索精神促使人们采用创新的思维方式来解决问题和应对挑战。它鼓励人们打破传统的思维模式，尝试新的方法和观点，挖掘新的可能性。创新思维涉及跳出传统边界、建立连接和寻找新的解决方案。</li>
+<li>持续学习：探索精神与持续学习密切相关。探索者认识到知识和经验的不断积累对于个人成长和发展的重要性。他们愿意持续学习新的技能、学科和领域，并将学习应用于实践中，以推动个人和社会的进步。</li>
+</ol>
+<p>是不是想起了玩游戏🎮时的经历？ YES！你完全可以带入到开发学习中</p>
+<blockquote>
+<p>&ldquo;程序员贪婪又懒惰&rdquo;——《Unix编程艺术》（The Art of Unix Programming）</p></blockquote>
+<p>然后最重要的是 <strong>坚持</strong> ✊</p>
+<p>还记得每次上课都听的迷迷糊糊的，这里为什么会报错？并发为什么每次效果不一样？<code>interface</code> 有什么用？<code>Context.context</code>是干啥的？为什么一开始要写个 <code>r.Register()</code>?会在学习的过程中遇到数不清的问题，跳进数不清的坑。但是只要坚持你回过来看发现其实都很简单，每个大佬也都是从 rookie 开始的嘛</p>
+<p>碰到问题不可怕，找到解决问题的方式是关键，于是就引入了下一小节——<strong>提问的智慧</strong></p>
+<h2 id="提问的智慧">提问的智慧</h2>
+<p>详见 <a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md</a></p>
+<blockquote>
+<p>直接引用 21 级学长写的文档 🙏</p></blockquote>
+<p>你们或许在提问题的时候觉得我们很傲慢？</p>
+<h3 id="问题">🐂🐎问题</h3>
+<ul>
+<li>手机拍代码</li>
+<li>只说一个笼统的问题，不说细节</li>
+<li>夺命连环问</li>
+</ul>
+<p><img src="./images/1.png" alt="img"></p>
+<p><a href="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/blob/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840.jpg"><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840.jpg" alt="a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840"></a></p>
+<h3 id="例子">例子</h3>
+<p><strong>你以为的傲慢</strong>：</p>
+<ul>
+<li>学弟：学长我vscode装不上了怎么办？</li>
+<li>学长：你到官网下载安装包下载完双击它，一直点下一步就安装好了</li>
+<li>学弟：官网是什么</li>
+<li>学长：https://code.visualstudio.com/</li>
+<li>学弟：下载按钮在哪？</li>
+<li>学长：（截图）</li>
+<li>学弟：好了，下载到了，然后呢？</li>
+<li>学长：这个都不会还是别学了</li>
+<li>学弟：（感觉学长很傲慢）&hellip;</li>
+</ul>
+<p><strong>实际上的傲慢：</strong></p>
+<ul>
+<li>学弟：学长我的电脑是64位的windows 10，我在vscode官网下载 了对应版本，在我安装过程中出现了这个问题，使用百度搜索后还是没有办法解决，你能帮我看看吗？谢谢。（同时</li>
+<li>贴上安装失败的图片）</li>
+<li>学长：这个都不会还是别学了</li>
+</ul>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/image-20221030123200419.png" alt="img"></p>
+<p><strong>再举个🌰</strong></p>
+<p>某论坛</p>
+<ul>
+<li>A：有人有赛博朋克2077游戏资源吗？</li>
+<li>B：有，给https://pan.baidu.com/xxxxxxxxxx</li>
+<li>A：为啥要用百度网盘啊，我没用过</li>
+<li>B：只有这个</li>
+<li>A：点击哪里下载啊</li>
+<li>B：（截了个图）</li>
+<li>A：哦哦</li>
+<li>过了几个小时</li>
+<li>A：为什么下下来不能直接玩？</li>
+<li>B：这是个压缩包，你要解压</li>
+<li>A：唉，我玩个游戏也太麻烦了，有什么方式能解压吗</li>
+</ul>
+<p>是不是能理解了呢😄</p>
+<h3 id="我们为什么对你们提的问题感到厌烦">我们为什么对你们提的问题感到厌烦？</h3>
+<ul>
+<li>提的问题“过于简单“</li>
+<li>提问题的方式不对</li>
+<li>遇到问题就提问</li>
+</ul>
+<h3 id="问问题要讲究策略">问问题要讲究策略</h3>
+<p>你可以根据以下顺序尝试解决你的问题：</p>
+<ol>
+<li>百度/Google</li>
+<li>问 chatgpt</li>
+<li>项目使用文档、API使用说明</li>
+<li>CSDN/Stack Overflow</li>
+<li>尝试分析源码</li>
+</ol>
+<h3 id="怎么问问题">怎么问问题？</h3>
+<ul>
+<li>
+<p>精确地描述问题并言之有物</p>
+<ul>
+<li>仔细、清楚地描述你的问题或者Bug的症状</li>
+<li>描述问题发生的环境</li>
+<li>描述在提问前你是怎样去研究和解决这个问题的</li>
+<li>描述在提问前你为了确定问题而采取的诊断步骤</li>
+<li>尽可能地提供一个可以<code>重现这个问题的可控环境</code>的方法</li>
+</ul>
+</li>
+<li>
+<p>话不在多，在于精</p>
+<p>你需要提供精确有内容的信息</p>
+<p>这并不是要求你简单的就把成堆的错误代码或者资料完全放在你的提问中，如果你的问题是一个很大的是程序挂掉的这样一个代码运行环境，尽量把它剪裁得越小越好。</p>
+<p>这样做的好处至少有三点：</p>
+<ul>
+<li>第一，表现你为简化问题付出了努力，这可以使你得到回答问题的概率增加</li>
+<li>第二，简化问题使你更有可能得到有用的答案</li>
+<li>第三，在精炼你的 bug 报告的过程中，你很可能就自己找到了解决方法或者权宜之计</li>
+</ul>
+</li>
+<li>
+<p>清楚明确地表达你的需求</p>
+<p>漫无边际的提问是近乎无休无止的时间黑洞。</p>
+<p>最有可能最有能力给你有用答案的人通常也是最忙的人（他们忙是因为要亲自完成大部分工作）。所以我们对这样无休止无节制的时间黑洞是相当厌恶的。</p>
+<p>所以，请界定一下你的问题，使我们花在辨识你的问题和回答所需要付出的时间减到最少。</p>
+</li>
+<li>
+<p>询问有关代码的问题时</p>
+<p>千万不要动辄就要求别人帮你去调试有问题的代码，而且也不提示一下应该从何入手。</p>
+<p>张贴几百行的代码，然后说一声：<code>这段代码有问题</code>，我们可能完全会忽略这样的问题，而且回都不想回</p>
+<p>相比于这个，只贴几十行的代码，然后说一句：<code>在第七行代码之后，我觉得程序会输出xxx，但实际出现的xxx</code>更有可能让你得到回应</p>
+<p>最有效描述程序代码问题的方法就是提供一段最精简的 Bug 展示的测试用例。</p>
+<p>什么是最精简的测试用例？那是问题的缩影；就是一小个代码片段能够刚好的展示出程序的异常行为，而不包含其他令人分散注意力的代码的内容。</p>
+<p>怎么才能找出最精简的测试用例？如果你知道哪一行或者哪一段代码会造成异常的行为，复制下来并且加入能够重现这个状况的代码（能让这段异常的代码正常运行）。如果你无法将问题缩减到一个特定区块，就复制一份代码并移除不影响产生问题行为的部分。总之，你发出的测试用例（或代码）越少越好。</p>
+</li>
+<li>
+<p>截图的方式</p>
+<p>不要手机拍照！不要手机拍照！不要手机拍照！</p>
+</li>
+<li>
+<p>有礼貌地提问</p>
+<p>多用<code>请</code>和<code>谢谢你的回答</code>，让回答者知道你对他们能够花费掉自己宝贵地时间来对你提供帮助心存感激。</p>
+</li>
+</ul>
+<p>当然，对于很多问题大家都是 0 基础，问很正常，我们还是很乐意大家提问的</p>
+<h2 id="安装软件以及一些工具的使用">安装软件以及一些工具的使用</h2>
+<h3 id="一些懂的都懂的东西">一些懂的都懂的东西</h3>
+<p>为什么我 github 只能看运气进？为什么我 git 老是推不上去？为什么我项目拉不下来？</p>
+<p>这些问题都是懂得都懂的，除了换镜像源之外该怎么解决呢？</p>
+<p>挂加速器可以解决一时之需，无论是游戏加速器还是「Watt Toolkit」，都能加速 github 等一些学术网站</p>
+<p>如果你之后有更深的需求，这里不方便说，来私聊群里的学长学姐</p>
+<h3 id="学会使用-chatgpt">学会使用 ChatGPT</h3>
+<p>ChatGPT 在22年12月初才正式进入公众视野，23年初才广为人知，但是可以说已经给程序员带来了天翻地覆的影响</p>
+<p>除了可以用来完成水课作业，还可以对初学者起到非常大的帮助，我觉得应该可以解决 90% 的问题吧</p>
+<p>首先选择一个环境，我其实不太推荐官网，因为官方注册账号有门槛，很多节点被墙，经常抽风。所以我比较推荐一些镜像源网站比如<a href="https://poe.com/">这个</a></p>
+<p>登上这个网站只需要任意一个梯子就行，其次 gpt-3.5 模型是免费的，还支持其他的很多模型</p>
+<p>像这样，你可以向它提出问题，也可以喊它给出某个功能的代码，也可以直接复制粘贴报错信息看是什么原因</p>
+<p><img src="./images/image-20231008104402198.png" alt="image-20231008104402198"></p>
+<p>但是切记不可依赖 gpt，你会发现它很多时候还是很蠢的（比如学校的题很多都做不起），可以拿来提高效率但是不能让它替代你的工作</p>
+<h3 id="github">Github</h3>
+<p>什么是 github ？</p>
+<p>GitHub是一个面向开发者的基于Web的版本控制和代码托管平台。它提供了一个集中存储、管理和协作开发代码的平台，使开发者能够更好地进行团队协作、版本控制和代码管理。</p>
+<p>GitHub的主要功能包括：</p>
+<ol>
+<li>代码托管：开发者可以将他们的代码库（仓库）上传到GitHub上进行存储和管理。这样可以确保代码的备份和安全，并且可以方便地与其他开发者共享和协作。</li>
+<li>版本控制：GitHub使用Git作为其主要的版本控制系统。Git可以追踪代码的修改历史，并提供了分支（branch）和合并（merge）等功能，使得多人协作和代码管理更加灵活和高效。</li>
+<li>协作开发：GitHub提供了丰富的协作功能，开发者可以通过提出问题（issue）、进行讨论、提交请求（pull request）等方式与团队成员交流和合作。这使得多人协作开发更加便捷和透明。</li>
+<li>社交网络：GitHub具有社交网络的特性，开发者可以关注其他开发者、关注和点赞感兴趣的项目，以及参与开源社区的活动。这种社交互动促进了知识共享、技术交流和合作机会。</li>
+<li>自动化工具：GitHub支持与其他开发工具和服务的集成，例如持续集成（Continuous Integration）和部署（Deployment）工具，可以通过自动化流程来构建、测试和部署软件。</li>
+</ol>
+<p>GitHub在开源社区和商业开发中都非常受欢迎。许多开源项目都托管在GitHub上，使得开发者可以共享代码、解决问题和贡献代码。同时，许多企业也使用GitHub作为内部代码托管和团队协作的平台，提高了开发效率和代码质量。</p>
+<p>现在让我们打开 github <a href="https://github.com/">https://github.com/</a></p>
+<p>点击右上角 Sign up 创建一个账户</p>
+<p><img src="./images/image-20231007213835122.png" alt="image-20231007213835122"></p>
+<p>填写自己的邮箱、密码、用户名等信息，然后用邮箱验证即可完成。</p>
+<p><img src="https://img-blog.csdnimg.cn/c07af9239da8498a9ba336ccab523c7f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55m95rC05bCP55Cq5LiDeWE=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p>是不是全是英文感觉看不懂🥺</p>
+<p>我的建议是，习惯就好🤣，以后会经常碰到英文文档的</p>
+<p>然后点击右上角头像之后点击仓库</p>
+<p><img src="./images/image-20231007214308703.png" alt="image-20231007214308703"></p>
+<p>点击这里新建你的第一个仓库</p>
+<p><img src="./images/image-20231007214410280.png" alt="image-20231007214410280"></p>
+<p>这些先简单填一点，开源证书什么的可以暂时不用管，然后点击创建仓库，那么以后就可以在把你的作业代码交到这个仓库里啦</p>
+<p><img src="./images/image-20231007214554512.png" alt="image-20231007214554512"></p>
+<h3 id="jetbrains">JetBrains</h3>
+<p>JetBrains是一家软件开发工具公司，专注于提供高效、智能的集成开发环境（IDE）和开发者工具。他们的产品被广泛应用于各种编程语言和技术栈的开发中。</p>
+<p>除了马上会提到的 Goland，像 C语言可以用 Clion，Python 可以用 PyCharm，java 可以用 IntelliJ IDEA</p>
+<p>如何下载？</p>
+<p>看看下面的博客👇里面提到的学生认证可以不用急着弄</p>
+<p><a href="https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20jetbrains&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142%5Ev95%5EchatgptT3_1&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20jetbrains&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142^v95^chatgptT3_1&amp;spm=1018.2226.3001.4187</a></p>
+<h3 id="goland">Goland</h3>
+<p>可能有同学会问，为啥用 JetBrains 的 Goland ，不用 vscode</p>
+<p>我直接粘贴 chatgpt 了</p>
+<p><img src="./images/image-20231007215945173.png" alt="image-20231007215945173"></p>
+<p>可以在 JetBrains 里的 ToolBox 里直接快速安装</p>
+<p>想直接下载？</p>
+<p>看看下面的博客👇</p>
+<p><a href="https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20goland&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142%5Ev95%5EchatgptT3_1&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20goland&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142^v95^chatgptT3_1&amp;spm=1018.2226.3001.4187</a></p>
+<h3 id="git">Git</h3>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/git-github.png" alt="img"></p>
+<p><img src="./images/image-20231008105637726.png" alt="image-20231008105637726"></p>
+<p>省流：Git 是目前世界上最先进的分布式版本控制系统，用来团队协作很方便。就不用每次上传代码都靠手动 upload files 了</p>
+<p>安装教程看这个👇</p>
+<p><a href="https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673342216800182730025&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142%5Ev95%5EchatgptT3_1&amp;utm_term=%E5%AE%89%E8%A3%85%20git&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673342216800182730025&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142^v95^chatgptT3_1&amp;utm_term=%E5%AE%89%E8%A3%85%20git&amp;spm=1018.2226.3001.4187</a></p>
+<p>然鹅我们在用 git 的时候基本上不会在 git 的客户端里敲命令，要么用 IDE 的图形化工具要么用 IDE 的命令行</p>
+<p><img src="./images/image-20231008110110760.png" alt="image-20231008110110760"></p>
+<p>使用教程后面第二节课会详细讲，感兴趣的同学可以先看下面这个教程👇</p>
+<p><a href="https://blog.csdn.net/weixin_55387973/article/details/123849753?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673357916800226593163%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673357916800226593163&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-123849753-null-null.142%5Ev95%5EchatgptT3_1&amp;utm_term=goland%20git&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_55387973/article/details/123849753?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673357916800226593163%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673357916800226593163&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-123849753-null-null.142^v95^chatgptT3_1&amp;utm_term=goland%20git&amp;spm=1018.2226.3001.4187</a></p>
+<p>感觉教程看不懂？那来玩下 git 闯关小游戏吧👇</p>
+<p><a href="https://learngitbranching.js.org/?demo=&amp;locale=zh_CN">https://learngitbranching.js.org/?demo=&amp;locale=zh_CN</a></p>
+<h3 id="typora">Typora</h3>
+<h4 id="什么是markdown">什么是markdown？</h4>
+<p>Markdown是一门标记语言。假如你们知道HTML的话，Markdown和HTML可以认为是同类事物。简而言之，就是用纯文本的代码描述带格式文本的一种方法。</p>
+<p>那么有了HTML，要Markdown有何用？最简单的答案是：HTML太难写了！</p>
+<p>这样对于关注内容的作者而言友好了很多，而且即使是Markdown代码也有相当强的可读性。</p>
+<p>于是写好Markdown后，如何将其显示成我们想要的格式呢？通常的做法是将Markdown编译为HTML。其实一些网站已经自带了这样的编译器，输入Markdown代码后直接将其转化为HTML，就可以交给浏览器渲染了。GitHub上的README以及各种.md格式文件的预览功能就是最典型的例子。</p>
+<p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code></p>
+<h4 id="什么地方会用到markdown">什么地方会用到markdown？</h4>
+<p>Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创作，习惯后使用起来会比所见即所得的HTML编辑器更加方便快捷，较Word等格式又有纯文本这一优势。</p>
+<h4 id="typora又是啥">typora又是啥</h4>
+<p>而 typora 就是一款非常方便的支持 md 格式的笔记软件，有很多功能：实时预览、数学公式、代码高亮、表格、支持HTML、流程图等等</p>
+<p>这份文档就是在 typora 里敲出来的，反正我个人大多数情况下觉得比 word 好用多了</p>
+<p>官网下载就完事了https://typora.io/</p>
+<h2 id="如何高效学习">如何高效学习</h2>
+<blockquote>
+<p>我除了跟着学长学姐学习之外还能在哪里自学呢？</p></blockquote>
+<p>有这种自学的意识是非常好的，到了大学之后自驱力是成为强者的必要特质</p>
+<p>接下来我会介绍一些学习心得</p>
+<h3 id="入门-go-的一些资源">入门 Go 的一些资源</h3>
+<p>贪多嚼不烂，先推荐一些基础的：</p>
+<p><a href="https://www.liwenzhou.com/posts/Go/golang-menu/">李文周的博客</a></p>
+<p><a href="https://books.studygolang.com/gopl-zh/">go 语言圣经</a></p>
+<p>还有一本难度很大的书，推荐学过数据结构，操作系统之后再来看</p>
+<p>《Go 程序设计语言》</p>
+<h3 id="coding-能力">Coding 能力</h3>
+<h4 id="网站资源">网站资源</h4>
+<p>这个是覆盖面积最广的，也是质量最参差不齐的</p>
+<p>首先是 <a href="https://www.csdn.net/"><strong>CSDN</strong></a>，这个东西很抽象，应该是国内最老牌的技术交流网站，但是正因如此质量参差不齐，有很多灌水，缝合，抄袭的文章。所以说在上面找资源等于   *里掏金，当然对于初学者而言还是很有帮助的</p>
+<p>然后是字节搞的<a href="https://juejin.cn/">稀土掘金</a>，观感比CSDN好多了，但是也有缺陷就是有时候想搜的内容在上面搜不到</p>
+<p>比较推荐的是 <a href="https://stackoverflow.com/">stackoverflow</a>，全世界知名的技术交流论坛，但是对英语能力有一定要求</p>
+<p>然后可能有同学想看视频资源，b站也是个不错的选择，但是质量更是参差不齐，我觉得大部分看文档就能理解没必要去浪费时间看视频，除非视频资源真的讲的很好。其他诸如极客时间等等就不一一介绍了</p>
+<h4 id="学会看官方文档">学会看官方文档</h4>
+<p>官方文档其实可以说是了解一个组件最高效的方式，在有一定编程基础后看官方文档入门是不二之选</p>
+<p>以下图为例，这是 go 的官方文档，介绍了包含的所有官方库以及其他功能</p>
+<p><img src="./images/image-20231008123718393.png" alt="image-20231008123718393"></p>
+<p>很多组件是国外开发的，因此也是英文的，看懂其实并不难，只是一开始会有畏难情绪，能过四级就没多大阅读障碍了</p>
+<p>如果实在看起觉得恼火可以找找有没有中文镜像站或者直接整页翻译</p>
+<h4 id="学会看源码">学会看源码</h4>
+<p>这个估计已经是很高级的能力了，与 Java 能用到退休的教程和生态相比，Go虽然也不是很年轻了，但是肯定也是会遇到没有教程的时候。</p>
+<p>这时候咋办？看源码！</p>
+<p>而且看源码还能提高你的 Coding 能力，在找工作面试的时候面试官也很有可能问到 go 的一些常见底层实现。例如看到某个库的教程觉得讲的太烂了，这个时候就可以去看看相应的源码</p>
+<p>除此之外学习也是从“抄袭”开始的，抄的是代码逻辑，排版风格&hellip;然后把这些东西融会贯通贯通成为自己的，GitHub上就有很多开源项目供大家学习</p>
+<h3 id="时间管理能力">时间管理能力</h3>
+<blockquote>
+<p>觉得上了大学之后没有想象中那么轻松？觉得一周里课太多？觉得事情很多忙不过来？</p></blockquote>
+<p>这也是很多同学大一时会犯的通病</p>
+<p>首先我们需要明确一个前提：<strong>靠学校教的东西以后出去吃不了饭</strong></p>
+<blockquote>
+<p>如果你的目标是本科毕业直接就业，那么你绝对需要自己好好规划时间</p></blockquote>
+<p>首先说本科毕业就业，那么你对绩点就不需要那么看重了，每科能过就行</p>
+<p>就大一上而言，需要重视的就是高数和线代。难道C语言就不重要了吗？当然很重要，重要的是它是很多人接触的第一门编程语言，能培养编程思维。说C语言不需要重视是因为学校里教的很水，拿我自己举例子，我暑假学了一点C，上课一节课没听最后期末总成绩都能上90。也就是说有这时间听老师上课讲不如自己自学。高数和线代要好好学，要不然期末突击也不太好过。</p>
+<p>因此可以得出除了高数和线代都是水课，一周加起来也才五节课，这么来看是不是就轻松很多了呢。其他时间可以狠狠地拿来学编程了，老师管的严的把电脑搬到最后一排坐着；管的不严的emm。。你懂的</p>
+<blockquote>
+<p>那我想保研或者考研咋办呢</p></blockquote>
+<p>考研的话其实和上面差别不大，只是不能抱着只是为了通过考试的心态了，要正儿八经好好学<strong>想考专业的专业课</strong>。</p>
+<p>但是保研的话就不一样了，我反正觉得挺坐牢的😭，每门课你都得认真对待，平时分考试分都不能落下。上课该回答问题就回答问题🙋</p>
+<h4 id="竞赛">竞赛</h4>
+<p>以下仅代表我个人观点</p>
+<p>竞赛的重要性排序依次是：保研&gt;考研&gt;工作，但是并不绝对</p>
+<p>保研你没有拿的出手的东西估计只有保本校了，工作的话很多奖人家不是很看重，只是锦上添花。</p>
+<p>然后我们再来谈谈种类，我<strong>个人</strong>比较倾向于分为这几类：<strong>计算机设计类、算法类、创新创业类、数模、其他类</strong></p>
+<h5 id="计算机设计类">计算机设计类</h5>
+<p>这个我觉得对于我们搞开发的是最好打的，几个人组个小队，搓个项目，碰到比赛交上去就行。</p>
+<p>有学长拿他们的项目打了很多比赛都取得了很好的成绩</p>
+<h5 id="算法类">算法类</h5>
+<p>这个东西下限差不多就是蓝桥杯的水平，上限应该是ACM的水平</p>
+<p>平时没事多练习蓝桥杯还是很好拿奖的。但是ACM就非常有难度了，需要投入大量精力并且可能对天赋也有一定要求，没有专门训练过就是去送</p>
+<h5 id="创新创业类">创新创业类</h5>
+<p>就是大创、互联网+之类的。比赛周期比较长，跟开发关联其实不是很大，PPT制作、项目策划书以及答辩比较重要。如果真要搞这个建议找靠谱的老师组个团队带你打</p>
+<h5 id="数模类">数模类</h5>
+<p>跟算法类比较相似，也有一定门槛。想拿奖也需要投入精力时间</p>
+<h5 id="其他类">其他类</h5>
+<p>像什么大数据、物联网、嵌入式、机器人、邮政、医疗等等就不一一介绍了，关联度不是很大</p>
+<h2 id="后记">后记</h2>
+<p>​	<strong>选择大于努力</strong></p>
+<p>That&rsquo;s all</p>
+
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/your-username/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/your-username/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

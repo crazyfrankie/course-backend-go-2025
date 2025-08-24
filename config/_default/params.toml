@@ -1,0 +1,31 @@
+# Docsy theme parameters
+
+# Repository configuration
+github_repo = "https://github.com/your-username/course-backend-go-2025"
+github_branch = "main"
+
+# User interface configuration
+[ui]
+sidebar_menu_compact = false
+breadcrumb_disable = false
+sidebar_search_disable = false
+navbar_logo = true
+footer_about_enable = true
+
+# Enable syntax highlighting
+[ui.readingtime]
+enable = false
+
+# Links to user social networks
+[[links.user]]
+name = "GitHub"
+url = "https://github.com/your-username/course-backend-go-2025"
+icon = "fab fa-github"
+desc = "Development takes place here!"
+
+# Developer relevant links
+[[links.developer]]
+name = "GitHub"
+url = "https://github.com/your-username/course-backend-go-2025"
+icon = "fab fa-github"
+desc = "Development takes place here!"
