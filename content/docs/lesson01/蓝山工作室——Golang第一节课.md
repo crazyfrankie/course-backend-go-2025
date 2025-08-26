@@ -6,7 +6,7 @@ description: >
   基础语法
 ---
 
-# 蓝山工作室——Golang第一节课
+# CFC Studio——Golang第一节课
 
 ## 前言
 

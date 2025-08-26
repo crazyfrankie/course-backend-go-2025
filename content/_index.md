@@ -15,7 +15,7 @@ linkTitle: "Go 后端开发教程"
 {{< /blocks/cover >}}
 
 {{% blocks/lead color="primary" %}}
-蓝山工作室 Go 后端开发课程
+CFC Studio Go 后端开发课程
 
 一个系统性的 Go 语言后端开发学习路径，从基础语法到微服务架构，助你成为 Go 后端工程师。
 {{% /blocks/lead %}}

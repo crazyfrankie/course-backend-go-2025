@@ -1,82 +1,607 @@
-<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-cn class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><link rel="shortcut icon" href=/favicons/favicon.ico><link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192><title>第十七课 | Go 后端开发教程</title><meta name=description content="第十七课"><meta property="og:url" content="https://example.org/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/"><meta property="og:site_name" content="Go 后端开发教程"><meta property="og:title" content="第十七课"><meta property="og:description" content="第十七课"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta itemprop=name content="第十七课"><meta itemprop=description content="第十七课"><meta itemprop=wordCount content="653"><meta name=twitter:card content="summary"><meta name=twitter:title content="第十七课"><meta name=twitter:description content="第十七课"><link rel=preload href=/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css as=style integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin=anonymous><link href=/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css rel=stylesheet integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script></head><body class=td-page><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class=navbar-brand__name>Go 后端开发教程</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/><span>课程首页</span></a></li><li class=nav-item><a class=nav-link href=/docs/><span>课程文档</span></a></li><li class=nav-item><a class=nav-link href=https://github.com/CrazyForCode/course-backend-go-2025 target=_blank rel=noopener><span>GitHub</span></a></li></ul></div><div class="d-none d-lg-block"></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type=button data-bs-toggle=collapse data-bs-target=#td-section-nav aria-controls=td-section-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="td-sidebar-nav collapse" id=td-section-nav><ul class="td-sidebar-nav__section pe-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li><a href=/docs/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>课程文档</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li><a href=/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/ title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go><span>第0课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li><a href=/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/ title=基础语法 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe><span>第1课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson0202-li><a href=/docs/lesson02/02/ title=数组和切片 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson0202><span>第2课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li><a href=/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/ title=包、指针、结构体和接口 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson03e7acace4b889e591a8e8afbee4bbb6><span>第3课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li><a href=/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/ title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe><span>第4课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson05e5b9b6e58f91-li><a href=/docs/lesson05/%E5%B9%B6%E5%8F%91/ title=并发编程 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson05e5b9b6e58f91><span>第5课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson06readme-li><a href=/docs/lesson06/readme/ title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson06readme><span>第6课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson07lesson7-li><a href=/docs/lesson07/lesson7/ title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson07lesson7><span>第7课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson08readme-li><a href=/docs/lesson08/readme/ title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson08readme><span>第8课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson09readme-li><a href=/docs/lesson09/readme/ title=第九课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson09readme><span>第9课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson10docker-li><a href=/docs/lesson10/docker/ title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson10docker><span>第10课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson11readme-li><a href=/docs/lesson11/readme/ title=单体架构实战 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson11readme><span>第11课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson12e6b688e681afe9989fe58897-li><a href=/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/ title=第十二课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson12e6b688e681afe9989fe58897><span>第12课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson13lesson13-li><a href=/docs/lesson13/lesson13/ title=微服务入门 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson13lesson13><span>第13课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson14lesson14-li><a href=/docs/lesson14/lesson14/ title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson14lesson14><span>第14课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson15readme-li><a href=/docs/lesson15/readme/ title=第十五课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson15readme><span>第15课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson16readme-li><a href=/docs/lesson16/readme/ title=负载均衡 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson16readme><span>第16课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li><a href=/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/ title=第十七课 class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id=m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe><span class=td-sidebar-nav-active-item>第17课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li><a href=/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/ title=第十八课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson18e58886e5b883e5bc8fe59fbae7a180><span>第18课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson09example2baidu-li><a href=/docs/lesson09/example2/baidu/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson09example2baidu><span></span></a></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ms-2 pb-1 pt-2 mb-0"><a href=https://github.com/your-username/course-backend-go-2025/tree/main/content/docs/lesson17/%e5%90%8e%e7%ab%af%20Go%20%e7%ac%ac%e5%8d%81%e4%b8%83%e6%ac%a1%e8%af%be.md class="td-page-meta--view td-page-meta__view" target=_blank rel=noopener><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-<a href=https://github.com/your-username/course-backend-go-2025/edit/main/content/docs/lesson17/%e5%90%8e%e7%ab%af%20Go%20%e7%ac%ac%e5%8d%81%e4%b8%83%e6%ac%a1%e8%af%be.md class="td-page-meta--edit td-page-meta__edit" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
-<a href="https://github.com/your-username/course-backend-go-2025/new/main/content/docs/lesson17?filename=change-me.md&amp;value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child td-page-meta__child" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-<a href="https://github.com/your-username/course-backend-go-2025/issues/new?title=%e7%ac%ac%e5%8d%81%e4%b8%83%e8%af%be" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#可观测性>可观测性</a><ul><li><a href=#什么是可观测性>什么是可观测性？</a></li><li><a href=#为什么需要可观测性>为什么需要可观测性？</a></li><li><a href=#可观测性指标日志链路追踪>可观测性=指标+日志+链路追踪？</a></li></ul></li><li><a href=#opentelemetry>OpenTelemetry</a><ul><li><a href=#什么是-opentelemetry>什么是 OpenTelemetry？</a></li><li><a href=#opentelemetry-的简要历史>OpenTelemetry 的简要历史</a></li><li><a href=#opentelemetry-的核心组件>OpenTelemetry 的核心组件</a></li><li><a href=#opentelemetry-collector>OpenTelemetry Collector</a></li></ul></li><li><a href=#jaeger>Jaeger</a><ul><li><a href=#简介>简介</a></li><li><a href=#快速开始>快速开始</a></li></ul></li><li><a href=#prometheus>Prometheus</a><ul><li><a href=#简介-1>简介</a></li><li><a href=#快速上手>快速上手</a></li></ul></li><li><a href=#作业>作业</a><ul><li><a href=#lv1>Lv1</a></li><li><a href=#lv2>Lv2</a></li><li><a href=#lv3>Lv3</a></li></ul></li><li><a href=#参考链接>参考链接</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><nav aria-label=breadcrumb class=td-breadcrumbs><ol class=breadcrumb><li class=breadcrumb-item><a href=/docs/>课程文档</a></li><li class="breadcrumb-item active" aria-current=page>第17课</li></ol></nav><div class=td-content><h1>第十七课</h1><div class=lead>第十七课</div><header class=article-meta></header><h2 id=可观测性>可观测性</h2><h3 id=什么是可观测性>什么是可观测性？</h3><p>在计算机系统和软件领域，可观测性的含义是：可以从系统和应用对外输出的信息（指标、日志和链路），来帮助我们了解应用程序的内部系统状态和运行情况。</p><p>但可观测性并不只是简单的数据采集，它更强调对这些数据的<strong>关联和分析</strong>，这能够帮助我们<strong>快速定位</strong>，找到问题的根本原因。当然，最终的目的是<strong>保障系统的可靠性，达到服务质量的目标</strong>。</p><h3 id=为什么需要可观测性>为什么需要可观测性？</h3><p>软件架构从单体应用到三层架构（前端 Web，应用 App 层，以及后端的数据库），再到现在的微服务架构，无疑是越来越复杂了。分布式架构具有可扩展性、可维护性、灵活性等多种优点，但是这种部署方案也出现一些问题：</p><p>1、排查问题难度大，周期长
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>第十七课 | Go 后端开发教程</title>
+<meta name="description" content="第十七课">
+<meta property="og:url" content="http://localhost:1313/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/">
+  <meta property="og:site_name" content="Go 后端开发教程">
+  <meta property="og:title" content="第十七课">
+  <meta property="og:description" content="第十七课">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+  <meta itemprop="name" content="第十七课">
+  <meta itemprop="description" content="第十七课">
+  <meta itemprop="wordCount" content="653">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="第十七课">
+  <meta name="twitter:description" content="第十七课">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Go 后端开发教程</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/"><span>课程首页</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>课程文档</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/CrazyForCode/course-backend-go-2025" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">课程文档</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li">
+  <a href="/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/" title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go"><span class="">第0课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li">
+  <a href="/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson0202-li">
+  <a href="/docs/lesson02/02/" title="数组和切片" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson0202"><span class="">第2课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li">
+  <a href="/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/" title="包、指针、结构体和接口" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6"><span class="">第3课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li">
+  <a href="/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/" title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe"><span class="">第4课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson05e5b9b6e58f91-li">
+  <a href="/docs/lesson05/%E5%B9%B6%E5%8F%91/" title="并发编程" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson05e5b9b6e58f91"><span class="">第5课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson06readme-li">
+  <a href="/docs/lesson06/readme/" title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson06readme"><span class="">第6课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson07lesson7-li">
+  <a href="/docs/lesson07/lesson7/" title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson07lesson7"><span class="">第7课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson08readme-li">
+  <a href="/docs/lesson08/readme/" title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson08readme"><span class="">第8课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09readme-li">
+  <a href="/docs/lesson09/readme/" title="第九课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09readme"><span class="">第9课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson10docker-li">
+  <a href="/docs/lesson10/docker/" title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson10docker"><span class="">第10课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson11readme-li">
+  <a href="/docs/lesson11/readme/" title="单体架构实战" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson11readme"><span class="">第11课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson12e6b688e681afe9989fe58897-li">
+  <a href="/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" title="第十二课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson12e6b688e681afe9989fe58897"><span class="">第12课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson13lesson13-li">
+  <a href="/docs/lesson13/lesson13/" title="微服务入门" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson13lesson13"><span class="">第13课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson14lesson14-li">
+  <a href="/docs/lesson14/lesson14/" title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson14lesson14"><span class="">第14课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson15readme-li">
+  <a href="/docs/lesson15/readme/" title="第十五课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson15readme"><span class="">第15课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson16readme-li">
+  <a href="/docs/lesson16/readme/" title="负载均衡" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson16readme"><span class="">第16课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li">
+  <a href="/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/" title="第十七课" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe"><span class="td-sidebar-nav-active-item">第17课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li">
+  <a href="/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/" title="第十八课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180"><span class="">第18课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09example2baidu-li">
+  <a href="/docs/lesson09/example2/baidu/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09example2baidu"><span class=""></span></a>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/CrazyForCode/course-backend-go-2025/tree/main/content/docs/lesson17/%e5%90%8e%e7%ab%af%20Go%20%e7%ac%ac%e5%8d%81%e4%b8%83%e6%ac%a1%e8%af%be.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/edit/main/content/docs/lesson17/%e5%90%8e%e7%ab%af%20Go%20%e7%ac%ac%e5%8d%81%e4%b8%83%e6%ac%a1%e8%af%be.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/new/main/content/docs/lesson17?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/issues/new?title=%e7%ac%ac%e5%8d%81%e4%b8%83%e8%af%be" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#可观测性">可观测性</a>
+      <ul>
+        <li><a href="#什么是可观测性">什么是可观测性？</a></li>
+        <li><a href="#为什么需要可观测性">为什么需要可观测性？</a></li>
+        <li><a href="#可观测性指标日志链路追踪">可观测性=指标+日志+链路追踪？</a></li>
+      </ul>
+    </li>
+    <li><a href="#opentelemetry">OpenTelemetry</a>
+      <ul>
+        <li><a href="#什么是-opentelemetry">什么是 OpenTelemetry？</a></li>
+        <li><a href="#opentelemetry-的简要历史">OpenTelemetry 的简要历史</a></li>
+        <li><a href="#opentelemetry-的核心组件">OpenTelemetry 的核心组件</a></li>
+        <li><a href="#opentelemetry-collector">OpenTelemetry Collector</a></li>
+      </ul>
+    </li>
+    <li><a href="#jaeger">Jaeger</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#快速开始">快速开始</a></li>
+      </ul>
+    </li>
+    <li><a href="#prometheus">Prometheus</a>
+      <ul>
+        <li><a href="#简介-1">简介</a></li>
+        <li><a href="#快速上手">快速上手</a></li>
+      </ul>
+    </li>
+    <li><a href="#作业">作业</a>
+      <ul>
+        <li><a href="#lv1">Lv1</a></li>
+        <li><a href="#lv2">Lv2</a></li>
+        <li><a href="#lv3">Lv3</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考链接">参考链接</a></li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">课程文档</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    第17课</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>第十七课</h1>
+	<div class="lead">第十七课</div>
+	<header class="article-meta">
+		
+</header>
+	<h2 id="可观测性">可观测性</h2>
+<h3 id="什么是可观测性">什么是可观测性？</h3>
+<p>在计算机系统和软件领域，可观测性的含义是：可以从系统和应用对外输出的信息（指标、日志和链路），来帮助我们了解应用程序的内部系统状态和运行情况。</p>
+<p>但可观测性并不只是简单的数据采集，它更强调对这些数据的<strong>关联和分析</strong>，这能够帮助我们<strong>快速定位</strong>，找到问题的根本原因。当然，最终的目的是<strong>保障系统的可靠性，达到服务质量的目标</strong>。</p>
+<h3 id="为什么需要可观测性">为什么需要可观测性？</h3>
+<p>软件架构从单体应用到三层架构（前端 Web，应用 App 层，以及后端的数据库），再到现在的微服务架构，无疑是越来越复杂了。分布式架构具有可扩展性、可维护性、灵活性等多种优点，但是这种部署方案也出现一些问题：</p>
+<p>1、排查问题难度大，周期长
 2、特定场景难复现
-3、系统性能瓶颈分析较难</p><p>以前针对简单的系统架构，常用的维护手段还是建立监控，然后制作一些仪表盘来展示各个层面指标的情况，再加上一些告警对各种指标的阈值进行监控和通知，但是现在，不仅排查故障的难度越来越大，错误还有了更多潜在的组合，传统的排障方式越来越没有效率。所以复杂性的增加使得我们越来越有必要为系统和应用构建可观测性。</p><p>假设现在你运营一个分布式的电商平台下，这个项目的订单处理涉及多个微服务和数据库（用户服务、支付服务、购物车服务等等）。如果订单处理的调用链路上某个服务出现故障或者延迟，导致订单处理失败或者变慢，进而影响客户体验，那么这个问题究竟是出在哪个服务上呢？如果没有良好的观测机制，就无法追踪整个订单处理事务的全过程，因而很难定位到问题。</p><p>这种情况下，如果通过实时监控系统，就可以追踪到订单的处理流程，识别潜在的瓶颈或故障点，及时进行调整和修复。</p><h3 id=可观测性指标日志链路追踪>可观测性=指标+日志+链路追踪？</h3><p>指标（metrics），日志（logs）和链路追踪（Tracing）是可观测性的三大支柱，先来看看它们的含义：</p><h4 id=metrics>Metrics</h4><p><strong>是在⼀段时间内测量的数值</strong>。它包括特定属性，例如时间戳、名称、键和值。和⽇志不同，指标在默认情况下是结构化的，这会让查询和优化存储变得更加容易。</p><p>例如：2022/05/20 12:48:22，CPU usage user，23.87%，它就表示 CPU 运行在用户态的时间占比在这一刻为 23.87%。</p><h4 id=logs>Logs</h4><p><strong>日志：是对特定时间发生的事件的文本记录</strong>。日志一般是非结构化字符串，会在程序执行期间被写入磁盘。每个请求会产生一行或者多行的日志，每个日志行可能包含 1-5 个维度的有用数据（例如客户端 IP，时间戳，调用方法，响应码等等）。当系统出现问题时，⽇志通常也是排错⾸先查看的地⽅。</p><h4 id=traces>Traces</h4><p><strong>有时候也被称为分布式追踪（Distributed Tracing），表示请求通过分布式系统的端到端的路径</strong>。当请求通过主机系统时， 它执⾏的每个操作被称为“跨度”（Span）。一个 Trace 是 Spans 的有向无环图。链路追踪一般会通过一个可视化的瀑布图展现出来。瀑布图展示了用于调试的请求的每个阶段，以及每个部分的开始时间和持续时长。</p><p>举个分布式调用的例子：客户端发起请求，请求首先到达负载均衡器，经过认证服务、系统服务，然后请求资源，最终返回结果。</p><p><img src=img/trace.png alt=trace></p><h5 id=trace-实现的基本原理>Trace 实现的基本原理</h5><p>想要实现调用链，就要为<strong>每次调用做个标识</strong>，然后<strong>将服务按标识大小排列</strong>，可以更清晰地看出调用顺序，我们暂且将该标识命名为 spanid</p><p><img src=img/trace1.png alt=trace1></p><p>实际场景中，我们需要知道某次请求调用的情况，所以只有spanid还不够，得为<strong>每次请求做个唯一标识</strong>，这样才能根据标识查出本次请求调用的所有服务，而这个标识我们命名为 traceid。</p><p><img src=img/trace2.png alt=trace2></p><p>现在根据spanid可以轻易地知道被调用服务的先后顺序，但无法体现调用的层级关系，正如下图所示，多个服务可能是逐级调用的链条，也可能是同时被同一个服务调用。例如：</p><p><img src=img/trace3.png alt=trace3></p><p>所以应该每次都记录下是谁调用的，我们用parentid作为这个标识的名字。</p><p><img src=img/trace4.png alt=trace4></p><p>到现在，已经知道调用顺序和层级关系了，但是接口出现问题后，还是不能找到出问题的环节，如果某个服务有问题，那个被调用执行的服务一定耗时很长，要想<strong>计算出耗时</strong>，上述的三个标识还不够，还需要加上<strong>时间戳</strong>，时间戳可以更精细一点，精确到微秒级。只记录发起调用时的时间戳还算不出耗时，要记录下服务<strong>返回时的时间戳</strong>，<strong>才能算出时间差</strong></p><p><img src=img/trace5.png alt=trace5></p><p>其实 span 除了上面说的这几个必选参数外，还可以记录一些其他信息，比如发起调用服务名称，被调用服务名称、返回结果、IP 等等。但是这些信息是在 span 内自己上报给 Collector 或者 Backend Server，而不会在链路上传递，在链路上传递的主要是 trace_id 和 span_id 等用于在跨度间建立关系的信息（也就是 <a href=https://opentelemetry.io/docs/concepts/signals/traces/#span-context>Span Context</a>）。这样子，Collector 或者 Backend Server 就有了一个链路的很多 span，而这些 span 都有 span_id、trace_id，于是就可以通过这些信息构建出一个完整的调用链了。</p><p><img src=img/trace_collector.png alt=trace_collector></p><p>然而，仅仅是收集这些数据类并不能保证系统的可观测性，尤其是当你彼此独⽴地使⽤它们时。<strong>从根本上来说，指标、日志和链路追踪只是数据类型，与可观测性无关。</strong></p><p>可观测性应该是我们构建的系统的一种属性，就像可用性、高可用性和稳定性这些一样，能够帮助我们更好地理解和解释系统当前所处的任何状态，无论这种状态或者问题是否在之前出现过。这就要求我们的收集的数据支持高基数（值的唯一性高）和高维度（键的数量多）</p><h2 id=opentelemetry>OpenTelemetry</h2><h3 id=什么是-opentelemetry>什么是 OpenTelemetry？</h3><p>OpenTelemetry 简称 OTel， 是 CNCF （ Cloud Native Computing Foundation，云原生计算基金会，是一个开源软件基金会，致力于云原生技术的普及和可持续发展） 的一个可观测性项目。</p><p>OpenTelemetry 旨在提供可观测性领域的标准化方案，解决遥测数据的数据建模、采集、处理、导出等标准化问题，并能够将这些数据发送到你选择的后端（开源或商业均可）。这样你就可以建立不被供应商锁定的可观测，灵活地更改后端，不需要再次更改代码，重新进行插桩（Instrument）了。</p><h3 id=opentelemetry-的简要历史>OpenTelemetry 的简要历史</h3><p>在 OpenTelemetry 出现之前，还出现过 OpenTracing 和 OpenCensus 两套标准。目前在应用性能监控有 Jaeger、Pinpoint、Zipkin 等多个开源产品，商业玩家也有很多，可谓竞争非常激烈。然而，这也带来了一个问题，那就是每一家都有一套自己的数据采集标准和 SDK，实现上各不相同，很难实现厂商或者技术中立。</p><p>OpenTracing 制定了一套与平台和厂商无关的协议标准，让开发人员能够方便地添加或更换底层 APM 的实现。</p><p>另一套标准 OpenCensus 是谷歌发起的，它和 OpenTracing 最大的不同之处在于，除了链路追踪，它还把指标也包括进来。这样就可以在 OpenCensus 上做基础的指标监控了。除此之外相较于 OpenTracing 制定规范，OpenCensus 不仅制定规范，还包含了 Agent 和 Collector。</p><p>OpenTracing 和 OpenCensus，这两套框架都有很多追随者，而且二者都想统一对方。但是从功能和特性上来看，它们各有优缺点，半斤八两。</p><p>于是就有了 OpenTelemetry，OpenTelemetry 可以同时兼容 OpenTracing 和 OpenCensus，开发人员再也无需在 OpenTracing 和 OpenCensus 之间进行选择。OpenTelemetry 提供一个统一的集合。</p><h3 id=opentelemetry-的核心组件>OpenTelemetry 的核心组件</h3><p><img src=img/component.png alt=component></p><blockquote><p>Collector 收集器</p></blockquote><p>OpenTelemetry 收集器是一个独立于供应商的代理，可接收、处理和导出遥测数据。它支持以多种格式接收遥测数据，以及在导出前对遥测数据进行处理和筛选。</p><blockquote><p>Language SDKs 语言 SDK</p></blockquote><p>OpenTelemetry 语言 SDK 允许您使用 OpenTelemetry API 以某种语言生成遥测数据并将数据导出到后端。</p><blockquote><p>Instrument libraries 插桩库</p></blockquote><p>OpenTelemetry 支持一系列广泛的组件，这些组件能够针对所支持的语言使用热门的库和框架生成相关的遥测数据，例如HTTP客户端、数据库驱动程序、消息队列等。</p><blockquote><p>Exporter 导出器</p></blockquote><p>导出器能够将插桩与您的后端配置分离开，由于无需更改插桩设定，所以能更轻松地更改后端。导出器还能将遥测数据上传到不止一个后端。</p><blockquote><p>OpenTelemetry Protocol(OTLP) OpenTelemetry 协议</p></blockquote><p>SDK 和 Collector 传递遥测信号使用的传输协议，用于将数据导出到后端或其他收集器。OTLP 可以使用 gRPC (OTLP/gRPC) 或 HTTP (OTLP/HTTP)。虽然在 Opentelemetry 的项目中组件支持了 Zipkin v2 或 Jaeger Thrift 的协议格式的实现，但是都是以第三方贡献库的形式提供的。只有 OTLP是 Opentelemetry 官方原生支持的格式。</p><ol><li><code>OTLP/HTTP</code> 使用 <code>HTTP POST</code> 请求将遥测数据从客户端发送到服务器。实现可以使用HTTP/1.1或HTTP/2传输，请求正文是可以是用 Protobuf 编码（proto3 标准）或者 JSON 格式（proto3 标准定义的 JSON Mapping）的 <code>ExportXXXServiceRequest</code> 消息，HTTP 默认端口为 4318，路径默认配置：<ul><li>Trace：<code>v1/traces</code></li><li>Metric：<code>v1/metrics</code></li><li>Log：<code>v1/logs</code></li></ul></li><li><code>OTLP/gRPC</code> 建立底层GRPC传输后，客户端开始使用<code>Export*ServiceRequest</code>消息，发送遥测数据，gRPC 默认端口为 4317</li></ol><h3 id=opentelemetry-collector>OpenTelemetry Collector</h3><p>OpenTelemetry Collector 是OpenTelemetry 项目中的一个代理软件，作为遥测数据的中转站，能够对遥测数据做一些预处理的逻辑</p><h4 id=部署模式>部署模式</h4><ol><li><strong>不使用OpenTelemetry Collector</strong>：OpenTelemetry Collector 并不是必须的，我们可以直接使用OpenTelemetry 客户端SDK发送遥测数据到监控组件中，比如将 trace 数据发送到 jaeger，发送 metric 数据到 prometheus</li></ol><p><img src=img/nocollector.png alt=nocollector></p><ol start=2><li><strong>Agent 模式</strong>：在应用程序和后端监控组件（jaeger、prometheus）之间部署上OpenTelemetry Collector，OpenTelemetry Collector 和应用程序之间传输遥测数据（Collector 支持几个主流的开源协议），存在的问题是如果应用程序产生的遥测数据太多，一个OpenTelemetry Collector 已经不能满足快速处理数据的要求</li></ol><p><img src=img/agent.png alt=agent></p><ol start=3><li><strong>Gateway 模式</strong>：通过在多个OpenTelemetry Collector 前面部署一个拥有负载均衡功能的OpenTelemetry Collector 来让分发发往整个集群的遥测数据。</li></ol><p><img src=img/gateway.png alt=gateway></p><h4 id=pipeline>Pipeline</h4><p>Collector 采用 Pipeline 方式来接收、处理和导出数据，每个 Collector 可配置一个或多个 Pipeline，每个 pipeline 包含如下组件：</p><ul><li>receiver</li><li>processor</li><li>exporter</li></ul><p>每个 receiver 可能被多个 pipeline 共用，多个 pipeline 也可能包含同一个 exporter</p><blockquote><p>pipeline</p></blockquote><p>一个pipeline定义了一条数据流动的路径：从 Collector 数据接收开始，然后进一步的处理或修改，到最后通过exporter导出。</p><p>pipeline能够处理3种类型数据：trace、metric和logs。数据类型是需要pipeline配置的一个属性。在pipeline中receiver、processor和exporter必须支持某个特定的数据类型，一个 pipeline 可以表示为：</p><p><img src=img/pipeline.png alt=pipeline></p><p>一个经典的 pipeline 配置如下：</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#0550ae>service</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>  </span><span style=color:#0550ae>pipelines</span><span style=color:#1f2328>:</span><span style=color:#fff> </span><span style=color:#57606a># section that can contain multiple subsections, one per pipeline</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>    </span><span style=color:#0550ae>traces</span><span style=color:#1f2328>:</span><span style=color:#fff>  </span><span style=color:#57606a># type of the pipeline</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>      </span><span style=color:#0550ae>receivers</span><span style=color:#1f2328>:</span><span style=color:#fff> </span><span style=color:#1f2328>[</span>otlp, jaeger, zipkin]<span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>      </span><span style=color:#0550ae>processors</span><span style=color:#1f2328>:</span><span style=color:#fff> </span><span style=color:#1f2328>[</span>memory_limiter, batch]<span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>      </span><span style=color:#0550ae>exporters</span><span style=color:#1f2328>:</span><span style=color:#fff> </span><span style=color:#1f2328>[</span>otlp, jaeger, zipkin]<span style=color:#fff>
-</span></span></span></code></pre></td></tr></table></div></div><p>这个例子定义了一个"trace"类型数据的pipeline，包含3个receiver、2个processor和3个exporter</p><blockquote><p>receiver</p></blockquote><p>receiver 监听某个网络端口并且接收观测数据。通常会配置一个 receiver 将接收到的数据传送到一个 pipeline 中，当然也可能是同一个 receiver 将接收到的数据传送到多个 pipeline 中。</p><p>如上面的 <code>otlp</code> receiver 示例配置如下：</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#0550ae>receivers</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>  </span><span style=color:#0550ae>otlp</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>    </span><span style=color:#0550ae>protocols</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>      </span><span style=color:#0550ae>grpc</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>        </span><span style=color:#0550ae>endpoint</span><span style=color:#1f2328>:</span><span style=color:#fff> </span>localhost:4317<span style=color:#fff>
-</span></span></span></code></pre></td></tr></table></div></div><blockquote><p>exporter</p></blockquote><p>exporter 通常将收到数据发送到某个网络上地址。允许一个 pipeline 中配置多个同类型的 exporter</p><p>如上面的 <code>jaeger</code> exporter 的示例配置如下</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#0550ae>exporters</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>  </span><span style=color:#0550ae>jaeger</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>    </span><span style=color:#0550ae>protocols</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>      </span><span style=color:#0550ae>grpc</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>        </span><span style=color:#0550ae>endpoint</span><span style=color:#1f2328>:</span><span style=color:#fff> </span>localhost:14250<span style=color:#fff>
-</span></span></span></code></pre></td></tr></table></div></div><blockquote><p>processor</p></blockquote><p>一个 pipeline 可以包含多个<strong>串联</strong>的 processor。</p><p>processor能够在转发数据之前对其进行转换（例如增加或删除spans中的属性），也可以丢弃数据，也可以生成新数据</p><p>如上面的 <code>batch</code> processor 的示例配置：</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#0550ae>processors</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>  </span><span style=color:#0550ae>batch</span><span style=color:#1f2328>:</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>    </span><span style=color:#0550ae>send_batch_size</span><span style=color:#1f2328>:</span><span style=color:#fff> </span><span style=color:#0550ae>10000</span><span style=color:#fff>
-</span></span></span><span style=display:flex><span><span style=color:#fff>    </span><span style=color:#0550ae>timeout</span><span style=color:#1f2328>:</span><span style=color:#fff> </span>10s<span style=color:#fff>
-</span></span></span></code></pre></td></tr></table></div></div><p>这段配置就描述了一个批处理 processor 的配置</p><h2 id=jaeger>Jaeger</h2><h3 id=简介>简介</h3><p><img src=img/jaeger.png alt=jaeger></p><p><a href=https://www.jaegertracing.io/>Jaeger</a>  是受到 ​ ​Dapper​​​ 和 ​ ​OpenZipkin​​​ 启发的由 ​ ​Uber Technologies​​ 作为开源发布的分布式跟踪系统，兼容 OpenTracing 以及 Zipkin 追踪格式，目前已成为 CNCF 基金会的开源项目。其前端采用React语言实现，后端采用GO语言实现，适用于进行链路追踪，分布式跟踪消息传递，分布式事务监控、问题分析、服务依赖性分析、性能优化等场景。</p><h3 id=快速开始>快速开始</h3><blockquote><p>all-in-one Docker 镜像包含 <strong>Jaeger UI</strong>、<strong>jaeger-collector</strong>、<strong>jaeger-query</strong> 和 <strong>jaeger-agent</strong>，以及一个内存存储组件。适用于快速体验 Jaeger ，由于所有追踪数据存储在内存中，不适用于生产环境</p></blockquote><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>docker run --rm --name jaeger <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -e <span style=color:#953800>COLLECTOR_ZIPKIN_HOST_PORT</span><span style=color:#0550ae>=</span>:9411 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 6831:6831/udp <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 6832:6832/udp <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 5778:5778 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 16686:16686 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 4317:4317 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 4318:4318 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 14250:14250 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 14268:14268 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 14269:14269 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  -p 9411:9411 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>  jaegertracing/all-in-one:1.56
-</span></span></code></pre></td></tr></table></div></div><p>容器启动后，使用浏览器打开 <a href=http://localhost:16686/>http://localhost:16686</a> 即可访问 Jaeger UI。</p><p>all-in-one 端口文档如下：</p><table><thead><tr><th>Port</th><th>Protocol</th><th>Component</th><th>Function</th></tr></thead><tbody><tr><td>6831</td><td>UDP</td><td>agent</td><td>accept <code>jaeger.thrift</code> over Thrift-compact protocol (used by most SDKs)</td></tr><tr><td>6832</td><td>UDP</td><td>agent</td><td>accept <code>jaeger.thrift</code> over Thrift-binary protocol (used by Node.js SDK)</td></tr><tr><td>5775</td><td>UDP</td><td>agent</td><td>(deprecated) accept <code>zipkin.thrift</code> over compact Thrift protocol (used by legacy clients only)</td></tr><tr><td>5778</td><td>HTTP</td><td>agent</td><td>serve configs (sampling, etc.)</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>16686</td><td>HTTP</td><td>query</td><td>serve frontend</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>4317</td><td>HTTP</td><td>collector</td><td>accept OpenTelemetry Protocol (OTLP) over gRPC</td></tr><tr><td>4318</td><td>HTTP</td><td>collector</td><td>accept OpenTelemetry Protocol (OTLP) over HTTP</td></tr><tr><td>14268</td><td>HTTP</td><td>collector</td><td>accept <code>jaeger.thrift</code> directly from clients</td></tr><tr><td>14250</td><td>HTTP</td><td>collector</td><td>accept <code>model.proto</code></td></tr><tr><td>9411</td><td>HTTP</td><td>collector</td><td>Zipkin compatible endpoint (optional)</td></tr></tbody></table><h2 id=prometheus>Prometheus</h2><h3 id=简介-1>简介</h3><p><img src=img/prometheus.png alt=prometheus></p><p><a href=https://github.com/prometheus>Prometheus</a> 是由前 Google 工程师从 2012 年开始在 Soundcloud 以开源软件的形式进行研发的系统监控和告警工具包，自此以后，许多公司和组织都采用了 Prometheus 作为监控告警工具。Prometheus 的开发者和用户社区非常活跃，它现在是一个独立的开源项目，可以独立于任何公司进行维护。</p><p>Prometheus 的主要优势有：</p><ul><li>由指标名称和和键/值对标签标识的时间序列数据组成的多维数据模型。</li><li>强大的<a href=https://github.com/yangchuansheng/prometheus-handbook/tree/c6e1e12588ec63c20345090368b37654ef30922a/4-prometheus/basics.html>查询语言 PromQL</a>。</li><li>不依赖分布式存储；单个服务节点具有自治能力。</li><li>时间序列数据是服务端通过 HTTP 协议主动拉取获得的。</li><li>也可以通过中间网关来<a href=https://github.com/yangchuansheng/prometheus-handbook/tree/c6e1e12588ec63c20345090368b37654ef30922a/5-instrumenting/pushing.html>推送时间序列数据</a>。</li><li>可以通过静态配置文件或服务发现来获取监控目标。</li><li>支持多种类型的图表和仪表盘。</li></ul><h3 id=快速上手>快速上手</h3><p>可以使用 Docker 快速部署</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>docker run <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>    -p 9090:9090 <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>    -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml <span style=color:#0a3069>\
-</span></span></span><span style=display:flex><span><span style=color:#0a3069></span>    prom/prometheus
-</span></span></code></pre></td></tr></table></div></div><p>容器启动后，使用浏览器打开 <a href=http://localhost:9090/>http://localhost:9090</a> 即可访问 Prometheus UI，如果想要添加数据源，需要配置 prometheus.yml</p><h2 id=作业>作业</h2><p><strong>提交地址</strong>： mull1on0910@gmail.com
+3、系统性能瓶颈分析较难</p>
+<p>以前针对简单的系统架构，常用的维护手段还是建立监控，然后制作一些仪表盘来展示各个层面指标的情况，再加上一些告警对各种指标的阈值进行监控和通知，但是现在，不仅排查故障的难度越来越大，错误还有了更多潜在的组合，传统的排障方式越来越没有效率。所以复杂性的增加使得我们越来越有必要为系统和应用构建可观测性。</p>
+<p>假设现在你运营一个分布式的电商平台下，这个项目的订单处理涉及多个微服务和数据库（用户服务、支付服务、购物车服务等等）。如果订单处理的调用链路上某个服务出现故障或者延迟，导致订单处理失败或者变慢，进而影响客户体验，那么这个问题究竟是出在哪个服务上呢？如果没有良好的观测机制，就无法追踪整个订单处理事务的全过程，因而很难定位到问题。</p>
+<p>这种情况下，如果通过实时监控系统，就可以追踪到订单的处理流程，识别潜在的瓶颈或故障点，及时进行调整和修复。</p>
+<h3 id="可观测性指标日志链路追踪">可观测性=指标+日志+链路追踪？</h3>
+<p>指标（metrics），日志（logs）和链路追踪（Tracing）是可观测性的三大支柱，先来看看它们的含义：</p>
+<h4 id="metrics">Metrics</h4>
+<p><strong>是在⼀段时间内测量的数值</strong>。它包括特定属性，例如时间戳、名称、键和值。和⽇志不同，指标在默认情况下是结构化的，这会让查询和优化存储变得更加容易。</p>
+<p>例如：2022/05/20 12:48:22，CPU usage user，23.87%，它就表示 CPU 运行在用户态的时间占比在这一刻为 23.87%。</p>
+<h4 id="logs">Logs</h4>
+<p><strong>日志：是对特定时间发生的事件的文本记录</strong>。日志一般是非结构化字符串，会在程序执行期间被写入磁盘。每个请求会产生一行或者多行的日志，每个日志行可能包含 1-5 个维度的有用数据（例如客户端 IP，时间戳，调用方法，响应码等等）。当系统出现问题时，⽇志通常也是排错⾸先查看的地⽅。</p>
+<h4 id="traces">Traces</h4>
+<p><strong>有时候也被称为分布式追踪（Distributed Tracing），表示请求通过分布式系统的端到端的路径</strong>。当请求通过主机系统时， 它执⾏的每个操作被称为“跨度”（Span）。一个 Trace 是 Spans 的有向无环图。链路追踪一般会通过一个可视化的瀑布图展现出来。瀑布图展示了用于调试的请求的每个阶段，以及每个部分的开始时间和持续时长。</p>
+<p>举个分布式调用的例子：客户端发起请求，请求首先到达负载均衡器，经过认证服务、系统服务，然后请求资源，最终返回结果。</p>
+<p><img src="img/trace.png" alt="trace"></p>
+<h5 id="trace-实现的基本原理">Trace 实现的基本原理</h5>
+<p>想要实现调用链，就要为<strong>每次调用做个标识</strong>，然后<strong>将服务按标识大小排列</strong>，可以更清晰地看出调用顺序，我们暂且将该标识命名为 spanid</p>
+<p><img src="img/trace1.png" alt="trace1"></p>
+<p>实际场景中，我们需要知道某次请求调用的情况，所以只有spanid还不够，得为<strong>每次请求做个唯一标识</strong>，这样才能根据标识查出本次请求调用的所有服务，而这个标识我们命名为 traceid。</p>
+<p><img src="img/trace2.png" alt="trace2"></p>
+<p>现在根据spanid可以轻易地知道被调用服务的先后顺序，但无法体现调用的层级关系，正如下图所示，多个服务可能是逐级调用的链条，也可能是同时被同一个服务调用。例如：</p>
+<p><img src="img/trace3.png" alt="trace3"></p>
+<p>所以应该每次都记录下是谁调用的，我们用parentid作为这个标识的名字。</p>
+<p><img src="img/trace4.png" alt="trace4"></p>
+<p>到现在，已经知道调用顺序和层级关系了，但是接口出现问题后，还是不能找到出问题的环节，如果某个服务有问题，那个被调用执行的服务一定耗时很长，要想<strong>计算出耗时</strong>，上述的三个标识还不够，还需要加上<strong>时间戳</strong>，时间戳可以更精细一点，精确到微秒级。只记录发起调用时的时间戳还算不出耗时，要记录下服务<strong>返回时的时间戳</strong>，<strong>才能算出时间差</strong></p>
+<p><img src="img/trace5.png" alt="trace5"></p>
+<p>其实 span 除了上面说的这几个必选参数外，还可以记录一些其他信息，比如发起调用服务名称，被调用服务名称、返回结果、IP 等等。但是这些信息是在 span 内自己上报给 Collector 或者 Backend Server，而不会在链路上传递，在链路上传递的主要是 trace_id 和 span_id 等用于在跨度间建立关系的信息（也就是 <a href="https://opentelemetry.io/docs/concepts/signals/traces/#span-context">Span Context</a>）。这样子，Collector 或者 Backend Server  就有了一个链路的很多 span，而这些 span 都有 span_id、trace_id，于是就可以通过这些信息构建出一个完整的调用链了。</p>
+<p><img src="img/trace_collector.png" alt="trace_collector"></p>
+<p>然而，仅仅是收集这些数据类并不能保证系统的可观测性，尤其是当你彼此独⽴地使⽤它们时。<strong>从根本上来说，指标、日志和链路追踪只是数据类型，与可观测性无关。</strong></p>
+<p>可观测性应该是我们构建的系统的一种属性，就像可用性、高可用性和稳定性这些一样，能够帮助我们更好地理解和解释系统当前所处的任何状态，无论这种状态或者问题是否在之前出现过。这就要求我们的收集的数据支持高基数（值的唯一性高）和高维度（键的数量多）</p>
+<h2 id="opentelemetry">OpenTelemetry</h2>
+<h3 id="什么是-opentelemetry">什么是 OpenTelemetry？</h3>
+<p>OpenTelemetry 简称 OTel， 是 CNCF （ Cloud Native Computing Foundation，云原生计算基金会，是一个开源软件基金会，致力于云原生技术的普及和可持续发展） 的一个可观测性项目。</p>
+<p>OpenTelemetry 旨在提供可观测性领域的标准化方案，解决遥测数据的数据建模、采集、处理、导出等标准化问题，并能够将这些数据发送到你选择的后端（开源或商业均可）。这样你就可以建立不被供应商锁定的可观测，灵活地更改后端，不需要再次更改代码，重新进行插桩（Instrument）了。</p>
+<h3 id="opentelemetry-的简要历史">OpenTelemetry 的简要历史</h3>
+<p>在 OpenTelemetry 出现之前，还出现过 OpenTracing 和 OpenCensus 两套标准。目前在应用性能监控有 Jaeger、Pinpoint、Zipkin 等多个开源产品，商业玩家也有很多，可谓竞争非常激烈。然而，这也带来了一个问题，那就是每一家都有一套自己的数据采集标准和 SDK，实现上各不相同，很难实现厂商或者技术中立。</p>
+<p>OpenTracing 制定了一套与平台和厂商无关的协议标准，让开发人员能够方便地添加或更换底层 APM 的实现。</p>
+<p>另一套标准 OpenCensus 是谷歌发起的，它和 OpenTracing 最大的不同之处在于，除了链路追踪，它还把指标也包括进来。这样就可以在 OpenCensus 上做基础的指标监控了。除此之外相较于 OpenTracing 制定规范，OpenCensus 不仅制定规范，还包含了 Agent 和 Collector。</p>
+<p>OpenTracing 和 OpenCensus，这两套框架都有很多追随者，而且二者都想统一对方。但是从功能和特性上来看，它们各有优缺点，半斤八两。</p>
+<p>于是就有了 OpenTelemetry，OpenTelemetry 可以同时兼容 OpenTracing 和 OpenCensus，开发人员再也无需在 OpenTracing 和 OpenCensus 之间进行选择。OpenTelemetry 提供一个统一的集合。</p>
+<h3 id="opentelemetry-的核心组件">OpenTelemetry 的核心组件</h3>
+<p><img src="img/component.png" alt="component"></p>
+<blockquote>
+<p>Collector 收集器</p></blockquote>
+<p>OpenTelemetry 收集器是一个独立于供应商的代理，可接收、处理和导出遥测数据。它支持以多种格式接收遥测数据，以及在导出前对遥测数据进行处理和筛选。</p>
+<blockquote>
+<p>Language SDKs 语言 SDK</p></blockquote>
+<p>OpenTelemetry 语言 SDK 允许您使用 OpenTelemetry API 以某种语言生成遥测数据并将数据导出到后端。</p>
+<blockquote>
+<p>Instrument libraries 插桩库</p></blockquote>
+<p>OpenTelemetry 支持一系列广泛的组件，这些组件能够针对所支持的语言使用热门的库和框架生成相关的遥测数据，例如HTTP客户端、数据库驱动程序、消息队列等。</p>
+<blockquote>
+<p>Exporter 导出器</p></blockquote>
+<p>导出器能够将插桩与您的后端配置分离开，由于无需更改插桩设定，所以能更轻松地更改后端。导出器还能将遥测数据上传到不止一个后端。</p>
+<blockquote>
+<p>OpenTelemetry Protocol(OTLP) OpenTelemetry 协议</p></blockquote>
+<p>SDK 和 Collector 传递遥测信号使用的传输协议，用于将数据导出到后端或其他收集器。OTLP 可以使用 gRPC (OTLP/gRPC) 或 HTTP (OTLP/HTTP)。虽然在 Opentelemetry 的项目中组件支持了 Zipkin v2 或 Jaeger Thrift 的协议格式的实现，但是都是以第三方贡献库的形式提供的。只有 OTLP是 Opentelemetry 官方原生支持的格式。</p>
+<ol>
+<li><code>OTLP/HTTP</code> 使用 <code>HTTP POST</code> 请求将遥测数据从客户端发送到服务器。实现可以使用HTTP/1.1或HTTP/2传输，请求正文是可以是用 Protobuf 编码（proto3 标准）或者 JSON 格式（proto3 标准定义的 JSON Mapping）的 <code>ExportXXXServiceRequest</code> 消息，HTTP 默认端口为 4318，路径默认配置：
+<ul>
+<li>Trace：<code>v1/traces</code></li>
+<li>Metric：<code>v1/metrics</code></li>
+<li>Log：<code>v1/logs</code></li>
+</ul>
+</li>
+<li><code>OTLP/gRPC</code> 建立底层GRPC传输后，客户端开始使用<code>Export*ServiceRequest</code>消息，发送遥测数据，gRPC 默认端口为 4317</li>
+</ol>
+<h3 id="opentelemetry-collector">OpenTelemetry Collector</h3>
+<p>OpenTelemetry Collector 是OpenTelemetry 项目中的一个代理软件，作为遥测数据的中转站，能够对遥测数据做一些预处理的逻辑</p>
+<h4 id="部署模式">部署模式</h4>
+<ol>
+<li><strong>不使用OpenTelemetry Collector</strong>：OpenTelemetry Collector 并不是必须的，我们可以直接使用OpenTelemetry 客户端SDK发送遥测数据到监控组件中，比如将 trace 数据发送到 jaeger，发送 metric 数据到 prometheus</li>
+</ol>
+<p><img src="img/nocollector.png" alt="nocollector"></p>
+<ol start="2">
+<li><strong>Agent 模式</strong>：在应用程序和后端监控组件（jaeger、prometheus）之间部署上OpenTelemetry Collector，OpenTelemetry Collector 和应用程序之间传输遥测数据（Collector 支持几个主流的开源协议），存在的问题是如果应用程序产生的遥测数据太多，一个OpenTelemetry Collector 已经不能满足快速处理数据的要求</li>
+</ol>
+<p><img src="img/agent.png" alt="agent"></p>
+<ol start="3">
+<li><strong>Gateway 模式</strong>：通过在多个OpenTelemetry Collector 前面部署一个拥有负载均衡功能的OpenTelemetry Collector 来让分发发往整个集群的遥测数据。</li>
+</ol>
+<p><img src="img/gateway.png" alt="gateway"></p>
+<h4 id="pipeline">Pipeline</h4>
+<p>Collector 采用 Pipeline 方式来接收、处理和导出数据，每个 Collector 可配置一个或多个 Pipeline，每个 pipeline 包含如下组件：</p>
+<ul>
+<li>receiver</li>
+<li>processor</li>
+<li>exporter</li>
+</ul>
+<p>每个 receiver 可能被多个 pipeline 共用，多个 pipeline 也可能包含同一个 exporter</p>
+<blockquote>
+<p>pipeline</p></blockquote>
+<p>一个pipeline定义了一条数据流动的路径：从 Collector 数据接收开始，然后进一步的处理或修改，到最后通过exporter导出。</p>
+<p>pipeline能够处理3种类型数据：trace、metric和logs。数据类型是需要pipeline配置的一个属性。在pipeline中receiver、processor和exporter必须支持某个特定的数据类型，一个 pipeline 可以表示为：</p>
+<p><img src="img/pipeline.png" alt="pipeline"></p>
+<p>一个经典的 pipeline 配置如下：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">service</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">pipelines</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#57606a"># section that can contain multiple subsections, one per pipeline</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">traces</span><span style="color:#1f2328">:</span><span style="color:#fff">  </span><span style="color:#57606a"># type of the pipeline</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">receivers</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">[</span>otlp, jaeger, zipkin]<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">processors</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">[</span>memory_limiter, batch]<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">exporters</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">[</span>otlp, jaeger, zipkin]<span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个例子定义了一个&quot;trace&quot;类型数据的pipeline，包含3个receiver、2个processor和3个exporter</p>
+<blockquote>
+<p>receiver</p></blockquote>
+<p>receiver 监听某个网络端口并且接收观测数据。通常会配置一个 receiver 将接收到的数据传送到一个 pipeline 中，当然也可能是同一个 receiver 将接收到的数据传送到多个 pipeline 中。</p>
+<p>如上面的 <code>otlp</code> receiver 示例配置如下：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">receivers</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">otlp</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">protocols</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">grpc</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">endpoint</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>localhost:4317<span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>exporter</p></blockquote>
+<p>exporter 通常将收到数据发送到某个网络上地址。允许一个 pipeline 中配置多个同类型的 exporter</p>
+<p>如上面的 <code>jaeger</code> exporter 的示例配置如下</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">exporters</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">jaeger</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">protocols</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">grpc</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">endpoint</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>localhost:14250<span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>processor</p></blockquote>
+<p>一个 pipeline 可以包含多个<strong>串联</strong>的 processor。</p>
+<p>processor能够在转发数据之前对其进行转换（例如增加或删除spans中的属性），也可以丢弃数据，也可以生成新数据</p>
+<p>如上面的 <code>batch</code> processor 的示例配置：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">processors</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">batch</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">send_batch_size</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">10000</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">timeout</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>10s<span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段配置就描述了一个批处理 processor 的配置</p>
+<h2 id="jaeger">Jaeger</h2>
+<h3 id="简介">简介</h3>
+<p><img src="img/jaeger.png" alt="jaeger"></p>
+<p><a href="https://www.jaegertracing.io/">Jaeger</a>  是受到 ​ ​Dapper​​​ 和 ​ ​OpenZipkin​​​ 启发的由 ​ ​Uber Technologies​​ 作为开源发布的分布式跟踪系统，兼容 OpenTracing 以及 Zipkin 追踪格式，目前已成为 CNCF 基金会的开源项目。其前端采用React语言实现，后端采用GO语言实现，适用于进行链路追踪，分布式跟踪消息传递，分布式事务监控、问题分析、服务依赖性分析、性能优化等场景。</p>
+<h3 id="快速开始">快速开始</h3>
+<blockquote>
+<p>all-in-one Docker 镜像包含 <strong>Jaeger UI</strong>、<strong>jaeger-collector</strong>、<strong>jaeger-query</strong> 和 <strong>jaeger-agent</strong>，以及一个内存存储组件。适用于快速体验 Jaeger ，由于所有追踪数据存储在内存中，不适用于生产环境</p></blockquote>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm --name jaeger <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -e <span style="color:#953800">COLLECTOR_ZIPKIN_HOST_PORT</span><span style="color:#0550ae">=</span>:9411 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 6831:6831/udp <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 6832:6832/udp <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 5778:5778 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 16686:16686 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 4317:4317 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 4318:4318 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 14250:14250 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 14268:14268 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 14269:14269 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  -p 9411:9411 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  jaegertracing/all-in-one:1.56
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>容器启动后，使用浏览器打开 <a href="http://localhost:16686/">http://localhost:16686</a> 即可访问 Jaeger UI。</p>
+<p>all-in-one 端口文档如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Port</th>
+          <th>Protocol</th>
+          <th>Component</th>
+          <th>Function</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>6831</td>
+          <td>UDP</td>
+          <td>agent</td>
+          <td>accept <code>jaeger.thrift</code> over Thrift-compact protocol (used by most SDKs)</td>
+      </tr>
+      <tr>
+          <td>6832</td>
+          <td>UDP</td>
+          <td>agent</td>
+          <td>accept <code>jaeger.thrift</code> over Thrift-binary protocol (used by Node.js SDK)</td>
+      </tr>
+      <tr>
+          <td>5775</td>
+          <td>UDP</td>
+          <td>agent</td>
+          <td>(deprecated) accept <code>zipkin.thrift</code> over compact Thrift protocol (used by legacy clients only)</td>
+      </tr>
+      <tr>
+          <td>5778</td>
+          <td>HTTP</td>
+          <td>agent</td>
+          <td>serve configs (sampling, etc.)</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>16686</td>
+          <td>HTTP</td>
+          <td>query</td>
+          <td>serve frontend</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>4317</td>
+          <td>HTTP</td>
+          <td>collector</td>
+          <td>accept OpenTelemetry Protocol (OTLP) over gRPC</td>
+      </tr>
+      <tr>
+          <td>4318</td>
+          <td>HTTP</td>
+          <td>collector</td>
+          <td>accept OpenTelemetry Protocol (OTLP) over HTTP</td>
+      </tr>
+      <tr>
+          <td>14268</td>
+          <td>HTTP</td>
+          <td>collector</td>
+          <td>accept <code>jaeger.thrift</code> directly from clients</td>
+      </tr>
+      <tr>
+          <td>14250</td>
+          <td>HTTP</td>
+          <td>collector</td>
+          <td>accept <code>model.proto</code></td>
+      </tr>
+      <tr>
+          <td>9411</td>
+          <td>HTTP</td>
+          <td>collector</td>
+          <td>Zipkin compatible endpoint (optional)</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="prometheus">Prometheus</h2>
+<h3 id="简介-1">简介</h3>
+<p><img src="img/prometheus.png" alt="prometheus"></p>
+<p><a href="https://github.com/prometheus">Prometheus</a> 是由前 Google 工程师从 2012 年开始在 Soundcloud 以开源软件的形式进行研发的系统监控和告警工具包，自此以后，许多公司和组织都采用了 Prometheus 作为监控告警工具。Prometheus 的开发者和用户社区非常活跃，它现在是一个独立的开源项目，可以独立于任何公司进行维护。</p>
+<p>Prometheus 的主要优势有：</p>
+<ul>
+<li>由指标名称和和键/值对标签标识的时间序列数据组成的多维数据模型。</li>
+<li>强大的<a href="https://github.com/yangchuansheng/prometheus-handbook/tree/c6e1e12588ec63c20345090368b37654ef30922a/4-prometheus/basics.html">查询语言 PromQL</a>。</li>
+<li>不依赖分布式存储；单个服务节点具有自治能力。</li>
+<li>时间序列数据是服务端通过 HTTP 协议主动拉取获得的。</li>
+<li>也可以通过中间网关来<a href="https://github.com/yangchuansheng/prometheus-handbook/tree/c6e1e12588ec63c20345090368b37654ef30922a/5-instrumenting/pushing.html">推送时间序列数据</a>。</li>
+<li>可以通过静态配置文件或服务发现来获取监控目标。</li>
+<li>支持多种类型的图表和仪表盘。</li>
+</ul>
+<h3 id="快速上手">快速上手</h3>
+<p>可以使用 Docker 快速部署</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    -p 9090:9090 <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    prom/prometheus
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>容器启动后，使用浏览器打开 <a href="http://localhost:9090/">http://localhost:9090</a> 即可访问 Prometheus UI，如果想要添加数据源，需要配置 prometheus.yml</p>
+<h2 id="作业">作业</h2>
+<p><strong>提交地址</strong>： mull1on0910@gmail.com
 <strong>提交格式</strong>：第十七次作业-学号-姓名
-<strong>截止时间</strong>：下一次上课之前</p><h3 id=lv1>Lv1</h3><p>按照官方文档的<a href=https://opentelemetry.opendocs.io/docs/instrumentation/go/getting-started/>快速上手</a>教程，自己动手做一下，加深 OpenTelemetry 每个组件的理解</p><h3 id=lv2>Lv2</h3><p>在完成快速上手 rolldice 服务的基础上，添加 exporter，将 trace 发送到 jaeger 和 prometheus，参照官方文档的 <a href=https://opentelemetry.opendocs.io/docs/instrumentation/go/exporters/>exporter教程</a></p><p>或者可以部署 OpenTelemetry Collector，通过 Collector 发送到 jaeger 和 prometheus</p><h3 id=lv3>Lv3</h3><p>了解一下 ELK，最好可以自己尝试部署一个</p><h2 id=参考链接>参考链接</h2><ol><li><a href=https://www.elastic.co/cn/what-is/opentelemetry>什么是 OpenTelemetry</a></li><li><a href=https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e6%b7%b1%e5%85%a5%e6%b5%85%e5%87%ba%e5%8f%af%e8%a7%82%e6%b5%8b%e6%80%a7/00%20%e5%bc%80%e7%af%87%e8%af%8d%20%e5%8f%af%e8%a7%82%e6%b5%8b%e6%80%a7%ef%bc%8c%e8%ae%a9%e5%bc%80%e5%8f%91%e5%92%8c%e7%bb%b4%e6%8a%a4%e7%b3%bb%e7%bb%9f%e7%9a%84%e4%bd%a0%e6%af%8f%e6%99%9a%e9%83%bd%e8%83%bd%e7%9d%a1%e4%b8%aa%e5%a5%bd%e8%a7%89%ef%bc%81.md>深入浅出可观测性</a></li><li><a href=https://www.liwenzhou.com/posts/Go/openTelemetry-go/>李文周-Go OpenTelemetry快速指南</a></li><li><a href=https://blog.csdn.net/u_geek/article/details/128389731>OpenTelemetry Collector 简介</a></li><li><a href=https://www.cnblogs.com/hobbybear/p/18006757>OpenTelemetry Collector 部署模式</a></li><li><a href=https://developer.aliyun.com/article/1317806>微服务之链路追踪原理</a></li></ol></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/your-username/course-backend-go-2025 aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/your-username/course-backend-go-2025 aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"></div></div></div></footer></div><script src=/js/main.min.d230e5c0c462caf31486b65a51a409f76a8cf4c96cd6d4b7b71da22758e95574.js integrity="sha256-0jDlwMRiyvMUhrZaUaQJ92qM9Mls1tS3tx2iJ1jpVXQ=" crossorigin=anonymous></script><script defer src=/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js integrity="sha256-c0eKfUgHaYrtfjVesj+YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin=anonymous></script><script src=/js/tabpane-persist.js></script></body></html>
+<strong>截止时间</strong>：下一次上课之前</p>
+<h3 id="lv1">Lv1</h3>
+<p>按照官方文档的<a href="https://opentelemetry.opendocs.io/docs/instrumentation/go/getting-started/">快速上手</a>教程，自己动手做一下，加深 OpenTelemetry 每个组件的理解</p>
+<h3 id="lv2">Lv2</h3>
+<p>在完成快速上手 rolldice 服务的基础上，添加 exporter，将 trace 发送到 jaeger 和 prometheus，参照官方文档的 <a href="https://opentelemetry.opendocs.io/docs/instrumentation/go/exporters/">exporter教程</a></p>
+<p>或者可以部署 OpenTelemetry Collector，通过 Collector 发送到 jaeger 和 prometheus</p>
+<h3 id="lv3">Lv3</h3>
+<p>了解一下 ELK，最好可以自己尝试部署一个</p>
+<h2 id="参考链接">参考链接</h2>
+<ol>
+<li><a href="https://www.elastic.co/cn/what-is/opentelemetry">什么是 OpenTelemetry</a></li>
+<li><a href="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e6%b7%b1%e5%85%a5%e6%b5%85%e5%87%ba%e5%8f%af%e8%a7%82%e6%b5%8b%e6%80%a7/00%20%e5%bc%80%e7%af%87%e8%af%8d%20%e5%8f%af%e8%a7%82%e6%b5%8b%e6%80%a7%ef%bc%8c%e8%ae%a9%e5%bc%80%e5%8f%91%e5%92%8c%e7%bb%b4%e6%8a%a4%e7%b3%bb%e7%bb%9f%e7%9a%84%e4%bd%a0%e6%af%8f%e6%99%9a%e9%83%bd%e8%83%bd%e7%9d%a1%e4%b8%aa%e5%a5%bd%e8%a7%89%ef%bc%81.md">深入浅出可观测性</a></li>
+<li><a href="https://www.liwenzhou.com/posts/Go/openTelemetry-go/">李文周-Go OpenTelemetry快速指南</a></li>
+<li><a href="https://blog.csdn.net/u_geek/article/details/128389731">OpenTelemetry Collector 简介</a></li>
+<li><a href="https://www.cnblogs.com/hobbybear/p/18006757">OpenTelemetry Collector 部署模式</a></li>
+<li><a href="https://developer.aliyun.com/article/1317806">微服务之链路追踪原理</a></li>
+</ol>
+
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/CrazyForCode/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/CrazyForCode/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

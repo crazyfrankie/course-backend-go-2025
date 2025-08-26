@@ -1,4 +1,426 @@
-<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-cn class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><link rel="shortcut icon" href=/favicons/favicon.ico><link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192><title>微服务入门 | Go 后端开发教程</title><meta name=description content="微服务入门"><meta property="og:url" content="https://example.org/docs/lesson13/lesson13/"><meta property="og:site_name" content="Go 后端开发教程"><meta property="og:title" content="微服务入门"><meta property="og:description" content="微服务入门"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2025-08-24T17:26:13+08:00"><meta itemprop=name content="微服务入门"><meta itemprop=description content="微服务入门"><meta itemprop=dateModified content="2025-08-24T17:26:13+08:00"><meta itemprop=wordCount content="302"><meta name=twitter:card content="summary"><meta name=twitter:title content="微服务入门"><meta name=twitter:description content="微服务入门"><link rel=preload href=/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css as=style integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin=anonymous><link href=/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css rel=stylesheet integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script></head><body class=td-page><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class=navbar-brand__name>Go 后端开发教程</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/><span>课程首页</span></a></li><li class=nav-item><a class=nav-link href=/docs/><span>课程文档</span></a></li><li class=nav-item><a class=nav-link href=https://github.com/CrazyForCode/course-backend-go-2025 target=_blank rel=noopener><span>GitHub</span></a></li></ul></div><div class="d-none d-lg-block"></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type=button data-bs-toggle=collapse data-bs-target=#td-section-nav aria-controls=td-section-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="td-sidebar-nav collapse" id=td-section-nav><ul class="td-sidebar-nav__section pe-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li><a href=/docs/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>课程文档</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li><a href=/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/ title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go><span>第0课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li><a href=/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/ title=基础语法 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe><span>第1课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson0202-li><a href=/docs/lesson02/02/ title=数组和切片 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson0202><span>第2课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li><a href=/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/ title=包、指针、结构体和接口 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson03e7acace4b889e591a8e8afbee4bbb6><span>第3课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li><a href=/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/ title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe><span>第4课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson05e5b9b6e58f91-li><a href=/docs/lesson05/%E5%B9%B6%E5%8F%91/ title=并发编程 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson05e5b9b6e58f91><span>第5课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson06readme-li><a href=/docs/lesson06/readme/ title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson06readme><span>第6课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson07lesson7-li><a href=/docs/lesson07/lesson7/ title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson07lesson7><span>第7课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson08readme-li><a href=/docs/lesson08/readme/ title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson08readme><span>第8课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson09readme-li><a href=/docs/lesson09/readme/ title=第九课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson09readme><span>第9课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson10docker-li><a href=/docs/lesson10/docker/ title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson10docker><span>第10课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson11readme-li><a href=/docs/lesson11/readme/ title=单体架构实战 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson11readme><span>第11课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson12e6b688e681afe9989fe58897-li><a href=/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/ title=第十二课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson12e6b688e681afe9989fe58897><span>第12课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docslesson13lesson13-li><a href=/docs/lesson13/lesson13/ title=微服务入门 class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id=m-docslesson13lesson13><span class=td-sidebar-nav-active-item>第13课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson14lesson14-li><a href=/docs/lesson14/lesson14/ title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson14lesson14><span>第14课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson15readme-li><a href=/docs/lesson15/readme/ title=第十五课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson15readme><span>第15课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson16readme-li><a href=/docs/lesson16/readme/ title=负载均衡 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson16readme><span>第16课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li><a href=/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/ title=第十七课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe><span>第17课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li><a href=/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/ title=第十八课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson18e58886e5b883e5bc8fe59fbae7a180><span>第18课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson09example2baidu-li><a href=/docs/lesson09/example2/baidu/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson09example2baidu><span></span></a></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ms-2 pb-1 pt-2 mb-0"><a href=https://github.com/your-username/course-backend-go-2025/tree/main/content/docs/lesson13/lesson13.md class="td-page-meta--view td-page-meta__view" target=_blank rel=noopener><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-<a href=https://github.com/your-username/course-backend-go-2025/edit/main/content/docs/lesson13/lesson13.md class="td-page-meta--edit td-page-meta__edit" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
-<a href="https://github.com/your-username/course-backend-go-2025/new/main/content/docs/lesson13?filename=change-me.md&amp;value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child td-page-meta__child" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-<a href="https://github.com/your-username/course-backend-go-2025/issues/new?title=%e5%be%ae%e6%9c%8d%e5%8a%a1%e5%85%a5%e9%97%a8" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#单体应用>单体应用</a><ul><li><a href=#单体应用的优点>单体应用的优点</a></li><li><a href=#单体应用的缺点>单体应用的缺点</a></li></ul></li><li><a href=#微服务>微服务</a><ul><li><a href=#微服务优点>微服务优点</a></li><li><a href=#微服务缺点>微服务缺点</a></li><li><a href=#微服务拆分原则>微服务拆分原则</a></li></ul></li><li><a href=#rpc>RPC</a><ul><li><a href=#什么是rpc>什么是RPC</a></li><li><a href=#为什么要用rpc>为什么要用RPC</a></li><li><a href=#为什么不用http>为什么不用HTTP</a></li><li><a href=#框架需要解决的问题>框架需要解决的问题</a></li><li><a href=#基本组成>基本组成</a></li><li><a href=#服务注册与发现>服务注册与发现</a></li><li><a href=#服务发现>服务发现</a></li></ul></li><li><a href=#框架推荐>框架推荐</a><ul><li><a href=#go-zero>Go-zero</a></li><li><a href=#kitex>Kitex</a></li><li><a href=#学习项目推荐>学习项目推荐</a></li></ul></li><li><a href=#阅读>阅读</a></li><li><a href=#作业>作业</a></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><nav aria-label=breadcrumb class=td-breadcrumbs><ol class=breadcrumb><li class=breadcrumb-item><a href=/docs/>课程文档</a></li><li class="breadcrumb-item active" aria-current=page>第13课</li></ol></nav><div class=td-content><h1>微服务入门</h1><div class=lead>微服务入门</div><header class=article-meta></header><h1 id=微服务入门>微服务入门</h1><h2 id=单体应用>单体应用</h2><p>与微服务相对的另一个概念是传统的「单体式应用程序」( Monolithic application )，单体式应用内部包含了所有需要的服务。而且各个服务功能模块有很强的耦合性，也就是相互依赖彼此，很难拆分和扩容。</p><h3 id=单体应用的优点>单体应用的优点</h3><ul><li>开发简洁，功能都在单个程序内部，便于软件设计和开发规划。</li><li>容易部署，程序单一不存在分布式集群的复杂部署环境，降低了部署难度。</li><li>容易测试，没有各种复杂的服务调用关系，都是内部调用方便测试。</li></ul><h3 id=单体应用的缺点>单体应用的缺点</h3><p>单体架构随着功能增多，不可避免的是研发效能的降低：研发周期变长、研发资源占用增多。从而引发的情况是：新员工培训时间增多、员工加班时间变长、员工要求涨薪或者跳槽。到了这种情况就说明，单体架构已经不能够满足企业发展需要，这个时候，需要升级架构来提升研发效能，比如微服务架构。</p><h2 id=微服务>微服务</h2><blockquote><p>2014年，<a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2FMartin_Fowler">Martin Fowler</a> 与 <a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DJames_Lewis%26action%3Dedit%26redlink%3D1">James Lewis</a> 共同提出了微服务的概念，定义了微服务是由以单一应用程序构成的小服务，自己拥有自己的行程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用 HTTP API 通信。同时服务会使用最小的规模的集中管理 (例如 <a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2FDocker">Docker</a>) 能力，服务可以用不同的编程语言与数据库等组件实现 。「维基百科」</p></blockquote><p>微服务是一种架构风格：</p><ol><li>一组小服务</li><li>每个服务运行在独立进程中</li><li>服务之间使用轻量级通信</li><li>服务可独立部署</li><li>是基于业务能力实现</li><li>无集中式管理</li></ol><p>业界对于微服务还有一句更加剪短的描述：<strong>微服务是一组小而自治的服务</strong>。</p><h3 id=微服务优点>微服务优点</h3><p>优点很多，我们介绍几个比较重要的。</p><h4 id=隔离性>隔离性</h4><p>一个服务不可用不会导致另一个服务也瘫痪，因为各个服务是相互独立和自治的系统。这在单体应用程序中是做不到的，单体应用程序中某个模块瘫痪，必将导致整个系统不可用，当然，单体程序也可以在不同机器上部署同样的程序来实现备份，不过，同样存在上面说的资源浪费问题。</p><h4 id=可扩展性>可扩展性</h4><p>庞大的单体服务如果出现性能瓶颈只能对软件整体进行扩展，可能真正影响性能的只是其中一个很小的模块，我们也不得不付出升级整个应用的代价。这在微服务架构中得到了改善，你可以只对那些影响性能的服务做扩展升级，这样对症下药的效果是很好的。</p><h4 id=简化部署>简化部署</h4><p>如果你的服务是一个超大的单体服务，有几百万行代码，即使修改了几行代码也要重新编译整个应用，这显然是非常繁琐的，而且软件变更带来的不确定性非常高，软件部署的影响也非常大。在微服务架构中，各个服务的部署是独立的，如果真出了问题也只是影响单个服务，可以快速回滚版本解决。</p><h4 id=易优化>易优化</h4><p>微服务架构中单个服务的代码量不会很大，这样当你需要重构或者优化这部分服务的时候，就会容易很多，毕竟，代码量越少意味着代码改动带来的影响越可控。</p><h3 id=微服务缺点>微服务缺点</h3><p>任何技术都存在它的弊端，没有弊端就没有新型技术的演进。</p><p>服务的拆分和定义是一种挑战。拆分服务是一项具备艺术的行为，因其本身就没有一个具体、良好的定义的模板或者算法来协助我们的拆分工作。</p><p>分布式系统带来的各种复杂性。采用这项模式之后，我们依然需要考虑它的复杂性，比如测试、事务、部署模式、通讯、网关、服务发现、可靠性、安全，可观测性（日志、审计、跟踪，健康检查）等等一系列额外的任务需要做。</p><h3 id=微服务拆分原则>微服务拆分原则</h3><p>在我看来，微服务拆分其实目前来说没有确定的原则和标准可以参考，我们进行服务拆分时可以参考以下几个方面：</p><p>按业务功能拆分：将整个系统按照不同的业务模块进行拆分，每个模块对应一个微服务。这种方式能够有效地降低系统的复杂度，提高系统的可维护性和可扩展性。</p><p>按数据拆分：将整个系统的数据按照不同的领域进行拆分，每个领域对应一个微服务。这种方式能够提高系统的性能和可扩展性。</p><p>按用户界面拆分：将整个系统按照不同的用户界面进行拆分，每个用户界面对应一个微服务。这种方式能够实现快速迭代和响应用户需求的能力。</p><p>按技术栈拆分：将整个系统按照不同的技术栈进行拆分，每个技术栈对应一个微服务。这种方式能够提高开发效率和降低系统的复杂度。</p><p>按性能拆分：将整个系统按照不同的性能需求进行拆分，每个需求对应一个微服务。这种方式能够提高系统的性能和可扩展性。</p><h2 id=rpc>RPC</h2><h3 id=什么是rpc>什么是RPC</h3><p><img src=https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/rpc.jpg alt=img></p><p>RPC是指远程过程调用,是Remote Procedure Call三个单词的缩写，功能就是本地的函数一样去调远程函数，远程一般是指通过网络从远程计算机程序上请求服务，也可以在在宿主机下通过网络进行不同架构下的互相请求服务。</p><p>RPC在分布式或者微服务架构上非常常用，RPC让不同服务之间的服务调用像本地调用一样简单高效，RPC是一种网络协议，是一种规范，每个大厂几乎都有自己研发的RPC协议。</p><h3 id=为什么要用rpc>为什么要用RPC</h3><p>如果我们开发简单的单一应用，逻辑简单、用户不多、流量不大，那我们用不着。</p><p>当我们的系统访问量增大、业务增多时，我们会发现一台单机运行此系统已经无法承受。此时，我们可以将业务拆分成几个互不关联的应用，分别部署在各自机器上，以划清逻辑并减小压力。此时，我们也可以不需要RPC，因为应用之间是互不关联的。</p><p>当我们的业务越来越多、应用也越来越多时，自然的，我们会发现有些功能已经不能简单划分开来或者划分不出来。此时，可以将公共业务逻辑抽离出来，将之组成独立的服务Service应用 。而原有的、新增的应用都可以与那些独立的Service应用 互，以此来完成完整的业务功能。</p><p>所以此时，我们急需一种高效的应用程序之间的通讯手段来完成这种需求，服务之间的调用需要各种场景和因素的考虑，内部原理非常复杂和繁琐，同时在集群情况下，服务的负载均衡，熔断，限流等都是需要去考虑的，这时候就需要一个集服务注册发现、负载均衡、序列化协议、RPC通信协议、Socket通信、异步调用、熔断降级等技术为一体的技术去完成这些公共功能，所以你看，RPC大显身手的时候来了！</p><p>其实描述的场景也是服务化 、微服务和分布式系统架构的基础场景。即RPC框架就是实现以上结构的有力方式。</p><h3 id=为什么不用http>为什么不用HTTP</h3><p><img src=https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/rpc-framework-vs-rest.webp alt=img></p><p>为什么有HTTP还需要RPC呢？RPC那么复杂为什么不用HTTP请求.</p><p>首先需要指正，这两个并不是并行概念。RPC 是一种<strong>设计</strong>，就是为了解决<strong>不同服务之间的调用问题</strong>，完整的 RPC 实现一般会包含有 <strong>传输协议</strong> 和 <strong>序列化协议</strong> 这两个。</p><p>而 HTTP 是一种传输协议，RPC 框架完全可以使用 HTTP 作为传输协议，也可以直接使用 TCP，使用不同的协议一般也是为了适应不同的场景。</p><p>RPC主要是为了解决特定的问题或者节约成本的角度出发的。</p><p>使用 TCP 和使用 HTTP 各有优势：</p><p><strong>传输效率</strong>：</p><ul><li>TCP，通常自定义上层协议，可以让请求报文体积更小</li><li>HTTP：如果是基于HTTP 1.1 的协议，请求中会包含很多无用的内容</li></ul><p><strong>性能消耗</strong>，主要在于序列化和反序列化的耗时</p><ul><li>TCP，可以基于各种序列化框架进行，效率比较高</li><li>HTTP，大部分是通过 json 来实现的，字节大小和序列化耗时都要更消耗性能</li></ul><p><strong>跨平台</strong>：</p><ul><li>TCP：通常要求客户端和服务器为统一平台</li><li>HTTP：可以在各种异构系统上运行</li></ul><p><strong>总结</strong>： RPC 的 TCP 方式主要用于公司内部的服务调用，性能消耗低，传输效率高。HTTP主要用于对外的异构环境，浏览器接口调用，APP接口调用，第三方接口调用等。</p><h3 id=框架需要解决的问题>框架需要解决的问题</h3><p><img src=https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/discovery-problem.jpg alt=img></p><p>RPC是指远程过程调用，也就是说两台服务器A，B，一个应用部署在A服务器上，想要调用B服务器上应用提供的函数/方法，由于<strong>不在一个内存空间，不能直接调用</strong>，需要通过网络来表达调用的语义和传达调用的数据。</p><p>比如说，一个方法可能是这样定义的：func GetUserProfile(userId int64) *Profile 那么：</p><p>第一，<strong>首先，要解决通讯的问题</strong>，主要是通过在客户端和服务器之间建立TCP连接（socket），远程过程调用的所有交换的数据都在这个连接里传输。连接可以是按需连接，调用结束后就断掉，也可以是长连接，多个远程过程调用共享同一个连接。</p><p>第二，<strong>要解决寻址的问题</strong>，也就是说，A服务器上的应用怎么告诉底层的RPC框架，如何连接到B服务器（如主机或IP地址）以及特定的端口，方法的名称名称是什么，这样才能完成调用。</p><p>第三，当A服务器上的应用发起远程过程调用时，方法的参数需要通过底层的网络协议如TCP传递到B服务器，由于网络协议是基于二进制的，内存中的参数的值要序列化成二进制的形式，也就是<strong>序列化</strong>（Serialize）或编组（marshal），通过寻址和传输将序列化的二进制发送给B服务器。</p><p>第四，B服务器收到请求后，需要对参数进行反序列化（序列化的逆操作），恢复为内存中的表达方式，然后找到对应的方法（寻址的一部分）进行本地调用，然后得到返回值。</p><p>第五，返回值还要发送回服务器A上的应用，也要经过序列化的方式发送，服务器A接到后，再反序列化，恢复为内存中的表达方式，交给A服务器上的应用</p><p><strong>总的来说可以归纳为以下几步：</strong></p><ol><li>远程服务之间建立通讯协议</li><li>寻址：服务器（如主机或IP地址）以及特定的端口，方法的名称名称是什么</li><li>通过序列化和反序列化进行数据传递</li><li>将传递过来的数据通过java反射原理定位接口方法和参数</li><li>暴露服务：用map将寻址的信息暴露给远方服务（提供一个endpoint <em>URI或者一个前端展示页面</em>）</li><li>多线程并发请求业务</li></ol><h3 id=基本组成>基本组成</h3><p><img src=https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/service-discovery.png alt=img></p><p>RPC框架需要的最基本的三个要素：</p><ul><li>ServiceProvider: 服务提供方，提供相关服务接口。</li><li>ServiceConsumer: 服务消费方，消费服务提供方的接口。</li><li>Registry: 注册中心，用于进行服务的注册、发现、治理、高可用。</li></ul><h4 id=注册中心>注册中心</h4><p>注册中心是RPC框架中的管理者和协调者角色，虽然在远程过程调用中服务消费者会不经过注册中心，会直接向服务提供者发送请求，但是随着我们的服务方越来越多，每个服务的实例也不断变化的，且每个服务的地址，端口等信息是需要通知到消费方的，所以我们需要一个类似“管家”的角色，来负责管理服务注册和发现的工作，这个“管家”我们称之为注册中心。</p><p>一个合格的注册中心需要具备包括缓存和持久化服务提供方数据，动态更新服务提供者信息，动态监听服务提供方节点变化，推送节点变化到消费方，查询服务提供方数据等功能。</p><h4 id=服务提供方rpc服务端>服务提供方（RPC服务端）</h4><p>其需要对外提供服务接口，一个服务方需要包括启动连接注册中心，注册相关信息到注册中心，提供服务下线和更新机制，维护服务名和服务的映射，序列化和反序列化，启动通信等。</p><h4 id=服务消费方rpc客户端>服务消费方（RPC客户端）</h4><p>服务消费方需要具备可以从注册中心拉取服务列表，缓存服务列表，动态监听和更新服务列表的功能，还需要具备针对于服务的负载均衡策略，序列化和反序列化，根据约定的通信协议进行调用等。</p><h3 id=服务注册与发现>服务注册与发现</h3><p>简单来说，当服务A需要依赖服务B时，我们就需要告诉服务A，哪里可以调用到服务B，这就是服务注册发现要解决的问题。</p><p><img src=https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/service-discovery.png alt=img></p><ul><li><code>Service B</code> 把自己注册到 <code>Service Registry</code> 叫做 <strong>服务注册</strong></li><li><code>Service A</code> 从 <code>Service Registry</code> 发现 <code>Service B</code> 的节点信息叫做 <strong>服务发现</strong></li></ul><h4 id=服务注册>服务注册</h4><p>服务注册是针对服务端的，服务启动后需要注册，分为几个部分：</p><ul><li>启动注册</li><li>定时续期</li><li>退出撤销</li></ul><h5 id=启动注册>启动注册</h5><p>当一个服务节点起来之后，需要把自己注册到 <code>Service Registry</code> 上，便于其它节点来发现自己。注册需要在服务启动完成并可以接受请求时才会去注册自己，并且会设置有效期，防止进程异常退出后依然被访问。</p><h5 id=定时续期>定时续期</h5><p>定时续期相当于 <code>keep alive</code>，定期告诉 <code>Service Registry</code> 自己还在，能够继续服务。</p><h5 id=退出撤销>退出撤销</h5><p>当进程退出时，我们应该主动去撤销注册信息，便于调用方及时将请求分发到别的节点。同时，go-zero 通过自适应的负载均衡来保证即使节点退出没有主动注销，也能及时摘除该节点。</p><h3 id=服务发现>服务发现</h3><p>服务发现是针对调用端的，一般分为两类问题：</p><ul><li>存量获取</li><li>增量侦听</li></ul><p>还有一个常见的工程问题是</p><ul><li>应对服务发现故障</li></ul><p>当服务发现服务（比如 etcd, consul, nacos等）出现问题的时候，我们不要去修改已经获取到的 endpoints 列表，从而可以更好的确保 etcd 等宕机后所依赖的服务依然可以正常交互。</p><h4 id=存量获取>存量获取</h4><p><img src=https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2fc0a889be0421883d707493e327527~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp alt=img></p><p>当 <code>Service A</code> 启动时，需要从 <code>Service Registry</code> 获取 <code>Service B</code> 的已有节点列表：<code>Service B1</code>, <code>Service B2</code>, <code>Service B3</code>，然后根据自己的负载均衡算法来选择合适的节点发送请求。</p><h4 id=增量侦听>增量侦听</h4><p>上图已经有了 <code>Service B1</code>, <code>Service B2</code>, <code>Service B3</code>，如果此时又启动了 <code>Service B4</code>，那么我们就需要通知 <code>Service A</code> 有个新增的节点。如图：</p><p><img src=https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71497af0435442e3acffff9dfd67cb86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp alt=img></p><h4 id=应对服务发现故障>应对服务发现故障</h4><p>对于服务调用方来说，我们都会在内存里缓存一个可用节点列表。不管是使用 <code>etcd</code>，<code>consul</code> 或者 <code>nacos</code> 等，我们都可能面临服务发现集群故障，以 <code>etcd</code> 为例，当遇到 <code>etcd</code> 故障时，我们就需要冻结 <code>Service B</code> 的节点信息而不去变更，此时一定不能去清空节点信息，一旦清空就无法获取了，而此时 <code>Service B</code> 的节点很可能都是正常的，并且 <code>go-zero</code> 会自动隔离和恢复故障节点。</p><p><img src=https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5af33ecc71dc44639825092ea0a81e4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp alt=img></p><p>对服务发现模式的介绍：<a href="https://juejin.cn/post/7028348724447281189?searchId=202403092351383768936C87D074711FFA">微服务中服务注册和发现的可行性方案 - 掘金 (juejin.cn)</a></p><h2 id=框架推荐>框架推荐</h2><h3 id=go-zero>Go-zero</h3><p>go-zero（收录于 CNCF 云原生技术全景图：https://landscape.cncf.io/?selected=go-zero）是一个集成了各种工程实践的 web 和 rpc 框架。通过弹性设计保障了大并发服务端的稳定性，经受了充分的实战检验。</p><p><img src=https://raw.githubusercontent.com/zeromicro/zero-doc/main/doc/images/go-zero.png alt=img></p><p><a href=https://github.com/zeromicro/go-zero>GitHub</a></p><p><a href=https://go-zero.dev/>官方文档</a></p><p><a href=https://github.com/Mikaelemmmm/go-zero-looklook>go-zero-looklook</a></p><h3 id=kitex>Kitex</h3><p>Kitex [kaɪt’eks] 字节跳动内部的 Golang 微服务 RPC 框架，具有<strong>高性能</strong>、<strong>强可扩展</strong>的特点，在字节内部已广泛使用。如果对微服务性能有要求，又希望定制扩展融入自己的治理体系，Kitex 会是一个不错的选择。</p><p><a href=https://github.com/cloudwego/kitex>Github</a></p><p><a href=https://www.cloudwego.io/zh/docs/kitex/>官方文档</a></p><p><a href=https://github.com/cloudwego/biz-demo>biz-demo</a></p><h3 id=学习项目推荐>学习项目推荐</h3><p>Herzt&amp;Kitex：<a href=https://github.com/ViolaPioggia/GoYin>ViolaPioggia/GoYin: 第六届字节跳动青训营后端极简版抖音（二等奖🥈） (github.com)</a></p><p>（万神🤩）</p><p>Go-zero：<a href=https://github.com/GophersTeam/GopherTok>GophersTeam/GopherTok: Gopher小队的极简抖音 (github.com)</a> （显哥🥰）</p><h2 id=阅读>阅读</h2><p><a href=https://juejin.cn/post/6844903971086139400>Thrift & IDL 介绍 - 掘金 (juejin.cn)</a></p><p><a href=https://juejin.cn/post/7191008929986379836>写给go开发者的gRPC教程-protobuf基础 - 掘金 (juejin.cn)</a></p><h2 id=作业>作业</h2><p>阅读你感兴趣的框架文档 尝试读懂推荐项目代码 学会写IDL文件</p><p>学有余力可以写demo练手 :) （无需提交）</p><div class=td-page-meta__lastmod>最后修改 August 24, 2025: <a data-proofer-ignore href=https://github.com/your-username/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1>initial commit (0d79837)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/your-username/course-backend-go-2025 aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/your-username/course-backend-go-2025 aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"></div></div></div></footer></div><script src=/js/main.min.d230e5c0c462caf31486b65a51a409f76a8cf4c96cd6d4b7b71da22758e95574.js integrity="sha256-0jDlwMRiyvMUhrZaUaQJ92qM9Mls1tS3tx2iJ1jpVXQ=" crossorigin=anonymous></script><script defer src=/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js integrity="sha256-c0eKfUgHaYrtfjVesj+YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin=anonymous></script><script src=/js/tabpane-persist.js></script></body></html>
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>微服务入门 | Go 后端开发教程</title>
+<meta name="description" content="微服务入门">
+<meta property="og:url" content="http://localhost:1313/docs/lesson13/lesson13/">
+  <meta property="og:site_name" content="Go 后端开发教程">
+  <meta property="og:title" content="微服务入门">
+  <meta property="og:description" content="微服务入门">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2025-08-24T17:26:13+08:00">
+
+  <meta itemprop="name" content="微服务入门">
+  <meta itemprop="description" content="微服务入门">
+  <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
+  <meta itemprop="wordCount" content="302">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="微服务入门">
+  <meta name="twitter:description" content="微服务入门">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Go 后端开发教程</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/"><span>课程首页</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>课程文档</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/CrazyForCode/course-backend-go-2025" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">课程文档</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li">
+  <a href="/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/" title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go"><span class="">第0课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li">
+  <a href="/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson0202-li">
+  <a href="/docs/lesson02/02/" title="数组和切片" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson0202"><span class="">第2课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li">
+  <a href="/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/" title="包、指针、结构体和接口" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6"><span class="">第3课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li">
+  <a href="/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/" title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe"><span class="">第4课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson05e5b9b6e58f91-li">
+  <a href="/docs/lesson05/%E5%B9%B6%E5%8F%91/" title="并发编程" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson05e5b9b6e58f91"><span class="">第5课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson06readme-li">
+  <a href="/docs/lesson06/readme/" title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson06readme"><span class="">第6课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson07lesson7-li">
+  <a href="/docs/lesson07/lesson7/" title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson07lesson7"><span class="">第7课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson08readme-li">
+  <a href="/docs/lesson08/readme/" title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson08readme"><span class="">第8课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09readme-li">
+  <a href="/docs/lesson09/readme/" title="第九课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09readme"><span class="">第9课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson10docker-li">
+  <a href="/docs/lesson10/docker/" title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson10docker"><span class="">第10课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson11readme-li">
+  <a href="/docs/lesson11/readme/" title="单体架构实战" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson11readme"><span class="">第11课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson12e6b688e681afe9989fe58897-li">
+  <a href="/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" title="第十二课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson12e6b688e681afe9989fe58897"><span class="">第12课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docslesson13lesson13-li">
+  <a href="/docs/lesson13/lesson13/" title="微服务入门" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-docslesson13lesson13"><span class="td-sidebar-nav-active-item">第13课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson14lesson14-li">
+  <a href="/docs/lesson14/lesson14/" title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson14lesson14"><span class="">第14课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson15readme-li">
+  <a href="/docs/lesson15/readme/" title="第十五课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson15readme"><span class="">第15课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson16readme-li">
+  <a href="/docs/lesson16/readme/" title="负载均衡" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson16readme"><span class="">第16课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li">
+  <a href="/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/" title="第十七课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe"><span class="">第17课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li">
+  <a href="/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/" title="第十八课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180"><span class="">第18课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09example2baidu-li">
+  <a href="/docs/lesson09/example2/baidu/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09example2baidu"><span class=""></span></a>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/CrazyForCode/course-backend-go-2025/tree/main/content/docs/lesson13/lesson13.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/edit/main/content/docs/lesson13/lesson13.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/new/main/content/docs/lesson13?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/issues/new?title=%e5%be%ae%e6%9c%8d%e5%8a%a1%e5%85%a5%e9%97%a8" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#单体应用">单体应用</a>
+      <ul>
+        <li><a href="#单体应用的优点">单体应用的优点</a></li>
+        <li><a href="#单体应用的缺点">单体应用的缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#微服务">微服务</a>
+      <ul>
+        <li><a href="#微服务优点">微服务优点</a></li>
+        <li><a href="#微服务缺点">微服务缺点</a></li>
+        <li><a href="#微服务拆分原则">微服务拆分原则</a></li>
+      </ul>
+    </li>
+    <li><a href="#rpc">RPC</a>
+      <ul>
+        <li><a href="#什么是rpc">什么是RPC</a></li>
+        <li><a href="#为什么要用rpc">为什么要用RPC</a></li>
+        <li><a href="#为什么不用http">为什么不用HTTP</a></li>
+        <li><a href="#框架需要解决的问题">框架需要解决的问题</a></li>
+        <li><a href="#基本组成">基本组成</a></li>
+        <li><a href="#服务注册与发现">服务注册与发现</a></li>
+        <li><a href="#服务发现">服务发现</a></li>
+      </ul>
+    </li>
+    <li><a href="#框架推荐">框架推荐</a>
+      <ul>
+        <li><a href="#go-zero">Go-zero</a></li>
+        <li><a href="#kitex">Kitex</a></li>
+        <li><a href="#学习项目推荐">学习项目推荐</a></li>
+      </ul>
+    </li>
+    <li><a href="#阅读">阅读</a></li>
+    <li><a href="#作业">作业</a></li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">课程文档</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    第13课</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>微服务入门</h1>
+	<div class="lead">微服务入门</div>
+	<header class="article-meta">
+		
+</header>
+	<h1 id="微服务入门">微服务入门</h1>
+<h2 id="单体应用">单体应用</h2>
+<p>与微服务相对的另一个概念是传统的「单体式应用程序」( Monolithic application )，单体式应用内部包含了所有需要的服务。而且各个服务功能模块有很强的耦合性，也就是相互依赖彼此，很难拆分和扩容。</p>
+<h3 id="单体应用的优点">单体应用的优点</h3>
+<ul>
+<li>开发简洁，功能都在单个程序内部，便于软件设计和开发规划。</li>
+<li>容易部署，程序单一不存在分布式集群的复杂部署环境，降低了部署难度。</li>
+<li>容易测试，没有各种复杂的服务调用关系，都是内部调用方便测试。</li>
+</ul>
+<h3 id="单体应用的缺点">单体应用的缺点</h3>
+<p>单体架构随着功能增多，不可避免的是研发效能的降低：研发周期变长、研发资源占用增多。从而引发的情况是：新员工培训时间增多、员工加班时间变长、员工要求涨薪或者跳槽。到了这种情况就说明，单体架构已经不能够满足企业发展需要，这个时候，需要升级架构来提升研发效能，比如微服务架构。</p>
+<h2 id="微服务">微服务</h2>
+<blockquote>
+<p>2014年，<a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2FMartin_Fowler">Martin Fowler</a> 与 <a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DJames_Lewis%26action%3Dedit%26redlink%3D1">James Lewis</a> 共同提出了微服务的概念，定义了微服务是由以单一应用程序构成的小服务，自己拥有自己的行程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用 HTTP API 通信。同时服务会使用最小的规模的集中管理 (例如 <a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2FDocker">Docker</a>) 能力，服务可以用不同的编程语言与数据库等组件实现 。「维基百科」</p></blockquote>
+<p>微服务是一种架构风格：</p>
+<ol>
+<li>一组小服务</li>
+<li>每个服务运行在独立进程中</li>
+<li>服务之间使用轻量级通信</li>
+<li>服务可独立部署</li>
+<li>是基于业务能力实现</li>
+<li>无集中式管理</li>
+</ol>
+<p>业界对于微服务还有一句更加剪短的描述：<strong>微服务是一组小而自治的服务</strong>。</p>
+<h3 id="微服务优点">微服务优点</h3>
+<p>优点很多，我们介绍几个比较重要的。</p>
+<h4 id="隔离性">隔离性</h4>
+<p>一个服务不可用不会导致另一个服务也瘫痪，因为各个服务是相互独立和自治的系统。这在单体应用程序中是做不到的，单体应用程序中某个模块瘫痪，必将导致整个系统不可用，当然，单体程序也可以在不同机器上部署同样的程序来实现备份，不过，同样存在上面说的资源浪费问题。</p>
+<h4 id="可扩展性">可扩展性</h4>
+<p>庞大的单体服务如果出现性能瓶颈只能对软件整体进行扩展，可能真正影响性能的只是其中一个很小的模块，我们也不得不付出升级整个应用的代价。这在微服务架构中得到了改善，你可以只对那些影响性能的服务做扩展升级，这样对症下药的效果是很好的。</p>
+<h4 id="简化部署">简化部署</h4>
+<p>如果你的服务是一个超大的单体服务，有几百万行代码，即使修改了几行代码也要重新编译整个应用，这显然是非常繁琐的，而且软件变更带来的不确定性非常高，软件部署的影响也非常大。在微服务架构中，各个服务的部署是独立的，如果真出了问题也只是影响单个服务，可以快速回滚版本解决。</p>
+<h4 id="易优化">易优化</h4>
+<p>微服务架构中单个服务的代码量不会很大，这样当你需要重构或者优化这部分服务的时候，就会容易很多，毕竟，代码量越少意味着代码改动带来的影响越可控。</p>
+<h3 id="微服务缺点">微服务缺点</h3>
+<p>任何技术都存在它的弊端，没有弊端就没有新型技术的演进。</p>
+<p>服务的拆分和定义是一种挑战。拆分服务是一项具备艺术的行为，因其本身就没有一个具体、良好的定义的模板或者算法来协助我们的拆分工作。</p>
+<p>分布式系统带来的各种复杂性。采用这项模式之后，我们依然需要考虑它的复杂性，比如测试、事务、部署模式、通讯、网关、服务发现、可靠性、安全，可观测性（日志、审计、跟踪，健康检查）等等一系列额外的任务需要做。</p>
+<h3 id="微服务拆分原则">微服务拆分原则</h3>
+<p>在我看来，微服务拆分其实目前来说没有确定的原则和标准可以参考，我们进行服务拆分时可以参考以下几个方面：</p>
+<p>按业务功能拆分：将整个系统按照不同的业务模块进行拆分，每个模块对应一个微服务。这种方式能够有效地降低系统的复杂度，提高系统的可维护性和可扩展性。</p>
+<p>按数据拆分：将整个系统的数据按照不同的领域进行拆分，每个领域对应一个微服务。这种方式能够提高系统的性能和可扩展性。</p>
+<p>按用户界面拆分：将整个系统按照不同的用户界面进行拆分，每个用户界面对应一个微服务。这种方式能够实现快速迭代和响应用户需求的能力。</p>
+<p>按技术栈拆分：将整个系统按照不同的技术栈进行拆分，每个技术栈对应一个微服务。这种方式能够提高开发效率和降低系统的复杂度。</p>
+<p>按性能拆分：将整个系统按照不同的性能需求进行拆分，每个需求对应一个微服务。这种方式能够提高系统的性能和可扩展性。</p>
+<h2 id="rpc">RPC</h2>
+<h3 id="什么是rpc">什么是RPC</h3>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/rpc.jpg" alt="img"></p>
+<p>RPC是指远程过程调用,是Remote Procedure Call三个单词的缩写，功能就是本地的函数一样去调远程函数，远程一般是指通过网络从远程计算机程序上请求服务，也可以在在宿主机下通过网络进行不同架构下的互相请求服务。</p>
+<p>RPC在分布式或者微服务架构上非常常用，RPC让不同服务之间的服务调用像本地调用一样简单高效，RPC是一种网络协议，是一种规范，每个大厂几乎都有自己研发的RPC协议。</p>
+<h3 id="为什么要用rpc">为什么要用RPC</h3>
+<p>如果我们开发简单的单一应用，逻辑简单、用户不多、流量不大，那我们用不着。</p>
+<p>当我们的系统访问量增大、业务增多时，我们会发现一台单机运行此系统已经无法承受。此时，我们可以将业务拆分成几个互不关联的应用，分别部署在各自机器上，以划清逻辑并减小压力。此时，我们也可以不需要RPC，因为应用之间是互不关联的。</p>
+<p>当我们的业务越来越多、应用也越来越多时，自然的，我们会发现有些功能已经不能简单划分开来或者划分不出来。此时，可以将公共业务逻辑抽离出来，将之组成独立的服务Service应用 。而原有的、新增的应用都可以与那些独立的Service应用 互，以此来完成完整的业务功能。</p>
+<p>所以此时，我们急需一种高效的应用程序之间的通讯手段来完成这种需求，服务之间的调用需要各种场景和因素的考虑，内部原理非常复杂和繁琐，同时在集群情况下，服务的负载均衡，熔断，限流等都是需要去考虑的，这时候就需要一个集服务注册发现、负载均衡、序列化协议、RPC通信协议、Socket通信、异步调用、熔断降级等技术为一体的技术去完成这些公共功能，所以你看，RPC大显身手的时候来了！</p>
+<p>其实描述的场景也是服务化 、微服务和分布式系统架构的基础场景。即RPC框架就是实现以上结构的有力方式。</p>
+<h3 id="为什么不用http">为什么不用HTTP</h3>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/rpc-framework-vs-rest.webp" alt="img"></p>
+<p>为什么有HTTP还需要RPC呢？RPC那么复杂为什么不用HTTP请求.</p>
+<p>首先需要指正，这两个并不是并行概念。RPC 是一种<strong>设计</strong>，就是为了解决<strong>不同服务之间的调用问题</strong>，完整的 RPC 实现一般会包含有 <strong>传输协议</strong> 和 <strong>序列化协议</strong> 这两个。</p>
+<p>而 HTTP 是一种传输协议，RPC 框架完全可以使用 HTTP 作为传输协议，也可以直接使用 TCP，使用不同的协议一般也是为了适应不同的场景。</p>
+<p>RPC主要是为了解决特定的问题或者节约成本的角度出发的。</p>
+<p>使用 TCP 和使用 HTTP 各有优势：</p>
+<p><strong>传输效率</strong>：</p>
+<ul>
+<li>TCP，通常自定义上层协议，可以让请求报文体积更小</li>
+<li>HTTP：如果是基于HTTP 1.1 的协议，请求中会包含很多无用的内容</li>
+</ul>
+<p><strong>性能消耗</strong>，主要在于序列化和反序列化的耗时</p>
+<ul>
+<li>TCP，可以基于各种序列化框架进行，效率比较高</li>
+<li>HTTP，大部分是通过 json 来实现的，字节大小和序列化耗时都要更消耗性能</li>
+</ul>
+<p><strong>跨平台</strong>：</p>
+<ul>
+<li>TCP：通常要求客户端和服务器为统一平台</li>
+<li>HTTP：可以在各种异构系统上运行</li>
+</ul>
+<p><strong>总结</strong>： RPC 的 TCP 方式主要用于公司内部的服务调用，性能消耗低，传输效率高。HTTP主要用于对外的异构环境，浏览器接口调用，APP接口调用，第三方接口调用等。</p>
+<h3 id="框架需要解决的问题">框架需要解决的问题</h3>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/discovery-problem.jpg" alt="img"></p>
+<p>RPC是指远程过程调用，也就是说两台服务器A，B，一个应用部署在A服务器上，想要调用B服务器上应用提供的函数/方法，由于<strong>不在一个内存空间，不能直接调用</strong>，需要通过网络来表达调用的语义和传达调用的数据。</p>
+<p>比如说，一个方法可能是这样定义的：func GetUserProfile(userId int64) *Profile 那么：</p>
+<p>第一，<strong>首先，要解决通讯的问题</strong>，主要是通过在客户端和服务器之间建立TCP连接（socket），远程过程调用的所有交换的数据都在这个连接里传输。连接可以是按需连接，调用结束后就断掉，也可以是长连接，多个远程过程调用共享同一个连接。</p>
+<p>第二，<strong>要解决寻址的问题</strong>，也就是说，A服务器上的应用怎么告诉底层的RPC框架，如何连接到B服务器（如主机或IP地址）以及特定的端口，方法的名称名称是什么，这样才能完成调用。</p>
+<p>第三，当A服务器上的应用发起远程过程调用时，方法的参数需要通过底层的网络协议如TCP传递到B服务器，由于网络协议是基于二进制的，内存中的参数的值要序列化成二进制的形式，也就是<strong>序列化</strong>（Serialize）或编组（marshal），通过寻址和传输将序列化的二进制发送给B服务器。</p>
+<p>第四，B服务器收到请求后，需要对参数进行反序列化（序列化的逆操作），恢复为内存中的表达方式，然后找到对应的方法（寻址的一部分）进行本地调用，然后得到返回值。</p>
+<p>第五，返回值还要发送回服务器A上的应用，也要经过序列化的方式发送，服务器A接到后，再反序列化，恢复为内存中的表达方式，交给A服务器上的应用</p>
+<p><strong>总的来说可以归纳为以下几步：</strong></p>
+<ol>
+<li>远程服务之间建立通讯协议</li>
+<li>寻址：服务器（如主机或IP地址）以及特定的端口，方法的名称名称是什么</li>
+<li>通过序列化和反序列化进行数据传递</li>
+<li>将传递过来的数据通过java反射原理定位接口方法和参数</li>
+<li>暴露服务：用map将寻址的信息暴露给远方服务（提供一个endpoint <em>URI或者一个前端展示页面</em>）</li>
+<li>多线程并发请求业务</li>
+</ol>
+<h3 id="基本组成">基本组成</h3>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/service-discovery.png" alt="img"></p>
+<p>RPC框架需要的最基本的三个要素：</p>
+<ul>
+<li>ServiceProvider: 服务提供方，提供相关服务接口。</li>
+<li>ServiceConsumer: 服务消费方，消费服务提供方的接口。</li>
+<li>Registry: 注册中心，用于进行服务的注册、发现、治理、高可用。</li>
+</ul>
+<h4 id="注册中心">注册中心</h4>
+<p>注册中心是RPC框架中的管理者和协调者角色，虽然在远程过程调用中服务消费者会不经过注册中心，会直接向服务提供者发送请求，但是随着我们的服务方越来越多，每个服务的实例也不断变化的，且每个服务的地址，端口等信息是需要通知到消费方的，所以我们需要一个类似“管家”的角色，来负责管理服务注册和发现的工作，这个“管家”我们称之为注册中心。</p>
+<p>一个合格的注册中心需要具备包括缓存和持久化服务提供方数据，动态更新服务提供者信息，动态监听服务提供方节点变化，推送节点变化到消费方，查询服务提供方数据等功能。</p>
+<h4 id="服务提供方rpc服务端">服务提供方（RPC服务端）</h4>
+<p>其需要对外提供服务接口，一个服务方需要包括启动连接注册中心，注册相关信息到注册中心，提供服务下线和更新机制，维护服务名和服务的映射，序列化和反序列化，启动通信等。</p>
+<h4 id="服务消费方rpc客户端">服务消费方（RPC客户端）</h4>
+<p>服务消费方需要具备可以从注册中心拉取服务列表，缓存服务列表，动态监听和更新服务列表的功能，还需要具备针对于服务的负载均衡策略，序列化和反序列化，根据约定的通信协议进行调用等。</p>
+<h3 id="服务注册与发现">服务注册与发现</h3>
+<p>简单来说，当服务A需要依赖服务B时，我们就需要告诉服务A，哪里可以调用到服务B，这就是服务注册发现要解决的问题。</p>
+<p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class11-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8ERPC%E6%A1%86%E6%9E%B6/images/service-discovery.png" alt="img"></p>
+<ul>
+<li><code>Service B</code> 把自己注册到 <code>Service Registry</code> 叫做 <strong>服务注册</strong></li>
+<li><code>Service A</code> 从 <code>Service Registry</code> 发现 <code>Service B</code> 的节点信息叫做 <strong>服务发现</strong></li>
+</ul>
+<h4 id="服务注册">服务注册</h4>
+<p>服务注册是针对服务端的，服务启动后需要注册，分为几个部分：</p>
+<ul>
+<li>启动注册</li>
+<li>定时续期</li>
+<li>退出撤销</li>
+</ul>
+<h5 id="启动注册">启动注册</h5>
+<p>当一个服务节点起来之后，需要把自己注册到 <code>Service Registry</code> 上，便于其它节点来发现自己。注册需要在服务启动完成并可以接受请求时才会去注册自己，并且会设置有效期，防止进程异常退出后依然被访问。</p>
+<h5 id="定时续期">定时续期</h5>
+<p>定时续期相当于 <code>keep alive</code>，定期告诉 <code>Service Registry</code> 自己还在，能够继续服务。</p>
+<h5 id="退出撤销">退出撤销</h5>
+<p>当进程退出时，我们应该主动去撤销注册信息，便于调用方及时将请求分发到别的节点。同时，go-zero 通过自适应的负载均衡来保证即使节点退出没有主动注销，也能及时摘除该节点。</p>
+<h3 id="服务发现">服务发现</h3>
+<p>服务发现是针对调用端的，一般分为两类问题：</p>
+<ul>
+<li>存量获取</li>
+<li>增量侦听</li>
+</ul>
+<p>还有一个常见的工程问题是</p>
+<ul>
+<li>应对服务发现故障</li>
+</ul>
+<p>当服务发现服务（比如 etcd, consul, nacos等）出现问题的时候，我们不要去修改已经获取到的 endpoints 列表，从而可以更好的确保 etcd 等宕机后所依赖的服务依然可以正常交互。</p>
+<h4 id="存量获取">存量获取</h4>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2fc0a889be0421883d707493e327527~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p>当 <code>Service A</code> 启动时，需要从 <code>Service Registry</code> 获取 <code>Service B</code> 的已有节点列表：<code>Service B1</code>, <code>Service B2</code>, <code>Service B3</code>，然后根据自己的负载均衡算法来选择合适的节点发送请求。</p>
+<h4 id="增量侦听">增量侦听</h4>
+<p>上图已经有了 <code>Service B1</code>, <code>Service B2</code>, <code>Service B3</code>，如果此时又启动了 <code>Service B4</code>，那么我们就需要通知 <code>Service A</code> 有个新增的节点。如图：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71497af0435442e3acffff9dfd67cb86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<h4 id="应对服务发现故障">应对服务发现故障</h4>
+<p>对于服务调用方来说，我们都会在内存里缓存一个可用节点列表。不管是使用 <code>etcd</code>，<code>consul</code> 或者 <code>nacos</code> 等，我们都可能面临服务发现集群故障，以 <code>etcd</code> 为例，当遇到 <code>etcd</code> 故障时，我们就需要冻结 <code>Service B</code> 的节点信息而不去变更，此时一定不能去清空节点信息，一旦清空就无法获取了，而此时 <code>Service B</code> 的节点很可能都是正常的，并且 <code>go-zero</code> 会自动隔离和恢复故障节点。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5af33ecc71dc44639825092ea0a81e4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p>对服务发现模式的介绍：<a href="https://juejin.cn/post/7028348724447281189?searchId=202403092351383768936C87D074711FFA">微服务中服务注册和发现的可行性方案 - 掘金 (juejin.cn)</a></p>
+<h2 id="框架推荐">框架推荐</h2>
+<h3 id="go-zero">Go-zero</h3>
+<p>go-zero（收录于 CNCF 云原生技术全景图：https://landscape.cncf.io/?selected=go-zero）是一个集成了各种工程实践的 web 和 rpc 框架。通过弹性设计保障了大并发服务端的稳定性，经受了充分的实战检验。</p>
+<p><img src="https://raw.githubusercontent.com/zeromicro/zero-doc/main/doc/images/go-zero.png" alt="img"></p>
+<p><a href="https://github.com/zeromicro/go-zero">GitHub</a></p>
+<p><a href="https://go-zero.dev/">官方文档</a></p>
+<p><a href="https://github.com/Mikaelemmmm/go-zero-looklook">go-zero-looklook</a></p>
+<h3 id="kitex">Kitex</h3>
+<p>Kitex [kaɪt’eks] 字节跳动内部的 Golang 微服务 RPC 框架，具有<strong>高性能</strong>、<strong>强可扩展</strong>的特点，在字节内部已广泛使用。如果对微服务性能有要求，又希望定制扩展融入自己的治理体系，Kitex 会是一个不错的选择。</p>
+<p><a href="https://github.com/cloudwego/kitex">Github</a></p>
+<p><a href="https://www.cloudwego.io/zh/docs/kitex/">官方文档</a></p>
+<p><a href="https://github.com/cloudwego/biz-demo">biz-demo</a></p>
+<h3 id="学习项目推荐">学习项目推荐</h3>
+<p>Herzt&amp;Kitex：<a href="https://github.com/ViolaPioggia/GoYin">ViolaPioggia/GoYin: 第六届字节跳动青训营后端极简版抖音（二等奖🥈） (github.com)</a></p>
+<p>（万神🤩）</p>
+<p>Go-zero：<a href="https://github.com/GophersTeam/GopherTok">GophersTeam/GopherTok: Gopher小队的极简抖音 (github.com)</a> （显哥🥰）</p>
+<h2 id="阅读">阅读</h2>
+<p><a href="https://juejin.cn/post/6844903971086139400">Thrift &amp; IDL 介绍 - 掘金 (juejin.cn)</a></p>
+<p><a href="https://juejin.cn/post/7191008929986379836">写给go开发者的gRPC教程-protobuf基础 - 掘金 (juejin.cn)</a></p>
+<h2 id="作业">作业</h2>
+<p>阅读你感兴趣的框架文档 尝试读懂推荐项目代码 学会写IDL文件</p>
+<p>学有余力可以写demo练手 :) （无需提交）</p>
+
+	<div class="td-page-meta__lastmod">
+  最后修改 August 24, 2025: <a data-proofer-ignore href="https://github.com/CrazyForCode/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1">initial commit (0d79837)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/CrazyForCode/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/CrazyForCode/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

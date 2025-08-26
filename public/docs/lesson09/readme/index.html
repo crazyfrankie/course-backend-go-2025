@@ -1,51 +1,396 @@
-<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-cn class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><link rel="shortcut icon" href=/favicons/favicon.ico><link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192><title>第九课 | Go 后端开发教程</title><meta name=description content="第九课"><meta property="og:url" content="https://example.org/docs/lesson09/readme/"><meta property="og:site_name" content="Go 后端开发教程"><meta property="og:title" content="第九课"><meta property="og:description" content="第九课"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2025-08-24T17:26:13+08:00"><meta itemprop=name content="第九课"><meta itemprop=description content="第九课"><meta itemprop=dateModified content="2025-08-24T17:26:13+08:00"><meta itemprop=wordCount content="373"><meta name=twitter:card content="summary"><meta name=twitter:title content="第九课"><meta name=twitter:description content="第九课"><link rel=preload href=/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css as=style integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin=anonymous><link href=/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css rel=stylesheet integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script></head><body class=td-page><header><nav class="td-navbar js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class=navbar-brand__name>Go 后端开发教程</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/><span>课程首页</span></a></li><li class=nav-item><a class=nav-link href=/docs/><span>课程文档</span></a></li><li class=nav-item><a class=nav-link href=https://github.com/CrazyForCode/course-backend-go-2025 target=_blank rel=noopener><span>GitHub</span></a></li></ul></div><div class="d-none d-lg-block"></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type=button data-bs-toggle=collapse data-bs-target=#td-section-nav aria-controls=td-section-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="td-sidebar-nav collapse" id=td-section-nav><ul class="td-sidebar-nav__section pe-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li><a href=/docs/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>课程文档</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li><a href=/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/ title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go><span>第0课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li><a href=/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/ title=基础语法 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe><span>第1课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson0202-li><a href=/docs/lesson02/02/ title=数组和切片 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson0202><span>第2课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li><a href=/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/ title=包、指针、结构体和接口 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson03e7acace4b889e591a8e8afbee4bbb6><span>第3课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li><a href=/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/ title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe><span>第4课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson05e5b9b6e58f91-li><a href=/docs/lesson05/%E5%B9%B6%E5%8F%91/ title=并发编程 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson05e5b9b6e58f91><span>第5课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson06readme-li><a href=/docs/lesson06/readme/ title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson06readme><span>第6课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson07lesson7-li><a href=/docs/lesson07/lesson7/ title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson07lesson7><span>第7课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson08readme-li><a href=/docs/lesson08/readme/ title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson08readme><span>第8课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docslesson09readme-li><a href=/docs/lesson09/readme/ title=第九课 class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id=m-docslesson09readme><span class=td-sidebar-nav-active-item>第9课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson10docker-li><a href=/docs/lesson10/docker/ title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson10docker><span>第10课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson11readme-li><a href=/docs/lesson11/readme/ title=单体架构实战 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson11readme><span>第11课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson12e6b688e681afe9989fe58897-li><a href=/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/ title=第十二课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson12e6b688e681afe9989fe58897><span>第12课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson13lesson13-li><a href=/docs/lesson13/lesson13/ title=微服务入门 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson13lesson13><span>第13课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson14lesson14-li><a href=/docs/lesson14/lesson14/ title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson14lesson14><span>第14课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson15readme-li><a href=/docs/lesson15/readme/ title=第十五课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson15readme><span>第15课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson16readme-li><a href=/docs/lesson16/readme/ title=负载均衡 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson16readme><span>第16课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li><a href=/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/ title=第十七课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe><span>第17课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li><a href=/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/ title=第十八课 class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson18e58886e5b883e5bc8fe59fbae7a180><span>第18课</span></a></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docslesson09example2baidu-li><a href=/docs/lesson09/example2/baidu/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-docslesson09example2baidu><span></span></a></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ms-2 pb-1 pt-2 mb-0"><a href=https://github.com/your-username/course-backend-go-2025/tree/main/content/docs/lesson09/README.md class="td-page-meta--view td-page-meta__view" target=_blank rel=noopener><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
-<a href=https://github.com/your-username/course-backend-go-2025/edit/main/content/docs/lesson09/README.md class="td-page-meta--edit td-page-meta__edit" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
-<a href="https://github.com/your-username/course-backend-go-2025/new/main/content/docs/lesson09?filename=change-me.md&amp;value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child td-page-meta__child" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
-<a href="https://github.com/your-username/course-backend-go-2025/issues/new?title=%e7%ac%ac%e4%b9%9d%e8%af%be" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#前言>前言</a></li><li><a href=#linux-基础>Linux 基础</a><ul><li><a href=#啥是linux>啥是linux?</a></li><li><a href=#linux-的各个发行版>linux 的各个发行版</a></li><li><a href=#linux-目录>linux 目录</a></li><li><a href=#linux常用命令>linux常用命令</a></li><li><a href=#部署>部署</a></li><li><a href=#作业>作业</a></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><nav aria-label=breadcrumb class=td-breadcrumbs><ol class=breadcrumb><li class=breadcrumb-item><a href=/docs/>课程文档</a></li><li class="breadcrumb-item active" aria-current=page>第9课</li></ol></nav><div class=td-content><h1>第九课</h1><div class=lead>第九课</div><header class=article-meta></header><h2 id=前言>前言</h2><p>俗话说，不会 linux 的后端不是好运维，后端开发人员也需要懂一点运维。</p><p>展望目前行业的发展，自动化运维和 DevOps 等理念的诞生和推广，其实也让运维和开发的边界变得更加的模糊，运维人员可能需要掌握一些开发语言来实现编写自动化运维的脚本，或者需要掌握一些开发的语言和工作流程以便更好地协作。开发人员可能也需要了解运维的内容以便更好地开发实际有用的软件以及更好地协作。</p><h2 id=linux-基础>Linux 基础</h2><h3 id=啥是linux>啥是linux?</h3><blockquote><p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。 Linux操作系统诞生于1991 年10 月5 日（这是第一次正式向外公布时间）。Linux存在着许多不同的Linux版本，但它们都使用了Linux内核。Linux可安装在各种计算机硬件设备中，比如手机、平板电脑、路由器、视频游戏控制台、台式计算机、大型机和超级计算机。 严格来讲，Linux这个词本身只表示<strong>Linux内核</strong>，但实际上人们已经习惯了用Linux来形容整个基于Linux内核，并且使用GNU 工程各种工具和数据库的操作系统。</p></blockquote><p>全世界 99% 服务器的操作系统都是 Linux</p><h3 id=linux-的各个发行版>linux 的各个发行版</h3><p><img src=https://pic4.zhimg.com/80/v2-c79ecff3534b9e135aac51673172a7cf_720w.webp alt=img></p><p>Linux发行版主要有三个分支：Debian、Slackware、Redhat。
-(1)Debian:（以社区的方式运作）</p><ol><li>Ubuntu:基于Debian开发的开源Linux操作系统，主要针对桌面和服务器；</li><li>Linux Mint:基于Debian和Ubuntu的Linux发行版，致力于桌面系统对个人用户每天的工作更易用，更高效，且目标是提供一种更完整的即刻可用体验。</li></ol><p>(2)slackware</p><ol><li>suse：基于Slackware二次开发的一款Linux,主要用于商业桌面、服务器。</li><li>SLES(SUSE Linux Enterprise Server(SLES):企业服务器操作系统，是唯一与微软系统兼容的Linux操作系统。</li><li>OpenSUSE:由suse发展而来，旨在推进linux的广泛使用，主要用于桌面环境，用户界面非常华丽，而且性能良好。</li></ol><p>(3)Redhat</p><ol><li>rhel(red hat enterprise Linux):Red Hat公司发布的面向企业用户的Linux操作系统。早起版本主要用于桌面环境，免费：</li><li>Fedora:基于Red Hat Linux终止发行后，红帽公司计划以Fedora来取代Red Hat Linux在个人领域的应用，而另外发行的Red Hat Enterprise Linux取代Red Hat Linux在商业应用的领域。Fedora的功能对于用户而言，它是一套功能完备、更新快速的免费操作系统，而对赞助者Red Hat公司而言，它是许多新技术的测试平台，被认为可用的技术最终会加入到Red Hat Enterprise Linux中。Fedora大约每六个月发布新版本。</li><li>Centos:基于Red hat Linux提供的可自由使用源代码的企业级Linux发行版本。每个版本的Centos都会获得十年的支持（通过安全更新的方式）。新版本的Centos大约每两年发行一次，而每个版本的Centos会定期（大概6个月）更新一次，以支持新的硬件。这样，建立一个安全、低维护、稳定、高预测性、高重复性的Linux环境。</li></ol><p>(4)其他发行版本：</p><ol><li>Gentoo:基于linux的自由操作系统，基于Linux的自由操作系统，它能为几乎任何应用程序或需求自动地作出优化和定制。追求极限的配置、性能，以及顶尖的用户和开发者社区，都是Gentoo体验的标志特点， Gentoo的哲学是自由和选择。得益于一种称为Portage的技术，Gentoo能成为理想的安全服务器、开发工作站、专业桌面、游戏系统、嵌入式解决方案或者别的东西&ndash;你想让它成为什么，它就可以成为什么。由于它近乎无限的适应性，可把Gentoo称作元发行版。</li><li>Aech Linux(或称Arch):以轻量简洁为设计理念的Linux发行版。其开发团队秉承简洁、优雅和代码最小化的设计宗旨。</li></ol><h3 id=linux-目录>linux 目录</h3><p>根目录 <code>/</code> 是整个文件系统的起始点，但实际上，Linux 文件系统采用了一种层次结构来组织文件和目录。</p><p>根目录 <code>/</code> 下有许多子目录，这些子目录用于组织不同类型的文件和系统资源。以下是一些常见的子目录及其用途：</p><ul><li><code>/bin</code>：包含可执行文件，用于存放基本的系统命令。</li><li><code>/boot</code>：包含启动所需的文件，例如内核和引导加载程序。</li><li><code>/etc</code>：包含系统配置文件。</li><li><code>/home</code>：用户的主目录，每个用户都有一个对应的子目录。</li><li><code>/lib</code>：包含共享库文件，用于支持系统和应用程序。</li><li><code>/opt</code>：用于安装可选软件包的目录。</li><li><code>/root</code>：超级用户（root）的主目录。</li><li><code>/sbin</code>：包含系统管理员使用的系统命令。</li><li><code>/usr</code>：包含用户安装的应用程序和文件，类似于程序文件夹。</li><li><code>/var</code>：包含可变的数据文件，例如日志文件和缓存文件。</li></ul><h3 id=linux常用命令>linux常用命令</h3><h5 id=安装>安装</h5><h6 id=ubuntuapt><strong>Ubuntu（apt）</strong></h6><ul><li>安装软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo apt-get update  # 更新软件包列表
-</span></span><span style=display:flex><span>sudo apt-get install packageName  # 安装软件包
-</span></span></code></pre></td></tr></table></div></div><ul><li>删除软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo apt-get remove packageName  # 删除软件包（保留配置文件）
-</span></span><span style=display:flex><span>sudo apt-get purge packageName   # 删除软件包及其配置文件
-</span></span></code></pre></td></tr></table></div></div><ul><li>搜索软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo apt search packageName  # 搜索软件包
-</span></span></code></pre></td></tr></table></div></div><ul><li>更新软件包列表</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo apt-get update  # 更新软件包列表
-</span></span></code></pre></td></tr></table></div></div><h6 id=centosyum><strong>CentOS（yum）</strong></h6><ul><li>安装软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo yum update  # 更新软件包列表（yum）
-</span></span><span style=display:flex><span>sudo yum install packageName  # 安装软件包（yum）
-</span></span></code></pre></td></tr></table></div></div><ul><li>删除软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo yum remove packageName  # 删除软件包
-</span></span></code></pre></td></tr></table></div></div><ul><li>搜索软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo yum search packageName  # 搜索软件包（yum）
-</span></span></code></pre></td></tr></table></div></div><ul><li>更新软件包列表</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sudo yum update  # 更新软件包列表（yum）
-</span></span></code></pre></td></tr></table></div></div><h6 id=alpineapk><strong>Alpine（apk）</strong></h6><ul><li>安装软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>apk add packageName  # 安装软件包
-</span></span></code></pre></td></tr></table></div></div><ul><li>删除软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>apk del packageName  # 删除软件包
-</span></span></code></pre></td></tr></table></div></div><ul><li>搜索软件包</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>apk search packageName  # 搜索软件包
-</span></span></code></pre></td></tr></table></div></div><ul><li>更新软件包列表</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>apk update  # 更新软件包列表
-</span></span></code></pre></td></tr></table></div></div><h5 id=说明书>说明书</h5><pre tabindex=0><code>man xxx
-</code></pre><h5 id=查看当前目录下所有文件>查看当前目录下所有文件</h5><pre tabindex=0><code>ls
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>第九课 | Go 后端开发教程</title>
+<meta name="description" content="第九课">
+<meta property="og:url" content="http://localhost:1313/docs/lesson09/readme/">
+  <meta property="og:site_name" content="Go 后端开发教程">
+  <meta property="og:title" content="第九课">
+  <meta property="og:description" content="第九课">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2025-08-24T17:26:13+08:00">
+
+  <meta itemprop="name" content="第九课">
+  <meta itemprop="description" content="第九课">
+  <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
+  <meta itemprop="wordCount" content="373">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="第九课">
+  <meta name="twitter:description" content="第九课">
+<link href="/scss/main.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">Go 后端开发教程</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/"><span>课程首页</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>课程文档</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/CrazyForCode/course-backend-go-2025" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">课程文档</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li">
+  <a href="/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/" title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go"><span class="">第0课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li">
+  <a href="/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson0202-li">
+  <a href="/docs/lesson02/02/" title="数组和切片" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson0202"><span class="">第2课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li">
+  <a href="/docs/lesson03/%E7%AC%AC%E4%B8%89%E5%91%A8%E8%AF%BE%E4%BB%B6/" title="包、指针、结构体和接口" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6"><span class="">第3课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe-li">
+  <a href="/docs/lesson04/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE/" title="后端 Go 第四次课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson04e5908ee7abaf-go-e7acace59b9be6aca1e8afbe"><span class="">第4课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson05e5b9b6e58f91-li">
+  <a href="/docs/lesson05/%E5%B9%B6%E5%8F%91/" title="并发编程" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson05e5b9b6e58f91"><span class="">第5课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson06readme-li">
+  <a href="/docs/lesson06/readme/" title="HTTP 服务简单案例" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson06readme"><span class="">第6课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson07lesson7-li">
+  <a href="/docs/lesson07/lesson7/" title="MySQL 数据库" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson07lesson7"><span class="">第7课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson08readme-li">
+  <a href="/docs/lesson08/readme/" title="Redis 和 MongoDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson08readme"><span class="">第8课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docslesson09readme-li">
+  <a href="/docs/lesson09/readme/" title="第九课" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-docslesson09readme"><span class="td-sidebar-nav-active-item">第9课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson10docker-li">
+  <a href="/docs/lesson10/docker/" title="Docker 容器化" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson10docker"><span class="">第10课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson11readme-li">
+  <a href="/docs/lesson11/readme/" title="单体架构实战" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson11readme"><span class="">第11课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson12e6b688e681afe9989fe58897-li">
+  <a href="/docs/lesson12/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" title="第十二课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson12e6b688e681afe9989fe58897"><span class="">第12课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson13lesson13-li">
+  <a href="/docs/lesson13/lesson13/" title="微服务入门" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson13lesson13"><span class="">第13课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson14lesson14-li">
+  <a href="/docs/lesson14/lesson14/" title="Go-zero 微服务" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson14lesson14"><span class="">第14课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson15readme-li">
+  <a href="/docs/lesson15/readme/" title="第十五课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson15readme"><span class="">第15课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson16readme-li">
+  <a href="/docs/lesson16/readme/" title="负载均衡" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson16readme"><span class="">第16课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe-li">
+  <a href="/docs/lesson17/%E5%90%8E%E7%AB%AF-go-%E7%AC%AC%E5%8D%81%E4%B8%83%E6%AC%A1%E8%AF%BE/" title="第十七课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson17e5908ee7abaf-go-e7acace58d81e4b883e6aca1e8afbe"><span class="">第17课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180-li">
+  <a href="/docs/lesson18/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80/" title="第十八课" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson18e58886e5b883e5bc8fe59fbae7a180"><span class="">第18课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson09example2baidu-li">
+  <a href="/docs/lesson09/example2/baidu/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson09example2baidu"><span class=""></span></a>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/CrazyForCode/course-backend-go-2025/tree/main/content/docs/lesson09/README.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/edit/main/content/docs/lesson09/README.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/new/main/content/docs/lesson09?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+  <a href="https://github.com/CrazyForCode/course-backend-go-2025/issues/new?title=%e7%ac%ac%e4%b9%9d%e8%af%be" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+  
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#linux-基础">Linux 基础</a>
+      <ul>
+        <li><a href="#啥是linux">啥是linux?</a></li>
+        <li><a href="#linux-的各个发行版">linux 的各个发行版</a></li>
+        <li><a href="#linux-目录">linux 目录</a></li>
+        <li><a href="#linux常用命令">linux常用命令</a></li>
+        <li><a href="#部署">部署</a></li>
+        <li><a href="#作业">作业</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">课程文档</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    第9课</li>
+  </ol>
+</nav>
+<div class="td-content">
+	<h1>第九课</h1>
+	<div class="lead">第九课</div>
+	<header class="article-meta">
+		
+</header>
+	<h2 id="前言">前言</h2>
+<p>俗话说，不会 linux 的后端不是好运维，后端开发人员也需要懂一点运维。</p>
+<p>展望目前行业的发展，自动化运维和 DevOps 等理念的诞生和推广，其实也让运维和开发的边界变得更加的模糊，运维人员可能需要掌握一些开发语言来实现编写自动化运维的脚本，或者需要掌握一些开发的语言和工作流程以便更好地协作。开发人员可能也需要了解运维的内容以便更好地开发实际有用的软件以及更好地协作。</p>
+<h2 id="linux-基础">Linux 基础</h2>
+<h3 id="啥是linux">啥是linux?</h3>
+<blockquote>
+<p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。 Linux操作系统诞生于1991 年10 月5 日（这是第一次正式向外公布时间）。Linux存在着许多不同的Linux版本，但它们都使用了Linux内核。Linux可安装在各种计算机硬件设备中，比如手机、平板电脑、路由器、视频游戏控制台、台式计算机、大型机和超级计算机。 严格来讲，Linux这个词本身只表示<strong>Linux内核</strong>，但实际上人们已经习惯了用Linux来形容整个基于Linux内核，并且使用GNU 工程各种工具和数据库的操作系统。</p></blockquote>
+<p>全世界 99% 服务器的操作系统都是 Linux</p>
+<h3 id="linux-的各个发行版">linux 的各个发行版</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-c79ecff3534b9e135aac51673172a7cf_720w.webp" alt="img"></p>
+<p>Linux发行版主要有三个分支：Debian、Slackware、Redhat。
+(1)Debian:（以社区的方式运作）</p>
+<ol>
+<li>Ubuntu:基于Debian开发的开源Linux操作系统，主要针对桌面和服务器；</li>
+<li>Linux Mint:基于Debian和Ubuntu的Linux发行版，致力于桌面系统对个人用户每天的工作更易用，更高效，且目标是提供一种更完整的即刻可用体验。</li>
+</ol>
+<p>(2)slackware</p>
+<ol>
+<li>suse：基于Slackware二次开发的一款Linux,主要用于商业桌面、服务器。</li>
+<li>SLES(SUSE Linux Enterprise Server(SLES):企业服务器操作系统，是唯一与微软系统兼容的Linux操作系统。</li>
+<li>OpenSUSE:由suse发展而来，旨在推进linux的广泛使用，主要用于桌面环境，用户界面非常华丽，而且性能良好。</li>
+</ol>
+<p>(3)Redhat</p>
+<ol>
+<li>rhel(red hat enterprise Linux):Red Hat公司发布的面向企业用户的Linux操作系统。早起版本主要用于桌面环境，免费：</li>
+<li>Fedora:基于Red Hat Linux终止发行后，红帽公司计划以Fedora来取代Red Hat Linux在个人领域的应用，而另外发行的Red Hat Enterprise Linux取代Red Hat Linux在商业应用的领域。Fedora的功能对于用户而言，它是一套功能完备、更新快速的免费操作系统，而对赞助者Red Hat公司而言，它是许多新技术的测试平台，被认为可用的技术最终会加入到Red Hat Enterprise Linux中。Fedora大约每六个月发布新版本。</li>
+<li>Centos:基于Red hat Linux提供的可自由使用源代码的企业级Linux发行版本。每个版本的Centos都会获得十年的支持（通过安全更新的方式）。新版本的Centos大约每两年发行一次，而每个版本的Centos会定期（大概6个月）更新一次，以支持新的硬件。这样，建立一个安全、低维护、稳定、高预测性、高重复性的Linux环境。</li>
+</ol>
+<p>(4)其他发行版本：</p>
+<ol>
+<li>Gentoo:基于linux的自由操作系统，基于Linux的自由操作系统，它能为几乎任何应用程序或需求自动地作出优化和定制。追求极限的配置、性能，以及顶尖的用户和开发者社区，都是Gentoo体验的标志特点， Gentoo的哲学是自由和选择。得益于一种称为Portage的技术，Gentoo能成为理想的安全服务器、开发工作站、专业桌面、游戏系统、嵌入式解决方案或者别的东西&ndash;你想让它成为什么，它就可以成为什么。由于它近乎无限的适应性，可把Gentoo称作元发行版。</li>
+<li>Aech Linux(或称Arch):以轻量简洁为设计理念的Linux发行版。其开发团队秉承简洁、优雅和代码最小化的设计宗旨。</li>
+</ol>
+<h3 id="linux-目录">linux 目录</h3>
+<p>根目录 <code>/</code> 是整个文件系统的起始点，但实际上，Linux 文件系统采用了一种层次结构来组织文件和目录。</p>
+<p>根目录 <code>/</code> 下有许多子目录，这些子目录用于组织不同类型的文件和系统资源。以下是一些常见的子目录及其用途：</p>
+<ul>
+<li><code>/bin</code>：包含可执行文件，用于存放基本的系统命令。</li>
+<li><code>/boot</code>：包含启动所需的文件，例如内核和引导加载程序。</li>
+<li><code>/etc</code>：包含系统配置文件。</li>
+<li><code>/home</code>：用户的主目录，每个用户都有一个对应的子目录。</li>
+<li><code>/lib</code>：包含共享库文件，用于支持系统和应用程序。</li>
+<li><code>/opt</code>：用于安装可选软件包的目录。</li>
+<li><code>/root</code>：超级用户（root）的主目录。</li>
+<li><code>/sbin</code>：包含系统管理员使用的系统命令。</li>
+<li><code>/usr</code>：包含用户安装的应用程序和文件，类似于程序文件夹。</li>
+<li><code>/var</code>：包含可变的数据文件，例如日志文件和缓存文件。</li>
+</ul>
+<h3 id="linux常用命令">linux常用命令</h3>
+<h5 id="安装">安装</h5>
+<h6 id="ubuntuapt"><strong>Ubuntu（apt）</strong></h6>
+<ul>
+<li>安装软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo apt-get update  # 更新软件包列表
+</span></span><span style="display:flex;"><span>sudo apt-get install packageName  # 安装软件包
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo apt-get remove packageName  # 删除软件包（保留配置文件）
+</span></span><span style="display:flex;"><span>sudo apt-get purge packageName   # 删除软件包及其配置文件
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>搜索软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo apt search packageName  # 搜索软件包
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更新软件包列表</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo apt-get update  # 更新软件包列表
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="centosyum"><strong>CentOS（yum）</strong></h6>
+<ul>
+<li>安装软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo yum update  # 更新软件包列表（yum）
+</span></span><span style="display:flex;"><span>sudo yum install packageName  # 安装软件包（yum）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo yum remove packageName  # 删除软件包
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>搜索软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo yum search packageName  # 搜索软件包（yum）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更新软件包列表</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo yum update  # 更新软件包列表（yum）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="alpineapk"><strong>Alpine（apk）</strong></h6>
+<ul>
+<li>安装软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>apk add packageName  # 安装软件包
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>apk del packageName  # 删除软件包
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>搜索软件包</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>apk search packageName  # 搜索软件包
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更新软件包列表</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>apk update  # 更新软件包列表
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="说明书">说明书</h5>
+<pre tabindex="0"><code>man xxx
+</code></pre><h5 id="查看当前目录下所有文件">查看当前目录下所有文件</h5>
+<pre tabindex="0"><code>ls
 ## 列出所有文件（包括隐藏文件）
 ls -a
-</code></pre><h5 id=切换目录>切换目录</h5><pre tabindex=0><code>#绝对路径
+</code></pre><h5 id="切换目录">切换目录</h5>
+<pre tabindex="0"><code>#绝对路径
 cd /home/
 #相对路径
 cd GoProJ
-</code></pre><h5 id=查看端口号占用情况>查看端口号占用情况</h5><pre tabindex=0><code>lsof -i:8080
-</code></pre><h5 id=查看所有用户所有进程>查看所有用户所有进程</h5><pre tabindex=0><code>ps -a
-</code></pre><h5 id=强制杀死指定进程>强制杀死指定进程</h5><p>课前问题：kill 命令是什么呢？</p><pre tabindex=0><code>kill -9 12345
-</code></pre><h5 id=查看文本文件内容>查看文本文件内容</h5><pre tabindex=0><code>cat 1.txt
+</code></pre><h5 id="查看端口号占用情况">查看端口号占用情况</h5>
+<pre tabindex="0"><code>lsof -i:8080
+</code></pre><h5 id="查看所有用户所有进程">查看所有用户所有进程</h5>
+<pre tabindex="0"><code>ps -a
+</code></pre><h5 id="强制杀死指定进程">强制杀死指定进程</h5>
+<p>课前问题：kill 命令是什么呢？</p>
+<pre tabindex="0"><code>kill -9 12345
+</code></pre><h5 id="查看文本文件内容">查看文本文件内容</h5>
+<pre tabindex="0"><code>cat 1.txt
 cat main.go
-</code></pre><h5 id=修改文件权限>修改文件权限</h5><pre tabindex=0><code>chmod 733 main
+</code></pre><h5 id="修改文件权限">修改文件权限</h5>
+<pre tabindex="0"><code>chmod 733 main
 chmod +x main
 
 #千万不要输入
@@ -53,29 +398,133 @@ chmod -Rf 777 /
 #千万不要输入
 
 #威力仅次于 rm -r -f /
-</code></pre><p><a href=https://zhuanlan.zhihu.com/p/165091887>权限相关拓展</a></p><h5 id=创建文件夹>创建文件夹</h5><pre tabindex=0><code>mkdir goProJ
-</code></pre><h5 id=创建文件>创建文件</h5><pre tabindex=0><code>#touch命令
+</code></pre><p><a href="https://zhuanlan.zhihu.com/p/165091887">权限相关拓展</a></p>
+<h5 id="创建文件夹">创建文件夹</h5>
+<pre tabindex="0"><code>mkdir goProJ
+</code></pre><h5 id="创建文件">创建文件</h5>
+<pre tabindex="0"><code>#touch命令
 touch main.go
 #vim工具
 vim main.go
-</code></pre><p>[vim入门到精通]:https://zhuanlan.zhihu.com/p/68111471 .</p><h5 id=删除文件>删除文件</h5><pre tabindex=0><code>#有文件夹会一起删除
+</code></pre><p>[vim入门到精通]:https://zhuanlan.zhihu.com/p/68111471 .</p>
+<h5 id="删除文件">删除文件</h5>
+<pre tabindex="0"><code>#有文件夹会一起删除
 rm -rf main.go
-</code></pre><h5 id=管道->管道 ｜</h5><p>竖线符号 <code>|</code> 是管道符号（Pipe Symbol）。该符号用于将一个命令的输出传递给另一个命令作为输入，以便二者之间进行数据传输和处理。</p><pre tabindex=0><code>command1 | command2
+</code></pre><h5 id="管道-">管道 ｜</h5>
+<p>竖线符号 <code>|</code> 是管道符号（Pipe Symbol）。该符号用于将一个命令的输出传递给另一个命令作为输入，以便二者之间进行数据传输和处理。</p>
+<pre tabindex="0"><code>command1 | command2
 
 ls | grep &#34;pattern&#34;
-</code></pre><h5 id=常用快捷键>常用快捷键</h5><pre tabindex=0><code> #停止进程
+</code></pre><h5 id="常用快捷键">常用快捷键</h5>
+<pre tabindex="0"><code> #停止进程
  ctrl + c
  #清屏
  ctrl + l
-</code></pre><p>[进阶]:https://www.lanqiao.cn/courses/1 .</p><h3 id=部署>部署</h3><p>go 的程序部署非常简单（相比 Java 而言）</p><p>简单来说仅需两步：1，编译；2，运行</p><p>而如果我们想把可执行文件放到服务器上运行，还需要额外几个步骤</p><p>大致分为两种</p><p>1.编译为二进制文件，上传到服务器，服务器直接运行二进制文件</p><p>2.将源代码上传到服务器，服务器进行编译(前提是服务器配置好go环境)</p><h4 id=上传二进制文件到服务器>上传二进制文件到服务器</h4><p>首先，在goland终端更改环境变量</p><pre tabindex=0><code>go env -w GOOS=linux
-</code></pre><p>然后，来到项目根目录，输入命令编译源代码</p><pre tabindex=0><code>go build main.go
-</code></pre><p>等待几秒，你会发现项目中多了一个main文件(注意不是main.exe)</p><p>这就是编译好的二进制文件，可以在任何linux上运行</p><p>我们可以通过以下命令，将此文件上传到服务器</p><pre tabindex=0><code>#将当前目录下main文件拷贝到127.0.0.1的/home/路径下
+</code></pre><p>[进阶]:https://www.lanqiao.cn/courses/1 .</p>
+<h3 id="部署">部署</h3>
+<p>go 的程序部署非常简单（相比 Java 而言）</p>
+<p>简单来说仅需两步：1，编译；2，运行</p>
+<p>而如果我们想把可执行文件放到服务器上运行，还需要额外几个步骤</p>
+<p>大致分为两种</p>
+<p>1.编译为二进制文件，上传到服务器，服务器直接运行二进制文件</p>
+<p>2.将源代码上传到服务器，服务器进行编译(前提是服务器配置好go环境)</p>
+<h4 id="上传二进制文件到服务器">上传二进制文件到服务器</h4>
+<p>首先，在goland终端更改环境变量</p>
+<pre tabindex="0"><code>go env -w GOOS=linux
+</code></pre><p>然后，来到项目根目录，输入命令编译源代码</p>
+<pre tabindex="0"><code>go build main.go
+</code></pre><p>等待几秒，你会发现项目中多了一个main文件(注意不是main.exe)</p>
+<p>这就是编译好的二进制文件，可以在任何linux上运行</p>
+<p>我们可以通过以下命令，将此文件上传到服务器</p>
+<pre tabindex="0"><code>#将当前目录下main文件拷贝到127.0.0.1的/home/路径下
 scp main root@127.0.0.1:/home/
-</code></pre><p>如果想要免密登录 配置SSH即可</p><p>1.在主机A创建密钥对</p><pre tabindex=0><code>ssh-keygen #创建证书
-</code></pre><p>然后均回车（选择默认）</p><p>2、将文件上传至免登录主机B的authorized_keys</p><pre tabindex=0><code>/root/.ssh/authorized_keys
-</code></pre><h4 id=上传源代码到服务器>上传源代码到服务器</h4><p>通常会先将源码上传到github再拉下来，或者使用goland一键上传</p><p><a href=https://blog.csdn.net/qq_43098070/article/details/126075629>服务器go安装</a></p><p>然后进入项目目录直接编译即可</p><pre tabindex=0><code>go build main.go
-</code></pre><h4 id=运行程序>运行程序</h4><p>现在服务器上有编译好的二进制文件了，那我们如何运行它？</p><p>只需要</p><pre tabindex=0><code>./main
-</code></pre><p>非常的简单</p><p>但是我们会发现无法运行，因为文件没有权限</p><p>这时候只需要</p><pre tabindex=0><code>chmod +x main
+</code></pre><p>如果想要免密登录 配置SSH即可</p>
+<p>1.在主机A创建密钥对</p>
+<pre tabindex="0"><code>ssh-keygen #创建证书
+</code></pre><p>然后均回车（选择默认）</p>
+<p>2、将文件上传至免登录主机B的authorized_keys</p>
+<pre tabindex="0"><code>/root/.ssh/authorized_keys
+</code></pre><h4 id="上传源代码到服务器">上传源代码到服务器</h4>
+<p>通常会先将源码上传到github再拉下来，或者使用goland一键上传</p>
+<p><a href="https://blog.csdn.net/qq_43098070/article/details/126075629">服务器go安装</a></p>
+<p>然后进入项目目录直接编译即可</p>
+<pre tabindex="0"><code>go build main.go
+</code></pre><h4 id="运行程序">运行程序</h4>
+<p>现在服务器上有编译好的二进制文件了，那我们如何运行它？</p>
+<p>只需要</p>
+<pre tabindex="0"><code>./main
+</code></pre><p>非常的简单</p>
+<p>但是我们会发现无法运行，因为文件没有权限</p>
+<p>这时候只需要</p>
+<pre tabindex="0"><code>chmod +x main
 chmod 733 main
-</code></pre><p>给它高权限再次运行即可</p><p>这时候，使用云服务器的同学们需要去控制台找到安全组的配置规则，在入方向添加相应端口</p><h5 id=后台运行>后台运行</h5><p>如果按以上方式运行，当我们关闭窗口时会发现程序被终止了</p><p>那有什么办法可以让程序在后台运行呢？</p><p>我们可以使用 tmux，systemctl 或者 nohup+& 命令</p><h6 id=nohup>nohup+&</h6><pre tabindex=0><code>nohup ./main &amp;
-</code></pre><h6 id=tmux>tmux</h6><p><a href=https://www.ruanyifeng.com/blog/2019/10/tmux.html>tmux</a></p><h6 id=systemctl>systemctl</h6><p><a href=https://blog.csdn.net/lonnng2004/article/details/88964763>systemctl设置自己的systemd.service服务设置守护进程</a></p><p><a href=https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>systemctl 详解</a></p><h3 id=作业>作业</h3><p>发送到 <a href=mailto:wanziyu@lanshan.email>wanziyu@lanshan.email</a></p><h4 id=lv0>lv0</h4><p>熟悉linux指令</p><h4 id=lv1>lv1</h4><p>部署课件中样例到服务器，浏览器访问页面并截图</p><p>没有服务器的同学在类 unix 操作系统下编译运行并在浏览器中访问页面并截图</p><div class=td-page-meta__lastmod>最后修改 August 24, 2025: <a data-proofer-ignore href=https://github.com/your-username/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1>initial commit (0d79837)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/your-username/course-backend-go-2025 aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/your-username/course-backend-go-2025 aria-label=GitHub><i class="fab fa-github"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"></div></div></div></footer></div><script src=/js/main.min.d230e5c0c462caf31486b65a51a409f76a8cf4c96cd6d4b7b71da22758e95574.js integrity="sha256-0jDlwMRiyvMUhrZaUaQJ92qM9Mls1tS3tx2iJ1jpVXQ=" crossorigin=anonymous></script><script defer src=/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js integrity="sha256-c0eKfUgHaYrtfjVesj+YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin=anonymous></script><script src=/js/tabpane-persist.js></script></body></html>
+</code></pre><p>给它高权限再次运行即可</p>
+<p>这时候，使用云服务器的同学们需要去控制台找到安全组的配置规则，在入方向添加相应端口</p>
+<h5 id="后台运行">后台运行</h5>
+<p>如果按以上方式运行，当我们关闭窗口时会发现程序被终止了</p>
+<p>那有什么办法可以让程序在后台运行呢？</p>
+<p>我们可以使用 tmux，systemctl 或者 nohup+&amp; 命令</p>
+<h6 id="nohup">nohup+&amp;</h6>
+<pre tabindex="0"><code>nohup ./main &amp;
+</code></pre><h6 id="tmux">tmux</h6>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">tmux</a></p>
+<h6 id="systemctl">systemctl</h6>
+<p><a href="https://blog.csdn.net/lonnng2004/article/details/88964763">systemctl设置自己的systemd.service服务设置守护进程</a></p>
+<p><a href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">systemctl 详解</a></p>
+<h3 id="作业">作业</h3>
+<p>发送到 <a href="mailto:wanziyu@lanshan.email">wanziyu@lanshan.email</a></p>
+<h4 id="lv0">lv0</h4>
+<p>熟悉linux指令</p>
+<h4 id="lv1">lv1</h4>
+<p>部署课件中样例到服务器，浏览器访问页面并截图</p>
+<p>没有服务器的同学在类 unix 操作系统下编译运行并在浏览器中访问页面并截图</p>
+
+	<div class="td-page-meta__lastmod">
+  最后修改 August 24, 2025: <a data-proofer-ignore href="https://github.com/CrazyForCode/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1">initial commit (0d79837)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/CrazyForCode/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/CrazyForCode/course-backend-go-2025" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.js"></script>
+<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
