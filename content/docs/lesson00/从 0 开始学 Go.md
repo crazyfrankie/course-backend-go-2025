@@ -39,8 +39,6 @@ description: >
 
 详见 https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md
 
-> 直接引用 21 级学长写的文档 🙏
-
 你们或许在提问题的时候觉得我们很傲慢？
 
 ### 🐂🐎问题
@@ -49,10 +47,6 @@ description: >
 - 只说一个笼统的问题，不说细节
 - 夺命连环问
 
-![img](/images/lesson00/1.png)
-
-[![a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840](https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840.jpg)](https://github.com/LanshanTeam/Courseware-Backend-Go-2022/blob/main/class00-通识课/image/a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840.jpg)
-
 ### 例子
 
 **你以为的傲慢**：
@@ -60,7 +54,7 @@ description: >
 - 学弟：学长我vscode装不上了怎么办？
 - 学长：你到官网下载安装包下载完双击它，一直点下一步就安装好了
 - 学弟：官网是什么
-- 学长：https://code.visualstudio.com/
+- 学长：[vscode](https://code.visualstudio.com/)
 - 学弟：下载按钮在哪？
 - 学长：（截图）
 - 学弟：好了，下载到了，然后呢？
@@ -79,7 +73,7 @@ description: >
 某论坛
 
 - A：有人有赛博朋克2077游戏资源吗？
-- B：有，给https://pan.baidu.com/xxxxxxxxxx
+- B：有，给 https://pan.baidu.com/xxxxxxxxxx
 - A：为啥要用百度网盘啊，我没用过
 - B：只有这个
 - A：点击哪里下载啊
@@ -102,10 +96,10 @@ description: >
 
 你可以根据以下顺序尝试解决你的问题：
 
-1. 百度/Google
-2. 问 chatgpt
-3. 项目使用文档、API使用说明
-4. CSDN/Stack Overflow
+1. Google
+2. 问 ChatGPT
+3. 项目使用文档、API 使用说明
+4. Stack Overflow/Reddit
 5. 尝试分析源码
 
 ### 怎么问问题？
@@ -184,11 +178,11 @@ ChatGPT 在22年12月初才正式进入公众视野，23年初才广为人知，
 
 首先选择一个环境，我其实不太推荐官网，因为官方注册账号有门槛，很多节点被墙，经常抽风。所以我比较推荐一些镜像源网站比如[这个](https://poe.com/)
 
-登上这个网站只需要任意一个梯子就行，其次 gpt-3.5 模型是免费的，还支持其他的很多模型
+登上这个网站只需要任意一个梯子就行
 
 像这样，你可以向它提出问题，也可以喊它给出某个功能的代码，也可以直接复制粘贴报错信息看是什么原因
 
-![image-20231008104402198](/images/lesson00/image-20231008104402198.png)
+![image-2025-09-02_09-47](/images/lesson00/2025-09-02_09-47.png)
 
 但是切记不可依赖 gpt，你会发现它很多时候还是很蠢的（比如学校的题很多都做不起），可以拿来提高效率但是不能让它替代你的工作
 
@@ -212,39 +206,33 @@ GitHub在开源社区和商业开发中都非常受欢迎。许多开源项目�
 
 点击右上角 Sign up 创建一个账户
 
-![image-20231007213835122](/images/lesson00/image-20231007213835122.png)
+![image-2025-09-02_09-49](/images/lesson00/2025-09-02_09-49.png)
 
 填写自己的邮箱、密码、用户名等信息，然后用邮箱验证即可完成。
-
-![img](https://img-blog.csdnimg.cn/c07af9239da8498a9ba336ccab523c7f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55m95rC05bCP55Cq5LiDeWE=,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 是不是全是英文感觉看不懂🥺
 
 我的建议是，习惯就好🤣，以后会经常碰到英文文档的
 
-然后点击右上角头像之后点击仓库
-
-![image-20231007214308703](/images/lesson00/image-20231007214308703.png)
-
 点击这里新建你的第一个仓库
 
-![image-20231007214410280](/images/lesson00/image-20231007214410280.png)
+![image-2025-09-02_09-48](/images/lesson00/2025-09-02_09-48.png)
 
-这些先简单填一点，开源证书什么的可以暂时不用管，然后点击创建仓库，那么以后就可以在把你的作业代码交到这个仓库里啦
+这些先简单填一点，开源证书什么的可以暂时不用管，然后点击创建仓库，那么以后就可以把你需要托管的代码放在这里了，不管是作业、个人项目、开源项目等
 
-![image-20231007214554512](/images/lesson00/image-20231007214554512.png)
+![image-2025-09-02_09-50](/images/lesson00/2025-09-02_09-50.png)
 
 ### JetBrains
 
 JetBrains是一家软件开发工具公司，专注于提供高效、智能的集成开发环境（IDE）和开发者工具。他们的产品被广泛应用于各种编程语言和技术栈的开发中。
 
-除了马上会提到的 Goland，像 C语言可以用 Clion，Python 可以用 PyCharm，java 可以用 IntelliJ IDEA
+除了马上会提到的 Goland，像 C/C++ 可以用 Clion，Python 可以用 PyCharm，Java 可以用 IntelliJ IDEA
 
 如何下载？
 
 看看下面的博客👇里面提到的学生认证可以不用急着弄
 
-https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%AE%89%E8%A3%85%20jetbrains&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142^v95^chatgptT3_1&spm=1018.2226.3001.4187
+[学生认证](https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%AE%89%E8%A3%85%20jetbrains&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142^v95^chatgptT3_1&spm=1018.2226.3001.4187)
 
 ### Goland
 
@@ -252,37 +240,36 @@ https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&re
 
 我直接粘贴 chatgpt 了
 
-![image-20231007215945173](/images/lesson00/image-20231007215945173.png)
+![image-2025-09-02_09-56](/images/lesson00/2025-09-02_09-56.png)
+![image-2025-09-02_09-57](/images/lesson00/2025-09-02_09-57.png)
 
-可以在 JetBrains 里的 ToolBox 里直接快速安装
+可以在 JetBrains 官网直接安装 [GoLand](https://www.jetbrains.com/go/)
 
-想直接下载？
+想下载后并进行相关配置？
 
 看看下面的博客👇
 
-https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%AE%89%E8%A3%85%20goland&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142^v95^chatgptT3_1&spm=1018.2226.3001.4187
+[Go 配置](https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%AE%89%E8%A3%85%20goland&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142^v95^chatgptT3_1&spm=1018.2226.3001.4187)
 
 ### Git
 
 ![img](https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/git-github.png)
 
-![image-20231008105637726](/images/lesson00/image-20231008105637726.png)
+![image-2025-09-02_10-16](/images/lesson00/2025-09-02_10-16.png)
 
 省流：Git 是目前世界上最先进的分布式版本控制系统，用来团队协作很方便。就不用每次上传代码都靠手动 upload files 了
 
-
-
 安装教程看这个👇
 
-https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169673342216800182730025&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142^v95^chatgptT3_1&utm_term=%E5%AE%89%E8%A3%85%20git&spm=1018.2226.3001.4187
+[Git](https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169673342216800182730025&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142^v95^chatgptT3_1&utm_term=%E5%AE%89%E8%A3%85%20git&spm=1018.2226.3001.4187)
 
 然鹅我们在用 git 的时候基本上不会在 git 的客户端里敲命令，要么用 IDE 的图形化工具要么用 IDE 的命令行
 
-![image-20231008110110760](/images/lesson00/image-20231008110110760.png)
+![image-2025-09-02_10-20](/images/lesson00/2025-09-02_10-20.png)
 
 使用教程后面第二节课会详细讲，感兴趣的同学可以先看下面这个教程👇
 
-https://blog.csdn.net/weixin_55387973/article/details/123849753?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673357916800226593163%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169673357916800226593163&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-123849753-null-null.142^v95^chatgptT3_1&utm_term=goland%20git&spm=1018.2226.3001.4187
+[Git 不完全学习教程](https://cqut-nmc.feishu.cn/wiki/B7B1w5FPjihzGIkqKVVc8EhgnDd)
 
 感觉教程看不懂？那来玩下 git 闯关小游戏吧👇
 
@@ -304,7 +291,7 @@ Markdown 编写的文档后缀为 `.md`, `.markdown`
 
 #### 什么地方会用到markdown？
 
-Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创作，习惯后使用起来会比所见即所得的HTML编辑器更加方便快捷，较Word等格式又有纯文本这一优势。
+Markdown 可以广泛用于文档、博客、论坛等带格式文本内容的创作，习惯后使用起来会比所见即所得的 HTML 编辑器更加方便快捷，较 Word 等格式又有纯文本这一优势。
 
 #### typora又是啥
 
@@ -312,7 +299,11 @@ Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创
 
 这份文档就是在 typora 里敲出来的，反正我个人大多数情况下觉得比 word 好用多了
 
-官网下载就完事了https://typora.io/
+官网下载就完事了 [Typora](https://typora.io/)
+
+考虑到 Typora 需要付费，大家可以自行搜索相关破解方式，教程还是挺多的
+
+另外值得一提的是，它只是一种通用的 Markdown 编辑器，不是说其他软件就没有了，个人更常用的是直接在 GoLand 和 VSCode 中直接编辑 Markdown 文件
 
 ## 如何高效学习
 
@@ -344,7 +335,11 @@ Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创
 
 然后是字节搞的[稀土掘金](https://juejin.cn/)，观感比CSDN好多了，但是也有缺陷就是有时候想搜的内容在上面搜不到
 
-比较推荐的是 [stackoverflow](https://stackoverflow.com/)，全世界知名的技术交流论坛，但是对英语能力有一定要求
+比较推荐的是 [Stackoverflow](https://stackoverflow.com/)，全世界知名的技术交流论坛，但是对英语能力有一定要求
+
+那其他更多的是个人博客，它们也是内容参差不齐，个人博客一般在通过某个 topic Google 之后的结果中，要根据内容筛选，比较考验个人判断能力
+
+除了这些需要自己搜索的内容，现在 AI 时代，其实 AI 大家使用的更多，它也是收集上述网站中的内容进行总结后对你进行回答，像比较来说，更突出重点和精简
 
 然后可能有同学想看视频资源，b站也是个不错的选择，但是质量更是参差不齐，我觉得大部分看文档就能理解没必要去浪费时间看视频，除非视频资源真的讲的很好。其他诸如极客时间等等就不一一介绍了
 
@@ -354,15 +349,15 @@ Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创
 
 以下图为例，这是 go 的官方文档，介绍了包含的所有官方库以及其他功能
 
-![image-20231008123718393](/images/lesson00/image-20231008123718393.png)
+![image-2025-09-02_10-15](/images/lesson00/2025-09-02_10-15.png)
 
 很多组件是国外开发的，因此也是英文的，看懂其实并不难，只是一开始会有畏难情绪，能过四级就没多大阅读障碍了
 
-如果实在看起觉得恼火可以找找有没有中文镜像站或者直接整页翻译
+如果实在看起觉得恼火可以找找有没有中文镜像站或者直接整页翻译(推荐浏览器插件，沉浸式翻译)。
 
 #### 学会看源码
 
-这个估计已经是很高级的能力了，与 Java 能用到退休的教程和生态相比，Go虽然也不是很年轻了，但是肯定也是会遇到没有教程的时候。
+这个估计已经是很高级的能力了，与 Java 能用到退休的教程和生态相比，Go 虽然也不是很年轻了，但是肯定也是会遇到没有教程的时候。
 
 这时候咋办？看源码！
 
@@ -382,15 +377,13 @@ Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创
 
 首先说本科毕业就业，那么你对绩点就不需要那么看重了，每科能过就行
 
-就大一上而言，需要重视的就是高数和线代。难道C语言就不重要了吗？当然很重要，重要的是它是很多人接触的第一门编程语言，能培养编程思维。说C语言不需要重视是因为学校里教的很水，拿我自己举例子，我暑假学了一点C，上课一节课没听最后期末总成绩都能上90。也就是说有这时间听老师上课讲不如自己自学。高数和线代要好好学，要不然期末突击也不太好过。
+就大一而言，需要重视的就是高数。难道 C 语言就不重要了吗？当然很重要，重要的是它是很多人接触的第一门编程语言，能培养编程思维。说 C 语言不需要重视是因为学校里教的很水。也就是说有这时间听老师上课讲不如自己自学。高数和线代要好好学，要不然期末突击也不太好过。
 
 因此可以得出除了高数和线代都是水课，一周加起来也才五节课，这么来看是不是就轻松很多了呢。其他时间可以狠狠地拿来学编程了，老师管的严的把电脑搬到最后一排坐着；管的不严的emm。。你懂的
 
 > 那我想保研或者考研咋办呢
 
 考研的话其实和上面差别不大，只是不能抱着只是为了通过考试的心态了，要正儿八经好好学**想考专业的专业课**。
-
-但是保研的话就不一样了，我反正觉得挺坐牢的😭，每门课你都得认真对待，平时分考试分都不能落下。上课该回答问题就回答问题🙋
 
 #### 竞赛
 

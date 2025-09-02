@@ -1,9 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn" class="no-js">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -19,7 +19,7 @@
 
 <title>并发编程 | Go 后端开发教程</title>
 <meta name="description" content="并发编程">
-<meta property="og:url" content="http://localhost:1313/docs/lesson05/%E5%B9%B6%E5%8F%91/">
+<meta property="og:url" content="https://example.org/docs/lesson05/%E5%B9%B6%E5%8F%91/">
   <meta property="og:site_name" content="Go 后端开发教程">
   <meta property="og:title" content="并发编程">
   <meta property="og:description" content="并发编程">
@@ -33,7 +33,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="并发编程">
   <meta name="twitter:description" content="并发编程">
-<link href="/scss/main.css" rel="stylesheet">
+<link rel="preload" href="/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css" as="style" integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin="anonymous">
+<link href="/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css" rel="stylesheet" integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -81,8 +82,8 @@
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li">
   <a href="/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/" title="从 0 开始学 Go" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go"><span class="">第0课</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li">
-  <a href="/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01cfc-golange7acace4b880e88a82e8afbe-li">
+  <a href="/docs/lesson01/cfc-golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01cfc-golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson0202-li">
   <a href="/docs/lesson02/02/" title="数组和切片" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson0202"><span class="">第2课</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li">
@@ -1078,7 +1079,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>但这又带来什么问题呢，这里有两种线程，它们有各自有一个同步条件，我们就使用了两个条件变量，那如果有三个四个同步条件呢？如果一直新增条件变量那代码的可维护性就会大大降低，所以我们应该思索一种方法，只是用一个条件变量，就可以完成多线程多同步条件的同步。</p>
-<p>再来一个生活中的例子：蓝山中学的高三二班，大家现在都在认真的做作业，然后数学老师带来了全班上次考试的卷子，老师说点到一个人就上来拿，然后点人，每个人都会注意听是不是自己的名字，如果不是自己就继续做作业，如果是自己就上去拿卷子。大家这里把做作业想成线程的睡觉，判断是不是自己名字就是对同步条件的判断，而老师每次点名，是不是就和 Broadcast 方法很相似了呢，点名也会吸引起全班同学的注意，据此，我们写出了更好的同步代码。</p>
+<p>再来一个生活中的例子：xx中学的高三二班，大家现在都在认真的做作业，然后数学老师带来了全班上次考试的卷子，老师说点到一个人就上来拿，然后点人，每个人都会注意听是不是自己的名字，如果不是自己就继续做作业，如果是自己就上去拿卷子。大家这里把做作业想成线程的睡觉，判断是不是自己名字就是对同步条件的判断，而老师每次点名，是不是就和 Broadcast 方法很相似了呢，点名也会吸引起全班同学的注意，据此，我们写出了更好的同步代码。</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -2039,8 +2040,8 @@
 </footer>
 
     </div>
-    <script src="/js/main.js"></script>
-<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+    <script src="/js/main.min.d230e5c0c462caf31486b65a51a409f76a8cf4c96cd6d4b7b71da22758e95574.js" integrity="sha256-0jDlwMRiyvMUhrZaUaQJ92qM9Mls1tS3tx2iJ1jpVXQ=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 
   </body>

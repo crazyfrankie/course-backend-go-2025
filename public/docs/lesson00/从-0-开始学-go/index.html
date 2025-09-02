@@ -1,9 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-cn" class="no-js">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -19,7 +19,7 @@
 
 <title>从 0 开始学 Go | Go 后端开发教程</title>
 <meta name="description" content="从 0 开始学 Go">
-<meta property="og:url" content="http://localhost:1313/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/">
+<meta property="og:url" content="https://example.org/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/">
   <meta property="og:site_name" content="Go 后端开发教程">
   <meta property="og:title" content="从 0 开始学 Go">
   <meta property="og:description" content="从 0 开始学 Go">
@@ -29,11 +29,12 @@
 
   <meta itemprop="name" content="从 0 开始学 Go">
   <meta itemprop="description" content="从 0 开始学 Go">
-  <meta itemprop="wordCount" content="335">
+  <meta itemprop="wordCount" content="362">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="从 0 开始学 Go">
   <meta name="twitter:description" content="从 0 开始学 Go">
-<link href="/scss/main.css" rel="stylesheet">
+<link rel="preload" href="/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css" as="style" integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin="anonymous">
+<link href="/scss/main.min.4b81c3216eb932c6fab255dad0cfe0aabe89476492b04055884be8313be15923.css" rel="stylesheet" integrity="sha256-S4HDIW65Msb6slXa0M/gqr6JR2SSsEBViEvoMTvhWSM=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -81,8 +82,8 @@
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go-li">
   <a href="/docs/lesson00/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6-go/" title="从 0 开始学 Go" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-docslesson00e4bb8e-0-e5bc80e5a78be5ada6-go"><span class="td-sidebar-nav-active-item">第0课</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe-li">
-  <a href="/docs/lesson01/%E8%93%9D%E5%B1%B1%E5%B7%A5%E4%BD%9C%E5%AE%A4golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01e8939de5b1b1e5b7a5e4bd9ce5aea4golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson01cfc-golange7acace4b880e88a82e8afbe-li">
+  <a href="/docs/lesson01/cfc-golang%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" title="基础语法" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson01cfc-golange7acace4b880e88a82e8afbe"><span class="">第1课</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson0202-li">
   <a href="/docs/lesson02/02/" title="数组和切片" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-docslesson0202"><span class="">第2课</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslesson03e7acace4b889e591a8e8afbee4bbb6-li">
@@ -214,8 +215,6 @@
 <p>碰到问题不可怕，找到解决问题的方式是关键，于是就引入了下一小节——<strong>提问的智慧</strong></p>
 <h2 id="提问的智慧">提问的智慧</h2>
 <p>详见 <a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md</a></p>
-<blockquote>
-<p>直接引用 21 级学长写的文档 🙏</p></blockquote>
 <p>你们或许在提问题的时候觉得我们很傲慢？</p>
 <h3 id="问题">🐂🐎问题</h3>
 <ul>
@@ -223,15 +222,13 @@
 <li>只说一个笼统的问题，不说细节</li>
 <li>夺命连环问</li>
 </ul>
-<p><img src="/images/lesson00/1.png" alt="img"></p>
-<p><a href="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/blob/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840.jpg"><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840.jpg" alt="a277d2d2f89d0a22f4b12e425b585b2fcf547ede587345840"></a></p>
 <h3 id="例子">例子</h3>
 <p><strong>你以为的傲慢</strong>：</p>
 <ul>
 <li>学弟：学长我vscode装不上了怎么办？</li>
 <li>学长：你到官网下载安装包下载完双击它，一直点下一步就安装好了</li>
 <li>学弟：官网是什么</li>
-<li>学长：https://code.visualstudio.com/</li>
+<li>学长：<a href="https://code.visualstudio.com/">vscode</a></li>
 <li>学弟：下载按钮在哪？</li>
 <li>学长：（截图）</li>
 <li>学弟：好了，下载到了，然后呢？</li>
@@ -240,8 +237,7 @@
 </ul>
 <p><strong>实际上的傲慢：</strong></p>
 <ul>
-<li>学弟：学长我的电脑是64位的windows 10，我在vscode官网下载 了对应版本，在我安装过程中出现了这个问题，使用百度搜索后还是没有办法解决，你能帮我看看吗？谢谢。（同时</li>
-<li>贴上安装失败的图片）</li>
+<li>学弟：学长我的电脑是64位的windows 10，我在vscode官网下载 了对应版本，在我安装过程中出现了这个问题，使用百度搜索后还是没有办法解决，你能帮我看看吗？谢谢。（同时贴上安装失败的图片）</li>
 <li>学长：这个都不会还是别学了</li>
 </ul>
 <p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/image-20221030123200419.png" alt="img"></p>
@@ -249,7 +245,7 @@
 <p>某论坛</p>
 <ul>
 <li>A：有人有赛博朋克2077游戏资源吗？</li>
-<li>B：有，给https://pan.baidu.com/xxxxxxxxxx</li>
+<li>B：有，给 <a href="https://pan.baidu.com/xxxxxxxxxx">https://pan.baidu.com/xxxxxxxxxx</a></li>
 <li>A：为啥要用百度网盘啊，我没用过</li>
 <li>B：只有这个</li>
 <li>A：点击哪里下载啊</li>
@@ -270,10 +266,10 @@
 <h3 id="问问题要讲究策略">问问题要讲究策略</h3>
 <p>你可以根据以下顺序尝试解决你的问题：</p>
 <ol>
-<li>百度/Google</li>
-<li>问 chatgpt</li>
-<li>项目使用文档、API使用说明</li>
-<li>CSDN/Stack Overflow</li>
+<li>Google</li>
+<li>问 ChatGPT</li>
+<li>项目使用文档、API 使用说明</li>
+<li>Stack Overflow/Reddit</li>
 <li>尝试分析源码</li>
 </ol>
 <h3 id="怎么问问题">怎么问问题？</h3>
@@ -334,9 +330,9 @@
 <p>ChatGPT 在22年12月初才正式进入公众视野，23年初才广为人知，但是可以说已经给程序员带来了天翻地覆的影响</p>
 <p>除了可以用来完成水课作业，还可以对初学者起到非常大的帮助，我觉得应该可以解决 90% 的问题吧</p>
 <p>首先选择一个环境，我其实不太推荐官网，因为官方注册账号有门槛，很多节点被墙，经常抽风。所以我比较推荐一些镜像源网站比如<a href="https://poe.com/">这个</a></p>
-<p>登上这个网站只需要任意一个梯子就行，其次 gpt-3.5 模型是免费的，还支持其他的很多模型</p>
+<p>登上这个网站只需要任意一个梯子就行</p>
 <p>像这样，你可以向它提出问题，也可以喊它给出某个功能的代码，也可以直接复制粘贴报错信息看是什么原因</p>
-<p><img src="/images/lesson00/image-20231008104402198.png" alt="image-20231008104402198"></p>
+<p><img src="/images/lesson00/2025-09-02_09-47.png" alt="image-2025-09-02_09-47"></p>
 <p>但是切记不可依赖 gpt，你会发现它很多时候还是很蠢的（比如学校的题很多都做不起），可以拿来提高效率但是不能让它替代你的工作</p>
 <h3 id="github">Github</h3>
 <p>什么是 github ？</p>
@@ -352,41 +348,39 @@
 <p>GitHub在开源社区和商业开发中都非常受欢迎。许多开源项目都托管在GitHub上，使得开发者可以共享代码、解决问题和贡献代码。同时，许多企业也使用GitHub作为内部代码托管和团队协作的平台，提高了开发效率和代码质量。</p>
 <p>现在让我们打开 github <a href="https://github.com/">https://github.com/</a></p>
 <p>点击右上角 Sign up 创建一个账户</p>
-<p><img src="/images/lesson00/image-20231007213835122.png" alt="image-20231007213835122"></p>
+<p><img src="/images/lesson00/2025-09-02_09-49.png" alt="image-2025-09-02_09-49"></p>
 <p>填写自己的邮箱、密码、用户名等信息，然后用邮箱验证即可完成。</p>
-<p><img src="https://img-blog.csdnimg.cn/c07af9239da8498a9ba336ccab523c7f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55m95rC05bCP55Cq5LiDeWE=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
 <p>是不是全是英文感觉看不懂🥺</p>
 <p>我的建议是，习惯就好🤣，以后会经常碰到英文文档的</p>
-<p>然后点击右上角头像之后点击仓库</p>
-<p><img src="/images/lesson00/image-20231007214308703.png" alt="image-20231007214308703"></p>
 <p>点击这里新建你的第一个仓库</p>
-<p><img src="/images/lesson00/image-20231007214410280.png" alt="image-20231007214410280"></p>
-<p>这些先简单填一点，开源证书什么的可以暂时不用管，然后点击创建仓库，那么以后就可以在把你的作业代码交到这个仓库里啦</p>
-<p><img src="/images/lesson00/image-20231007214554512.png" alt="image-20231007214554512"></p>
+<p><img src="/images/lesson00/2025-09-02_09-48.png" alt="image-2025-09-02_09-48"></p>
+<p>这些先简单填一点，开源证书什么的可以暂时不用管，然后点击创建仓库，那么以后就可以把你需要托管的代码放在这里了，不管是作业、个人项目、开源项目等</p>
+<p><img src="/images/lesson00/2025-09-02_09-50.png" alt="image-2025-09-02_09-50"></p>
 <h3 id="jetbrains">JetBrains</h3>
 <p>JetBrains是一家软件开发工具公司，专注于提供高效、智能的集成开发环境（IDE）和开发者工具。他们的产品被广泛应用于各种编程语言和技术栈的开发中。</p>
-<p>除了马上会提到的 Goland，像 C语言可以用 Clion，Python 可以用 PyCharm，java 可以用 IntelliJ IDEA</p>
+<p>除了马上会提到的 Goland，像 C/C++ 可以用 Clion，Python 可以用 PyCharm，Java 可以用 IntelliJ IDEA</p>
 <p>如何下载？</p>
 <p>看看下面的博客👇里面提到的学生认证可以不用急着弄</p>
-<p><a href="https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20jetbrains&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142%5Ev95%5EchatgptT3_1&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20jetbrains&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142^v95^chatgptT3_1&amp;spm=1018.2226.3001.4187</a></p>
+<p><a href="https://blog.csdn.net/qq_25887493/article/details/124106216?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20jetbrains&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-124106216.142%5Ev95%5EchatgptT3_1&amp;spm=1018.2226.3001.4187">学生认证</a></p>
 <h3 id="goland">Goland</h3>
 <p>可能有同学会问，为啥用 JetBrains 的 Goland ，不用 vscode</p>
 <p>我直接粘贴 chatgpt 了</p>
-<p><img src="/images/lesson00/image-20231007215945173.png" alt="image-20231007215945173"></p>
-<p>可以在 JetBrains 里的 ToolBox 里直接快速安装</p>
-<p>想直接下载？</p>
+<p><img src="/images/lesson00/2025-09-02_09-56.png" alt="image-2025-09-02_09-56">
+<img src="/images/lesson00/2025-09-02_09-57.png" alt="image-2025-09-02_09-57"></p>
+<p>可以在 JetBrains 官网直接安装 <a href="https://www.jetbrains.com/go/">GoLand</a></p>
+<p>想下载后并进行相关配置？</p>
 <p>看看下面的博客👇</p>
-<p><a href="https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20goland&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142%5Ev95%5EchatgptT3_1&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20goland&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142^v95^chatgptT3_1&amp;spm=1018.2226.3001.4187</a></p>
+<p><a href="https://blog.csdn.net/Cappuccino_jay/article/details/129466743?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%AE%89%E8%A3%85%20goland&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-129466743.142%5Ev95%5EchatgptT3_1&amp;spm=1018.2226.3001.4187">Go 配置</a></p>
 <h3 id="git">Git</h3>
 <p><img src="https://github.com/LanshanTeam/Courseware-Backend-Go-2022/raw/main/class00-%E9%80%9A%E8%AF%86%E8%AF%BE/image/git-github.png" alt="img"></p>
-<p><img src="/images/lesson00/image-20231008105637726.png" alt="image-20231008105637726"></p>
+<p><img src="/images/lesson00/2025-09-02_10-16.png" alt="image-2025-09-02_10-16"></p>
 <p>省流：Git 是目前世界上最先进的分布式版本控制系统，用来团队协作很方便。就不用每次上传代码都靠手动 upload files 了</p>
 <p>安装教程看这个👇</p>
-<p><a href="https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673342216800182730025&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142%5Ev95%5EchatgptT3_1&amp;utm_term=%E5%AE%89%E8%A3%85%20git&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673342216800182730025&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142^v95^chatgptT3_1&amp;utm_term=%E5%AE%89%E8%A3%85%20git&amp;spm=1018.2226.3001.4187</a></p>
+<p><a href="https://blog.csdn.net/Passerby_Wang/article/details/120767020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673342216800182730025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673342216800182730025&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-120767020-null-null.142%5Ev95%5EchatgptT3_1&amp;utm_term=%E5%AE%89%E8%A3%85%20git&amp;spm=1018.2226.3001.4187">Git</a></p>
 <p>然鹅我们在用 git 的时候基本上不会在 git 的客户端里敲命令，要么用 IDE 的图形化工具要么用 IDE 的命令行</p>
-<p><img src="/images/lesson00/image-20231008110110760.png" alt="image-20231008110110760"></p>
+<p><img src="/images/lesson00/2025-09-02_10-20.png" alt="image-2025-09-02_10-20"></p>
 <p>使用教程后面第二节课会详细讲，感兴趣的同学可以先看下面这个教程👇</p>
-<p><a href="https://blog.csdn.net/weixin_55387973/article/details/123849753?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673357916800226593163%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673357916800226593163&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-123849753-null-null.142%5Ev95%5EchatgptT3_1&amp;utm_term=goland%20git&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_55387973/article/details/123849753?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169673357916800226593163%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=169673357916800226593163&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-123849753-null-null.142^v95^chatgptT3_1&amp;utm_term=goland%20git&amp;spm=1018.2226.3001.4187</a></p>
+<p><a href="https://cqut-nmc.feishu.cn/wiki/B7B1w5FPjihzGIkqKVVc8EhgnDd">Git 不完全学习教程</a></p>
 <p>感觉教程看不懂？那来玩下 git 闯关小游戏吧👇</p>
 <p><a href="https://learngitbranching.js.org/?demo=&amp;locale=zh_CN">https://learngitbranching.js.org/?demo=&amp;locale=zh_CN</a></p>
 <h3 id="typora">Typora</h3>
@@ -397,11 +391,13 @@
 <p>于是写好Markdown后，如何将其显示成我们想要的格式呢？通常的做法是将Markdown编译为HTML。其实一些网站已经自带了这样的编译器，输入Markdown代码后直接将其转化为HTML，就可以交给浏览器渲染了。GitHub上的README以及各种.md格式文件的预览功能就是最典型的例子。</p>
 <p>Markdown 编写的文档后缀为 <code>.md</code>, <code>.markdown</code></p>
 <h4 id="什么地方会用到markdown">什么地方会用到markdown？</h4>
-<p>Markdown可以广泛用于文档、博客、论坛等带格式文本内容的创作，习惯后使用起来会比所见即所得的HTML编辑器更加方便快捷，较Word等格式又有纯文本这一优势。</p>
+<p>Markdown 可以广泛用于文档、博客、论坛等带格式文本内容的创作，习惯后使用起来会比所见即所得的 HTML 编辑器更加方便快捷，较 Word 等格式又有纯文本这一优势。</p>
 <h4 id="typora又是啥">typora又是啥</h4>
 <p>而 typora 就是一款非常方便的支持 md 格式的笔记软件，有很多功能：实时预览、数学公式、代码高亮、表格、支持HTML、流程图等等</p>
 <p>这份文档就是在 typora 里敲出来的，反正我个人大多数情况下觉得比 word 好用多了</p>
-<p>官网下载就完事了https://typora.io/</p>
+<p>官网下载就完事了 <a href="https://typora.io/">Typora</a></p>
+<p>考虑到 Typora 需要付费，大家可以自行搜索相关破解方式，教程还是挺多的</p>
+<p>另外值得一提的是，它只是一种通用的 Markdown 编辑器，不是说其他软件就没有了，个人更常用的是直接在 GoLand 和 VSCode 中直接编辑 Markdown 文件</p>
 <h2 id="如何高效学习">如何高效学习</h2>
 <blockquote>
 <p>我除了跟着学长学姐学习之外还能在哪里自学呢？</p></blockquote>
@@ -418,16 +414,18 @@
 <p>这个是覆盖面积最广的，也是质量最参差不齐的</p>
 <p>首先是 <a href="https://www.csdn.net/"><strong>CSDN</strong></a>，这个东西很抽象，应该是国内最老牌的技术交流网站，但是正因如此质量参差不齐，有很多灌水，缝合，抄袭的文章。所以说在上面找资源等于   *里掏金，当然对于初学者而言还是很有帮助的</p>
 <p>然后是字节搞的<a href="https://juejin.cn/">稀土掘金</a>，观感比CSDN好多了，但是也有缺陷就是有时候想搜的内容在上面搜不到</p>
-<p>比较推荐的是 <a href="https://stackoverflow.com/">stackoverflow</a>，全世界知名的技术交流论坛，但是对英语能力有一定要求</p>
+<p>比较推荐的是 <a href="https://stackoverflow.com/">Stackoverflow</a>，全世界知名的技术交流论坛，但是对英语能力有一定要求</p>
+<p>那其他更多的是个人博客，它们也是内容参差不齐，个人博客一般在通过某个 topic Google 之后的结果中，要根据内容筛选，比较考验个人判断能力</p>
+<p>除了这些需要自己搜索的内容，现在 AI 时代，其实 AI 大家使用的更多，它也是收集上述网站中的内容进行总结后对你进行回答，像比较来说，更突出重点和精简</p>
 <p>然后可能有同学想看视频资源，b站也是个不错的选择，但是质量更是参差不齐，我觉得大部分看文档就能理解没必要去浪费时间看视频，除非视频资源真的讲的很好。其他诸如极客时间等等就不一一介绍了</p>
 <h4 id="学会看官方文档">学会看官方文档</h4>
 <p>官方文档其实可以说是了解一个组件最高效的方式，在有一定编程基础后看官方文档入门是不二之选</p>
 <p>以下图为例，这是 go 的官方文档，介绍了包含的所有官方库以及其他功能</p>
-<p><img src="/images/lesson00/image-20231008123718393.png" alt="image-20231008123718393"></p>
+<p><img src="/images/lesson00/2025-09-02_10-15.png" alt="image-2025-09-02_10-15"></p>
 <p>很多组件是国外开发的，因此也是英文的，看懂其实并不难，只是一开始会有畏难情绪，能过四级就没多大阅读障碍了</p>
-<p>如果实在看起觉得恼火可以找找有没有中文镜像站或者直接整页翻译</p>
+<p>如果实在看起觉得恼火可以找找有没有中文镜像站或者直接整页翻译(推荐浏览器插件，沉浸式翻译)。</p>
 <h4 id="学会看源码">学会看源码</h4>
-<p>这个估计已经是很高级的能力了，与 Java 能用到退休的教程和生态相比，Go虽然也不是很年轻了，但是肯定也是会遇到没有教程的时候。</p>
+<p>这个估计已经是很高级的能力了，与 Java 能用到退休的教程和生态相比，Go 虽然也不是很年轻了，但是肯定也是会遇到没有教程的时候。</p>
 <p>这时候咋办？看源码！</p>
 <p>而且看源码还能提高你的 Coding 能力，在找工作面试的时候面试官也很有可能问到 go 的一些常见底层实现。例如看到某个库的教程觉得讲的太烂了，这个时候就可以去看看相应的源码</p>
 <p>除此之外学习也是从“抄袭”开始的，抄的是代码逻辑，排版风格&hellip;然后把这些东西融会贯通贯通成为自己的，GitHub上就有很多开源项目供大家学习</p>
@@ -439,12 +437,11 @@
 <blockquote>
 <p>如果你的目标是本科毕业直接就业，那么你绝对需要自己好好规划时间</p></blockquote>
 <p>首先说本科毕业就业，那么你对绩点就不需要那么看重了，每科能过就行</p>
-<p>就大一上而言，需要重视的就是高数和线代。难道C语言就不重要了吗？当然很重要，重要的是它是很多人接触的第一门编程语言，能培养编程思维。说C语言不需要重视是因为学校里教的很水，拿我自己举例子，我暑假学了一点C，上课一节课没听最后期末总成绩都能上90。也就是说有这时间听老师上课讲不如自己自学。高数和线代要好好学，要不然期末突击也不太好过。</p>
+<p>就大一而言，需要重视的就是高数。难道 C 语言就不重要了吗？当然很重要，重要的是它是很多人接触的第一门编程语言，能培养编程思维。说 C 语言不需要重视是因为学校里教的很水。也就是说有这时间听老师上课讲不如自己自学。高数和线代要好好学，要不然期末突击也不太好过。</p>
 <p>因此可以得出除了高数和线代都是水课，一周加起来也才五节课，这么来看是不是就轻松很多了呢。其他时间可以狠狠地拿来学编程了，老师管的严的把电脑搬到最后一排坐着；管的不严的emm。。你懂的</p>
 <blockquote>
 <p>那我想保研或者考研咋办呢</p></blockquote>
 <p>考研的话其实和上面差别不大，只是不能抱着只是为了通过考试的心态了，要正儿八经好好学<strong>想考专业的专业课</strong>。</p>
-<p>但是保研的话就不一样了，我反正觉得挺坐牢的😭，每门课你都得认真对待，平时分考试分都不能落下。上课该回答问题就回答问题🙋</p>
 <h4 id="竞赛">竞赛</h4>
 <p>以下仅代表我个人观点</p>
 <p>竞赛的重要性排序依次是：保研&gt;考研&gt;工作，但是并不绝对</p>
@@ -506,8 +503,8 @@
 </footer>
 
     </div>
-    <script src="/js/main.js"></script>
-<script defer src="/js/click-to-copy.js" crossorigin="anonymous"></script>
+    <script src="/js/main.min.d230e5c0c462caf31486b65a51a409f76a8cf4c96cd6d4b7b71da22758e95574.js" integrity="sha256-0jDlwMRiyvMUhrZaUaQJ92qM9Mls1tS3tx2iJ1jpVXQ=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 
   </body>
