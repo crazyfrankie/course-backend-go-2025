@@ -31,7 +31,7 @@
   <meta itemprop="name" content="负载均衡">
   <meta itemprop="description" content="负载均衡">
   <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
-  <meta itemprop="wordCount" content="225">
+  <meta itemprop="wordCount" content="289">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="负载均衡">
   <meta name="twitter:description" content="负载均衡">
@@ -183,14 +183,14 @@
 <hr>
 <p>负载均衡（Load Balance，简称 LB）是高并发、高可用系统必不可少的关键组件，目标是 尽力将网络流量平均分发到多个服务器上，以提高系统整体的响应速度和可用性。</p>
 <p><strong>负载均衡的主要作用如下：</strong></p>
-<p>**高并发：**负载均衡通过算法调整负载，尽力均匀的分配应用集群中各节点的工作量，以此提高应用集群的并发处理能力（吞吐量）。</p>
-<p>**伸缩性：**添加或减少服务器数量，然后由负载均衡进行分发控制。这使得应用集群具备伸缩性。</p>
-<p>**高可用：**负载均衡器可以监控候选服务器，当服务器不可用时，自动跳过，将请求分发给可用的服务器。这使得应用集群具备高可用的特性。</p>
+<p><strong>高并发</strong>：负载均衡通过算法调整负载，尽力均匀的分配应用集群中各节点的工作量，以此提高应用集群的并发处理能力（吞吐量）。</p>
+<p><strong>伸缩性</strong>：添加或减少服务器数量，然后由负载均衡进行分发控制。这使得应用集群具备伸缩性。</p>
+<p><strong>高可用</strong>：负载均衡器可以监控候选服务器，当服务器不可用时，自动跳过，将请求分发给可用的服务器。这使得应用集群具备高可用的特性。</p>
 <h3 id="反向代理">反向代理</h3>
 <hr>
 <p>反向代理（Reverse Proxy）方式是指以 代理服务器 来接受网络请求，然后 将请求转发给内网中的服务器，并将从内网中的服务器上得到的结果返回给网络请求的客户端。</p>
 <p>与反向代理相对的就是正向代理。</p>
-<p>正向代理：发生在 <strong>客户端</strong>，是由用户主动发起的。vpn软件就是典型的正向代理，客户端通过主动访问代理服务器，让代理服务器获得需要的外网数据，然后转发回客户端。</p>
+<p>正向代理：发生在 <strong>客户端</strong>，是由用户主动发起的。vpn 软件就是典型的正向代理，客户端通过主动访问代理服务器，让代理服务器获得需要的外网数据，然后转发回客户端。</p>
 <p>反向代理：发生在 <strong>服务端</strong>，用户不知道代理的存在。</p>
 <p>nginx就是反向代理的一个主流产品。</p>
 <h3 id="限流-熔断-降级">限流 熔断 降级</h3>
@@ -248,13 +248,13 @@
 <p><a href="https://sentinelguard.io/zh-cn/docs/golang/quick-start.html">sentinel文档</a></p>
 <h3 id="nginx">Nginx</h3>
 <hr>
-<p>Nginx是一个高性能、开源的HTTP服务器和反向代理服务器。它可以作为一个独立的Web服务器，也可以作为其他Web服务器的反向代理。Nginx以其出色的性能和高度的可扩展性而闻名，是许多高流量网站的首选服务器。</p>
-<p>Nginx的特点包括：</p>
+<p>Nginx 是一个高性能、开源的HTTP服务器和反向代理服务器。它可以作为一个独立的 Web 服务器，也可以作为其他 Web 服务器的反向代理。Nginx以其出色的性能和高度的可扩展性而闻名，是许多高流量网站的首选服务器。</p>
+<p>Nginx 的特点包括：</p>
 <ul>
-<li>高性能：Nginx采用事件驱动的方式处理请求，可以处理大量的并发请求。</li>
-<li>可扩展性：Nginx可以通过添加模块来扩展其功能，支持各种第三方模块。</li>
-<li>反向代理：Nginx可以作为反向代理服务器，可以隐藏真实服务器的地址，从而提高网络安全性。</li>
-<li>负载均衡：Nginx可以实现负载均衡，可以将请求分配到多个服务器上，从而提高网站的性能和可靠性。</li>
+<li>高性能：Nginx 采用事件驱动的方式处理请求，可以处理大量的并发请求。</li>
+<li>可扩展性：Nginx 可以通过添加模块来扩展其功能，支持各种第三方模块。</li>
+<li>反向代理：Nginx 可以作为反向代理服务器，可以隐藏真实服务器的地址，从而提高网络安全性。</li>
+<li>负载均衡：Nginx 可以实现负载均衡，可以将请求分配到多个服务器上，从而提高网站的性能和可靠性。</li>
 </ul>
 <p>Nginx是一个功能强大而灵活的服务器，适合用于构建高性能、可扩展的Web应用程序。</p>
 <p>在Nginx中实现反向代理非常简单。只需要在Nginx配置文件中添加一个<code>proxy_pass</code>指令即可。例如，要将所有<code>/api</code>请求代理到<code>http://localhost:3000</code>，可以使用以下配置：</p>
@@ -262,23 +262,23 @@
     proxy_pass &lt;http://localhost:3000&gt;;
 }
 </code></pre><p>这将使Nginx将所有<code>/api</code>请求代理到<code>http://localhost:3000</code>。在这个例子中，Nginx充当了客户端和服务器之间的中转站，将所有请求代理到真实的服务器上，然后将响应返回给客户端。</p>
-<p>除了<code>proxy_pass</code>指令之外，Nginx还提供了许多其他的反向代理指令，包括：</p>
+<p>除了<code>proxy_pass</code>指令之外，Nginx 还提供了许多其他的反向代理指令，包括：</p>
 <ul>
-<li><code>proxy_set_header</code>：设置HTTP请求头。</li>
+<li><code>proxy_set_header</code>：设置 HTTP 请求头。</li>
 <li><code>proxy_redirect</code>：重定向代理请求。</li>
 <li><code>proxy_cache</code>：缓存代理请求的响应。</li>
 <li><code>proxy_connect_timeout</code>：设置代理连接超时时间。</li>
 </ul>
-<p>通过使用这些指令，可以轻松地配置Nginx作为反向代理服务器，并提供高性能、可扩展的Web应用程序。</p>
+<p>通过使用这些指令，可以轻松地配置 Nginx 作为反向代理服务器，并提供高性能、可扩展的 Web 应用程序。</p>
 <h3 id="traefik">Traefik</h3>
 <hr>
-<p>Traefik是一款现代的、基于容器的反向代理和负载均衡器。它可以自动发现容器、自动配置路由和HTTPS证书，并提供了许多其他的高级功能，如动态配置、健康检查和访问日志记录等。</p>
-<p>Traefik的特点包括：</p>
+<p>Traefik 是一款现代的、基于容器的反向代理和负载均衡器。它可以自动发现容器、自动配置路由和 HTTPS 证书，并提供了许多其他的高级功能，如动态配置、健康检查和访问日志记录等。</p>
+<p>Traefik 的特点包括：</p>
 <ul>
-<li>自动化：Traefik可以自动发现容器，并自动配置路由和HTTPS证书。它还可以自动调整流量，将请求分配到最少的容器上，并在容器出现问题时自动将流量转移到健康的容器上。</li>
-<li>动态配置：Traefik支持动态配置，可以通过REST API或文件变更自动配置路由和负载均衡策略。它还支持多种后端服务，如Docker、Kubernetes、Mesos、Consul等。</li>
-<li>高可用性：Traefik可以实现高可用性，可以将请求分配到多个Traefik实例上，从而实现负载均衡和故障转移。</li>
-<li>访问日志记录：Traefik可以记录访问日志，并将其发送到各种日志记录服务中。</li>
+<li>自动化：Traefik 可以自动发现容器，并自动配置路由和 HTTPS 证书。它还可以自动调整流量，将请求分配到最少的容器上，并在容器出现问题时自动将流量转移到健康的容器上。</li>
+<li>动态配置：Traefik 支持动态配置，可以通过 REST API 或文件变更自动配置路由和负载均衡策略。它还支持多种后端服务，如 Docker、Kubernetes、Mesos、Consul 等。</li>
+<li>高可用性：Traefik 可以实现高可用性，可以将请求分配到多个 Traefik 实例上，从而实现负载均衡和故障转移。</li>
+<li>访问日志记录：Traefik 可以记录访问日志，并将其发送到各种日志记录服务中。</li>
 </ul>
 <p>Traefik的配置文件非常简单，可以使用以下格式：</p>
 <pre tabindex="0"><code># traefik.toml
@@ -292,19 +292,19 @@
 [docker]
   endpoint = &#34;unix:///var/run/docker.sock&#34;
   domain = &#34;example.com&#34;
-</code></pre><p>这将启用Traefik的API和仪表板，并配置Traefik使用Docker作为后端服务。</p>
-<p>通过使用Traefik，可以轻松地实现反向代理和负载均衡，并提供高可用性、动态配置和访问日志记录等高级功能。</p>
+</code></pre><p>这将启用 Traefik 的 API 和仪表板，并配置 Traefik 使用 Docker 作为后端服务。</p>
+<p>通过使用 Traefik，可以轻松地实现反向代理和负载均衡，并提供高可用性、动态配置和访问日志记录等高级功能。</p>
 <p><a href="https://www.traefik.tech/">Traefik文档</a></p>
 <h3 id="kong">Kong</h3>
 <hr>
-<p>Kong是一个高性能的API网关，它可以管理微服务架构中的API通信。</p>
+<p>Kong 是一个高性能的API网关，它可以管理微服务架构中的API通信。</p>
 <ul>
-<li><strong>核心组件</strong>：Kong的主要组件包括Kong Server（基于nginx的服务器，用来接收API请求）、数据库（Apache Cassandra或PostgreSQL，用来存储操作数据）以及Kong dashboard（官方推荐的UI管理工具）。</li>
-<li><strong>插件系统</strong>：Kong通过插件来扩展其功能，这些插件可以在API请求响应循环的生命周期中被执行。插件使用Lua编写，目前已有多个基础功能插件，如HTTP基本认证、密钥认证、CORS、TCP、UDP、文件日志、API请求限流、请求转发以及Nginx监控。</li>
-<li><strong>可扩展性</strong>：Kong可以通过简单地添加更多的服务器来进行横向扩展，这意味着它可以在较低负载的情况下处理任何请求。</li>
-<li><strong>模块化</strong>：Kong的模块化设计允许通过添加新的插件进行扩展，这些插件可以通过RESTful Admin API轻松配置。</li>
-<li><strong>跨基础架构运行</strong>：Kong可以在云或内部网络环境中部署，包括单个或多个数据中心设置，以及public、private或invite-only APIs。</li>
-<li><strong>集群和高可用性</strong>：Kong支持集群部署，集群中的节点通过gossip协议自动发现其他节点。当通过一个Kong节点的管理API进行变更时，也会通知其他节点。</li>
+<li><strong>核心组件</strong>：Kong 的主要组件包括 Kong Server（基于 nginx 的服务器，用来接收API请求）、数据库（Apache Cassandra 或 PostgreSQL，用来存储操作数据）以及 Kong dashboard（官方推荐的UI管理工具）。</li>
+<li><strong>插件系统</strong>：Kong 通过插件来扩展其功能，这些插件可以在API请求响应循环的生命周期中被执行。插件使用Lua编写，目前已有多个基础功能插件，如HTTP基本认证、密钥认证、CORS、TCP、UDP、文件日志、API请求限流、请求转发以及Nginx监控。</li>
+<li><strong>可扩展性</strong>：Kong 可以通过简单地添加更多的服务器来进行横向扩展，这意味着它可以在较低负载的情况下处理任何请求。</li>
+<li><strong>模块化</strong>：Kong 的模块化设计允许通过添加新的插件进行扩展，这些插件可以通过 RESTful Admin API轻松配置。</li>
+<li><strong>跨基础架构运行</strong>：Kong 可以在云或内部网络环境中部署，包括单个或多个数据中心设置，以及 public、private 或 invite-only APIs。</li>
+<li><strong>集群和高可用性</strong>：Kong 支持集群部署，集群中的节点通过 gossip 协议自动发现其他节点。当通过一个 Kong 节点的管理API进行变更时，也会通知其他节点。</li>
 </ul>
 <p><a href="https://docs.konghq.com/">Kong文档</a></p>
 <h3 id="nginxconf">Nginx.conf</h3>

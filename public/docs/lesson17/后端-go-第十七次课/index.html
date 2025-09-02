@@ -29,7 +29,7 @@
 
   <meta itemprop="name" content="第十七课">
   <meta itemprop="description" content="第十七课">
-  <meta itemprop="wordCount" content="653">
+  <meta itemprop="wordCount" content="650">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="第十七课">
   <meta name="twitter:description" content="第十七课">
@@ -221,20 +221,20 @@
 <h4 id="traces">Traces</h4>
 <p><strong>有时候也被称为分布式追踪（Distributed Tracing），表示请求通过分布式系统的端到端的路径</strong>。当请求通过主机系统时， 它执⾏的每个操作被称为“跨度”（Span）。一个 Trace 是 Spans 的有向无环图。链路追踪一般会通过一个可视化的瀑布图展现出来。瀑布图展示了用于调试的请求的每个阶段，以及每个部分的开始时间和持续时长。</p>
 <p>举个分布式调用的例子：客户端发起请求，请求首先到达负载均衡器，经过认证服务、系统服务，然后请求资源，最终返回结果。</p>
-<p><img src="img/trace.png" alt="trace"></p>
+<p><img src="/img/trace.png" alt="trace"></p>
 <h5 id="trace-实现的基本原理">Trace 实现的基本原理</h5>
 <p>想要实现调用链，就要为<strong>每次调用做个标识</strong>，然后<strong>将服务按标识大小排列</strong>，可以更清晰地看出调用顺序，我们暂且将该标识命名为 spanid</p>
-<p><img src="img/trace1.png" alt="trace1"></p>
+<p><img src="/img/trace1.png" alt="trace1"></p>
 <p>实际场景中，我们需要知道某次请求调用的情况，所以只有spanid还不够，得为<strong>每次请求做个唯一标识</strong>，这样才能根据标识查出本次请求调用的所有服务，而这个标识我们命名为 traceid。</p>
-<p><img src="img/trace2.png" alt="trace2"></p>
+<p><img src="/img/trace2.png" alt="trace2"></p>
 <p>现在根据spanid可以轻易地知道被调用服务的先后顺序，但无法体现调用的层级关系，正如下图所示，多个服务可能是逐级调用的链条，也可能是同时被同一个服务调用。例如：</p>
-<p><img src="img/trace3.png" alt="trace3"></p>
+<p><img src="/img/trace3.png" alt="trace3"></p>
 <p>所以应该每次都记录下是谁调用的，我们用parentid作为这个标识的名字。</p>
-<p><img src="img/trace4.png" alt="trace4"></p>
+<p><img src="/img/trace4.png" alt="trace4"></p>
 <p>到现在，已经知道调用顺序和层级关系了，但是接口出现问题后，还是不能找到出问题的环节，如果某个服务有问题，那个被调用执行的服务一定耗时很长，要想<strong>计算出耗时</strong>，上述的三个标识还不够，还需要加上<strong>时间戳</strong>，时间戳可以更精细一点，精确到微秒级。只记录发起调用时的时间戳还算不出耗时，要记录下服务<strong>返回时的时间戳</strong>，<strong>才能算出时间差</strong></p>
-<p><img src="img/trace5.png" alt="trace5"></p>
+<p><img src="/img/trace5.png" alt="trace5"></p>
 <p>其实 span 除了上面说的这几个必选参数外，还可以记录一些其他信息，比如发起调用服务名称，被调用服务名称、返回结果、IP 等等。但是这些信息是在 span 内自己上报给 Collector 或者 Backend Server，而不会在链路上传递，在链路上传递的主要是 trace_id 和 span_id 等用于在跨度间建立关系的信息（也就是 <a href="https://opentelemetry.io/docs/concepts/signals/traces/#span-context">Span Context</a>）。这样子，Collector 或者 Backend Server  就有了一个链路的很多 span，而这些 span 都有 span_id、trace_id，于是就可以通过这些信息构建出一个完整的调用链了。</p>
-<p><img src="img/trace_collector.png" alt="trace_collector"></p>
+<p><img src="/img/trace_collector.png" alt="trace_collector"></p>
 <p>然而，仅仅是收集这些数据类并不能保证系统的可观测性，尤其是当你彼此独⽴地使⽤它们时。<strong>从根本上来说，指标、日志和链路追踪只是数据类型，与可观测性无关。</strong></p>
 <p>可观测性应该是我们构建的系统的一种属性，就像可用性、高可用性和稳定性这些一样，能够帮助我们更好地理解和解释系统当前所处的任何状态，无论这种状态或者问题是否在之前出现过。这就要求我们的收集的数据支持高基数（值的唯一性高）和高维度（键的数量多）</p>
 <h2 id="opentelemetry">OpenTelemetry</h2>
@@ -248,7 +248,7 @@
 <p>OpenTracing 和 OpenCensus，这两套框架都有很多追随者，而且二者都想统一对方。但是从功能和特性上来看，它们各有优缺点，半斤八两。</p>
 <p>于是就有了 OpenTelemetry，OpenTelemetry 可以同时兼容 OpenTracing 和 OpenCensus，开发人员再也无需在 OpenTracing 和 OpenCensus 之间进行选择。OpenTelemetry 提供一个统一的集合。</p>
 <h3 id="opentelemetry-的核心组件">OpenTelemetry 的核心组件</h3>
-<p><img src="img/component.png" alt="component"></p>
+<p><img src="/img/component.png" alt="component"></p>
 <blockquote>
 <p>Collector 收集器</p></blockquote>
 <p>OpenTelemetry 收集器是一个独立于供应商的代理，可接收、处理和导出遥测数据。它支持以多种格式接收遥测数据，以及在导出前对遥测数据进行处理和筛选。</p>
@@ -280,15 +280,15 @@
 <ol>
 <li><strong>不使用OpenTelemetry Collector</strong>：OpenTelemetry Collector 并不是必须的，我们可以直接使用OpenTelemetry 客户端SDK发送遥测数据到监控组件中，比如将 trace 数据发送到 jaeger，发送 metric 数据到 prometheus</li>
 </ol>
-<p><img src="img/nocollector.png" alt="nocollector"></p>
+<p><img src="/img/nocollector.png" alt="nocollector"></p>
 <ol start="2">
 <li><strong>Agent 模式</strong>：在应用程序和后端监控组件（jaeger、prometheus）之间部署上OpenTelemetry Collector，OpenTelemetry Collector 和应用程序之间传输遥测数据（Collector 支持几个主流的开源协议），存在的问题是如果应用程序产生的遥测数据太多，一个OpenTelemetry Collector 已经不能满足快速处理数据的要求</li>
 </ol>
-<p><img src="img/agent.png" alt="agent"></p>
+<p><img src="/img/agent.png" alt="agent"></p>
 <ol start="3">
 <li><strong>Gateway 模式</strong>：通过在多个OpenTelemetry Collector 前面部署一个拥有负载均衡功能的OpenTelemetry Collector 来让分发发往整个集群的遥测数据。</li>
 </ol>
-<p><img src="img/gateway.png" alt="gateway"></p>
+<p><img src="/img/gateway.png" alt="gateway"></p>
 <h4 id="pipeline">Pipeline</h4>
 <p>Collector 采用 Pipeline 方式来接收、处理和导出数据，每个 Collector 可配置一个或多个 Pipeline，每个 pipeline 包含如下组件：</p>
 <ul>
@@ -301,7 +301,7 @@
 <p>pipeline</p></blockquote>
 <p>一个pipeline定义了一条数据流动的路径：从 Collector 数据接收开始，然后进一步的处理或修改，到最后通过exporter导出。</p>
 <p>pipeline能够处理3种类型数据：trace、metric和logs。数据类型是需要pipeline配置的一个属性。在pipeline中receiver、processor和exporter必须支持某个特定的数据类型，一个 pipeline 可以表示为：</p>
-<p><img src="img/pipeline.png" alt="pipeline"></p>
+<p><img src="/img/pipeline.png" alt="pipeline"></p>
 <p>一个经典的 pipeline 配置如下：</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -384,7 +384,7 @@
 </div><p>这段配置就描述了一个批处理 processor 的配置</p>
 <h2 id="jaeger">Jaeger</h2>
 <h3 id="简介">简介</h3>
-<p><img src="img/jaeger.png" alt="jaeger"></p>
+<p><img src="/img/jaeger.png" alt="jaeger"></p>
 <p><a href="https://www.jaegertracing.io/">Jaeger</a>  是受到 ​ ​Dapper​​​ 和 ​ ​OpenZipkin​​​ 启发的由 ​ ​Uber Technologies​​ 作为开源发布的分布式跟踪系统，兼容 OpenTracing 以及 Zipkin 追踪格式，目前已成为 CNCF 基金会的开源项目。其前端采用React语言实现，后端采用GO语言实现，适用于进行链路追踪，分布式跟踪消息传递，分布式事务监控、问题分析、服务依赖性分析、性能优化等场景。</p>
 <h3 id="快速开始">快速开始</h3>
 <blockquote>
@@ -509,7 +509,7 @@
 </table>
 <h2 id="prometheus">Prometheus</h2>
 <h3 id="简介-1">简介</h3>
-<p><img src="img/prometheus.png" alt="prometheus"></p>
+<p><img src="/img/prometheus.png" alt="prometheus"></p>
 <p><a href="https://github.com/prometheus">Prometheus</a> 是由前 Google 工程师从 2012 年开始在 Soundcloud 以开源软件的形式进行研发的系统监控和告警工具包，自此以后，许多公司和组织都采用了 Prometheus 作为监控告警工具。Prometheus 的开发者和用户社区非常活跃，它现在是一个独立的开源项目，可以独立于任何公司进行维护。</p>
 <p>Prometheus 的主要优势有：</p>
 <ul>
@@ -537,18 +537,17 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    prom/prometheus
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>容器启动后，使用浏览器打开 <a href="http://localhost:9090/">http://localhost:9090</a> 即可访问 Prometheus UI，如果想要添加数据源，需要配置 prometheus.yml</p>
+</div><p>容器启动后，使用浏览器打开<a href="http://localhost:9090/">http://localhost:9090</a>即可访问 Prometheus UI，如果想要添加数据源，需要配置 prometheus.yml</p>
 <h2 id="作业">作业</h2>
-<p><strong>提交地址</strong>： mull1on0910@gmail.com
-<strong>提交格式</strong>：第十七次作业-学号-姓名
-<strong>截止时间</strong>：下一次上课之前</p>
+<p><strong>提交地址</strong>：2926310865@qq.com</p>
+<p><strong>提交格式</strong>：第十七次作业-学号-姓名</p>
 <h3 id="lv1">Lv1</h3>
 <p>按照官方文档的<a href="https://opentelemetry.opendocs.io/docs/instrumentation/go/getting-started/">快速上手</a>教程，自己动手做一下，加深 OpenTelemetry 每个组件的理解</p>
 <h3 id="lv2">Lv2</h3>
 <p>在完成快速上手 rolldice 服务的基础上，添加 exporter，将 trace 发送到 jaeger 和 prometheus，参照官方文档的 <a href="https://opentelemetry.opendocs.io/docs/instrumentation/go/exporters/">exporter教程</a></p>
 <p>或者可以部署 OpenTelemetry Collector，通过 Collector 发送到 jaeger 和 prometheus</p>
 <h3 id="lv3">Lv3</h3>
-<p>了解一下 ELK，最好可以自己尝试部署一个</p>
+<p>了解一下 ELK（不过现在更多的是 EFK，可以都试试），最好可以自己尝试部署一个</p>
 <h2 id="参考链接">参考链接</h2>
 <ol>
 <li><a href="https://www.elastic.co/cn/what-is/opentelemetry">什么是 OpenTelemetry</a></li>

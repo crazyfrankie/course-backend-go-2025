@@ -14,9 +14,11 @@ description: >
 
 DDD 分层架构中的要素其实和三层架构类似，只是在 DDD 分层架构中，这些要素被重新归类，重新划分了层，确定了层与层之间的交互规则和职责边界。
 
-[什么是 DDD](https://blog.csdn.net/qq_16498553/article/details/110848831)
+[什么是 DDD](https://juejin.cn/post/7146116779905908772)
 
 [DDD 实战课](http://learn.lianglianglee.com/专栏/DDD实战课)
+
+[DDD 概念解析](https://domain-driven-design.org/zh/ddd-concept-reference.html)
 
 ![img](/images/lesson15/java_error_in_idea.png)
 
@@ -164,9 +166,3 @@ https://cloudwego.cn/docs/hertz/
 https://github.com/cloudwego/kitex-examples
 
 https://github.com/cloudwego/hertz-examples
-
-[袁神去年的教程（缺少时效性，仅供参考）](https://juejin.cn/post/7216255521372110909)
-
-
-
-we重邮代码走读

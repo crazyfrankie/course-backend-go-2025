@@ -44,32 +44,32 @@ description: >
 
 举个分布式调用的例子：客户端发起请求，请求首先到达负载均衡器，经过认证服务、系统服务，然后请求资源，最终返回结果。
 
-![trace](img/trace.png)
+![trace](/img/trace.png)
 ##### Trace 实现的基本原理
 
 想要实现调用链，就要为**每次调用做个标识**，然后**将服务按标识大小排列**，可以更清晰地看出调用顺序，我们暂且将该标识命名为 spanid
 
-![trace1](img/trace1.png)
+![trace1](/img/trace1.png)
 
 实际场景中，我们需要知道某次请求调用的情况，所以只有spanid还不够，得为**每次请求做个唯一标识**，这样才能根据标识查出本次请求调用的所有服务，而这个标识我们命名为 traceid。
 
-![trace2](img/trace2.png)
+![trace2](/img/trace2.png)
 
 现在根据spanid可以轻易地知道被调用服务的先后顺序，但无法体现调用的层级关系，正如下图所示，多个服务可能是逐级调用的链条，也可能是同时被同一个服务调用。例如：
 
-![trace3](img/trace3.png)
+![trace3](/img/trace3.png)
 
 所以应该每次都记录下是谁调用的，我们用parentid作为这个标识的名字。
 
-![trace4](img/trace4.png)
+![trace4](/img/trace4.png)
 
 到现在，已经知道调用顺序和层级关系了，但是接口出现问题后，还是不能找到出问题的环节，如果某个服务有问题，那个被调用执行的服务一定耗时很长，要想**计算出耗时**，上述的三个标识还不够，还需要加上**时间戳**，时间戳可以更精细一点，精确到微秒级。只记录发起调用时的时间戳还算不出耗时，要记录下服务**返回时的时间戳**，**才能算出时间差**
 
-![trace5](img/trace5.png)
+![trace5](/img/trace5.png)
 
 其实 span 除了上面说的这几个必选参数外，还可以记录一些其他信息，比如发起调用服务名称，被调用服务名称、返回结果、IP 等等。但是这些信息是在 span 内自己上报给 Collector 或者 Backend Server，而不会在链路上传递，在链路上传递的主要是 trace_id 和 span_id 等用于在跨度间建立关系的信息（也就是 [Span Context](https://opentelemetry.io/docs/concepts/signals/traces/#span-context)）。这样子，Collector 或者 Backend Server  就有了一个链路的很多 span，而这些 span 都有 span_id、trace_id，于是就可以通过这些信息构建出一个完整的调用链了。
 
-![trace_collector](img/trace_collector.png)
+![trace_collector](/img/trace_collector.png)
 
 然而，仅仅是收集这些数据类并不能保证系统的可观测性，尤其是当你彼此独⽴地使⽤它们时。**从根本上来说，指标、日志和链路追踪只是数据类型，与可观测性无关。**
 
@@ -98,7 +98,7 @@ OpenTracing 和 OpenCensus，这两套框架都有很多追随者，而且二者
 ### OpenTelemetry 的核心组件
 
 
-![component](img/component.png)
+![component](/img/component.png)
 
 >Collector 收集器
 
@@ -133,15 +133,15 @@ OpenTelemetry Collector 是OpenTelemetry 项目中的一个代理软件，作为
 
 1. **不使用OpenTelemetry Collector**：OpenTelemetry Collector 并不是必须的，我们可以直接使用OpenTelemetry 客户端SDK发送遥测数据到监控组件中，比如将 trace 数据发送到 jaeger，发送 metric 数据到 prometheus
 
-![nocollector](img/nocollector.png)
+![nocollector](/img/nocollector.png)
 
 2. **Agent 模式**：在应用程序和后端监控组件（jaeger、prometheus）之间部署上OpenTelemetry Collector，OpenTelemetry Collector 和应用程序之间传输遥测数据（Collector 支持几个主流的开源协议），存在的问题是如果应用程序产生的遥测数据太多，一个OpenTelemetry Collector 已经不能满足快速处理数据的要求
 
-![agent](img/agent.png)
+![agent](/img/agent.png)
 
 3. **Gateway 模式**：通过在多个OpenTelemetry Collector 前面部署一个拥有负载均衡功能的OpenTelemetry Collector 来让分发发往整个集群的遥测数据。
 
-![gateway](img/gateway.png)
+![gateway](/img/gateway.png)
 
 #### Pipeline
 
@@ -158,7 +158,7 @@ Collector 采用 Pipeline 方式来接收、处理和导出数据，每个 Colle
 
 pipeline能够处理3种类型数据：trace、metric和logs。数据类型是需要pipeline配置的一个属性。在pipeline中receiver、processor和exporter必须支持某个特定的数据类型，一个 pipeline 可以表示为：
 
-![pipeline](img/pipeline.png)
+![pipeline](/img/pipeline.png)
 
 一个经典的 pipeline 配置如下：
 
@@ -221,7 +221,7 @@ processors:
 
 ### 简介
 
-![jaeger](img/jaeger.png)
+![jaeger](/img/jaeger.png)
 
 [Jaeger](https://www.jaegertracing.io/)  是受到 ​ ​Dapper​​​ 和 ​ ​OpenZipkin​​​ 启发的由 ​ ​Uber Technologies​​ 作为开源发布的分布式跟踪系统，兼容 OpenTracing 以及 Zipkin 追踪格式，目前已成为 CNCF 基金会的开源项目。其前端采用React语言实现，后端采用GO语言实现，适用于进行链路追踪，分布式跟踪消息传递，分布式事务监控、问题分析、服务依赖性分析、性能优化等场景。
 
@@ -266,7 +266,7 @@ all-in-one 端口文档如下：
 ## Prometheus
 ### 简介
 
-![prometheus](img/prometheus.png)
+![prometheus](/img/prometheus.png)
 
 [Prometheus](https://github.com/prometheus) 是由前 Google 工程师从 2012 年开始在 Soundcloud 以开源软件的形式进行研发的系统监控和告警工具包，自此以后，许多公司和组织都采用了 Prometheus 作为监控告警工具。Prometheus 的开发者和用户社区非常活跃，它现在是一个独立的开源项目，可以独立于任何公司进行维护。
 
@@ -291,13 +291,14 @@ docker run \
     prom/prometheus
 ```
 
-容器启动后，使用浏览器打开 [http://localhost:9090](http://localhost:9090/) 即可访问 Prometheus UI，如果想要添加数据源，需要配置 prometheus.yml
+容器启动后，使用浏览器打开[http://localhost:9090](http://localhost:9090/)即可访问 Prometheus UI，如果想要添加数据源，需要配置 prometheus.yml
 
 ## 作业
 
-**提交地址**： mull1on0910@gmail.com
+**提交地址**：2926310865@qq.com
+
 **提交格式**：第十七次作业-学号-姓名
-**截止时间**：下一次上课之前
+
 ### Lv1
 
 按照官方文档的[快速上手](https://opentelemetry.opendocs.io/docs/instrumentation/go/getting-started/)教程，自己动手做一下，加深 OpenTelemetry 每个组件的理解
@@ -308,7 +309,7 @@ docker run \
 或者可以部署 OpenTelemetry Collector，通过 Collector 发送到 jaeger 和 prometheus
 ### Lv3
 
-了解一下 ELK，最好可以自己尝试部署一个
+了解一下 ELK（不过现在更多的是 EFK，可以都试试），最好可以自己尝试部署一个
 
 ## 参考链接
 
