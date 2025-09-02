@@ -44,17 +44,17 @@ looklook作者讲解的入门教学视频，可以看一下
 
 [go-zero入门视频](https://www.bilibili.com/video/BV1LS4y1U72n/?spm_id_from=333.788&vd_source=23d8be6eab81d2d14531293e81d6a5dc)
 
-go-zero分布式缓存设计，这个万总讲的很好，**必看**
+go-zero分布式缓存设计，这个讲的很好，**必看**
 
 [go-zero分布式缓存设计](https://www.bilibili.com/video/BV1Rv411L72P/?spm_id_from=333.337.search-card.all.click&vd_source=23d8be6eab81d2d14531293e81d6a5dc)
 
 ## 一些tips
 
-### 并发神器mr包
+### 并发神器 mr 包
 
-可以用mr.Finish()去并发rpc请求，相当于封装好的goroutine
+可以用 mr.Finish() 去并发 rpc 请求，相当于封装好的 goroutine
 
-还有MapReduce，也值得学习一些，下面有讲解文章可以看看
+还有 MapReduce，也值得学习一些，下面有讲解文章可以看看
 
 https://juejin.cn/post/7031483035820556295
 
