@@ -48,7 +48,7 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 [Zap 日志库实践](https://juejin.cn/post/7032091256457003044)
 
 还有一个本人基于标准库封装的库，可以参考一下：
-[errorx](https://github.com/crazyfrankie/frx/tree/master/errorx)
+[logs](https://github.com/crazyfrankie/frx/tree/master/logs)
 
 ## 后端到底是怎么工作的？
 上了前面的课，大家应该能够明白后端其实就是负责业务逻辑与数据处理的，但是在实际生产环境中，后端是如何在互联网中发挥作用的呢？
