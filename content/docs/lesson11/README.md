@@ -16,17 +16,17 @@ description: >
 ![viper](/images/lesson11/viper.PNG)
 
 通常，在一个或多个项目中我们需要使用定义一些配置（数据库的配置，项目功能的参数配置），从而我们可以在项目的开发或上线过程中可以快速的自定义项目的一些功能，以便满足我们的一些特定需求，那么项目中的配置如何管理呢，在 Go 中我们需要用到叫做 Viper 配置管理器。
-尽管 Go 有官方库可以读取配置，但是通常情况下，推荐使用viper库来读取配置文件， viper 支持以下功能：
+尽管 Go 有官方库可以读取配置，但是通常情况下，推荐使用 [viper](https://github.com/spf13/viper)来读取配置文件， viper 支持以下功能：
 
 - 支持 yaml、json、toml、hcl 等格式的配置文件
 
-- 可以从文件、io.Reader 、环境变量、cli命令行 中读取配置
+- 可以从文件、io.Reader 、环境变量、cli 命令行 中读取配置
 
 - 支持自动转换的类型解析
 
-- 可以远程从Key/Value中读取配置，需要导入 viper/remote 包
+- 可以远程从 `Key/Value` 中读取配置，需要导入 viper/remote 包
 
-- 监听配置文件。以往我们修改配置文件后需要重启服务生效，而Viper使用watch函数可以让配置自动生效
+- 监听配置文件。以往我们修改配置文件后需要重启服务生效，而 Viper 使用 `watch` 函数可以让配置自动生效
   
   
   [Go语言配置管理神器——Viper中文教程](https://www.liwenzhou.com/posts/Go/viper_tutorial/)
@@ -46,6 +46,9 @@ Go 在 1.21.3 中新推出了 slog ，但是无论从自由度还是性能上都
 [在Go语言项目中使用Zap日志库](https://www.liwenzhou.com/posts/Go/zap/)
 
 [Zap 日志库实践](https://juejin.cn/post/7032091256457003044)
+
+还有一个本人基于标准库封装的库，可以参考一下：
+[errorx](https://github.com/crazyfrankie/frx/tree/master/errorx)
 
 ## 后端到底是怎么工作的？
 上了前面的课，大家应该能够明白后端其实就是负责业务逻辑与数据处理的，但是在实际生产环境中，后端是如何在互联网中发挥作用的呢？
@@ -563,7 +566,7 @@ https://api.example.com/v1/
 5. 资源表示用复数不要用单数
 6. 不要使用文件扩展名
 
-RESTful API的资源URI一般由两个部分组成的：Path和Query Parameters
+RESTful API 的资源 URI 一般由两个部分组成的：Path 和 Query Parameters
 
 #### **方法设计**
 
@@ -589,7 +592,18 @@ DELETE /collection/resource：从服务器删除资源
 
 每一大类有若干小类，状态码的种类比较多，而主要常用状态码罗列在下面：
 
-200 `OK - [GET]`：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。 201 `CREATED - [POST/PUT/PATCH]`：用户新建或修改数据成功。 202 `Accepted - [*]`：表示一个请求已经进入后台排队（异步任务） 204 `NO CONTENT - [DELETE]`：用户删除数据成功。 400 `INVALID REQUEST - [POST/PUT/PATCH]`：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。 401 `Unauthorized - [*]`：表示用户没有权限（令牌、用户名、密码错误）。 403 `Forbidden - [*]` 表示用户得到授权（与401错误相对），但是访问是被禁止的。 404 `NOT FOUND - [*]`：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。 406 `Not Acceptable - [GET]`：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。 410 `Gone -[GET]`：用户请求的资源被永久删除，且不会再得到的。 422 `Unprocesable entity - [POST/PUT/PATCH]` 当创建一个对象时，发生一个验证错误。 500 `INTERNAL SERVER ERROR - [*]`：服务器发生错误，用户将无法判断发出的请求是否成功。
+- 200 `OK - [GET]`：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。 
+- 201 `CREATED - [POST/PUT/PATCH]`：用户新建或修改数据成功。 
+- 202 `Accepted - [*]`：表示一个请求已经进入后台排队（异步任务） 
+- 204 `NO CONTENT - [DELETE]`：用户删除数据成功。 
+- 400 `INVALID REQUEST - [POST/PUT/PATCH]`：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。 
+- 401 `Unauthorized - [*]`：表示用户没有权限（令牌、用户名、密码错误）。 
+- 403 `Forbidden - [*]` 表示用户得到授权（与401错误相对），但是访问是被禁止的。 
+- 404 `NOT FOUND - [*]`：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。 
+- 406 `Not Acceptable - [GET]`：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。 
+- 410 `Gone -[GET]`：用户请求的资源被永久删除，且不会再得到的。 
+- 422 `Unprocesable entity - [POST/PUT/PATCH]` 当创建一个对象时，发生一个验证错误。 
+- 500 `INTERNAL SERVER ERROR - [*]`：服务器发生错误，用户将无法判断发出的请求是否成功。
 
 在使用 HTTP Status Code 的基础上，还需要有业务错误码，通过code字段返回。错误码由各业务方自行约定，业务内部自行划分区段。
 
@@ -601,15 +615,11 @@ DELETE /collection/resource：从服务器删除资源
 {
 
   "code": 0,            # 错误码，请求成功时返回0
-  "msg": "success",     # 错误信息，请求成功时返回"success"
-  "ok": true,           # 返回状态是否成功
+  "msg": "success",     # 错误信息，请求成功时返回"success",请求失败返回错误信息
   "data": {             # 数据内容，结构必须为object，使用 list/string 均不合规范
     "id": 1,
     "name": "abc"
   },
-  "extra": {            # 错误码非0时，data应为空，推荐extra字段返回错误时需要携带的信息
-  
-  }
 }
 ```
 
@@ -672,6 +682,8 @@ POST: http://www.goodhr.com/api/v1/companies/66/employees
 
 [Commit message](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
+[CFC Git 规范](https://github.com/Kirov7/cfc-golang-develop-norms/blob/master/cfc-golang%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83.md)
+
 [如何使用 git 与 github 进行团队开发](https://zhuanlan.zhihu.com/p/23478654)
 
 不会现在还有人在用 upload files 上传代码吧😠
@@ -684,11 +696,11 @@ POST: http://www.goodhr.com/api/v1/companies/66/employees
 
 ## **一些好的 Web 项目**
 
-[gin-vue-admin](https://github.com/flipped-aurora/gin-vue-admin)
+[gin-vue-admin](https://github.com/flipped-aurora/gin-vue-admin)(管理系统)
 
-[alist](https://github.com/alist-org/alist)
+[alist](https://github.com/alist-org/alist)(通用网盘)
 
-[awesome-gf](https://github.com/gogf/awesome-gf)
+[coze-studio](https://github.com/coze-dev/coze-studio)(Open coze 实现)
 
 ## **作业**
 

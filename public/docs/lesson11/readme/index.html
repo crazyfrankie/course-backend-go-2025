@@ -31,7 +31,7 @@
   <meta itemprop="name" content="单体架构实战">
   <meta itemprop="description" content="单体架构实战">
   <meta itemprop="dateModified" content="2025-08-24T18:25:34+08:00">
-  <meta itemprop="wordCount" content="978">
+  <meta itemprop="wordCount" content="989">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="单体架构实战">
   <meta name="twitter:description" content="单体架构实战">
@@ -200,22 +200,22 @@
 <h3 id="viper-配置管理">viper (配置管理)</h3>
 <p><img src="/images/lesson11/viper.PNG" alt="viper"></p>
 <p>通常，在一个或多个项目中我们需要使用定义一些配置（数据库的配置，项目功能的参数配置），从而我们可以在项目的开发或上线过程中可以快速的自定义项目的一些功能，以便满足我们的一些特定需求，那么项目中的配置如何管理呢，在 Go 中我们需要用到叫做 Viper 配置管理器。
-尽管 Go 有官方库可以读取配置，但是通常情况下，推荐使用viper库来读取配置文件， viper 支持以下功能：</p>
+尽管 Go 有官方库可以读取配置，但是通常情况下，推荐使用 <a href="https://github.com/spf13/viper">viper</a>来读取配置文件， viper 支持以下功能：</p>
 <ul>
 <li>
 <p>支持 yaml、json、toml、hcl 等格式的配置文件</p>
 </li>
 <li>
-<p>可以从文件、io.Reader 、环境变量、cli命令行 中读取配置</p>
+<p>可以从文件、io.Reader 、环境变量、cli 命令行 中读取配置</p>
 </li>
 <li>
 <p>支持自动转换的类型解析</p>
 </li>
 <li>
-<p>可以远程从Key/Value中读取配置，需要导入 viper/remote 包</p>
+<p>可以远程从 <code>Key/Value</code> 中读取配置，需要导入 viper/remote 包</p>
 </li>
 <li>
-<p>监听配置文件。以往我们修改配置文件后需要重启服务生效，而Viper使用watch函数可以让配置自动生效</p>
+<p>监听配置文件。以往我们修改配置文件后需要重启服务生效，而 Viper 使用 <code>watch</code> 函数可以让配置自动生效</p>
 <p><a href="https://www.liwenzhou.com/posts/Go/viper_tutorial/">Go语言配置管理神器——Viper中文教程</a></p>
 </li>
 </ul>
@@ -228,6 +228,8 @@
 <p><a href="http://www.yunweipai.com/23766.html">日志实践准则</a></p>
 <p><a href="https://www.liwenzhou.com/posts/Go/zap/">在Go语言项目中使用Zap日志库</a></p>
 <p><a href="https://juejin.cn/post/7032091256457003044">Zap 日志库实践</a></p>
+<p>还有一个本人基于标准库封装的库，可以参考一下：
+<a href="https://github.com/crazyfrankie/frx/tree/master/errorx">errorx</a></p>
 <h2 id="后端到底是怎么工作的">后端到底是怎么工作的？</h2>
 <p>上了前面的课，大家应该能够明白后端其实就是负责业务逻辑与数据处理的，但是在实际生产环境中，后端是如何在互联网中发挥作用的呢？</p>
 <p>我们都知道，gin 是一个 http 框架，http 是传输协议，那么 gin 框架也就是和 web（World Wide Web) 息息相关，也是 Go 作为一款擅长于后端编程的核心框架之一（当然 http 框架还有很多），为什么我们用 gin 框架写一个接口（API）就能处理请求呢，最后又把消息返回给谁了呢，这些问题都会在这节课得到解答。</p>
@@ -669,7 +671,7 @@
 <li>资源表示用复数不要用单数</li>
 <li>不要使用文件扩展名</li>
 </ol>
-<p>RESTful API的资源URI一般由两个部分组成的：Path和Query Parameters</p>
+<p>RESTful API 的资源 URI 一般由两个部分组成的：Path 和 Query Parameters</p>
 <h4 id="方法设计"><strong>方法设计</strong></h4>
 <p>在RESTful API中，不同的HTTP请求方法有各自的含义，</p>
 <p>这里就展示GET,POST,PUT,DELETE几种请求API的设计与含义分析。针对不同操作，具体的含义如下：</p>
@@ -695,22 +697,31 @@
 <blockquote>
 <p>1xx：相关信息 2xx：操作成功 3xx：重定向 4xx：客户端错误 5xx：服务器错误</p></blockquote>
 <p>每一大类有若干小类，状态码的种类比较多，而主要常用状态码罗列在下面：</p>
-<p>200 <code>OK - [GET]</code>：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。 201 <code>CREATED - [POST/PUT/PATCH]</code>：用户新建或修改数据成功。 202 <code>Accepted - [*]</code>：表示一个请求已经进入后台排队（异步任务） 204 <code>NO CONTENT - [DELETE]</code>：用户删除数据成功。 400 <code>INVALID REQUEST - [POST/PUT/PATCH]</code>：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。 401 <code>Unauthorized - [*]</code>：表示用户没有权限（令牌、用户名、密码错误）。 403 <code>Forbidden - [*]</code> 表示用户得到授权（与401错误相对），但是访问是被禁止的。 404 <code>NOT FOUND - [*]</code>：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。 406 <code>Not Acceptable - [GET]</code>：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。 410 <code>Gone -[GET]</code>：用户请求的资源被永久删除，且不会再得到的。 422 <code>Unprocesable entity - [POST/PUT/PATCH]</code> 当创建一个对象时，发生一个验证错误。 500 <code>INTERNAL SERVER ERROR - [*]</code>：服务器发生错误，用户将无法判断发出的请求是否成功。</p>
+<ul>
+<li>200 <code>OK - [GET]</code>：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。</li>
+<li>201 <code>CREATED - [POST/PUT/PATCH]</code>：用户新建或修改数据成功。</li>
+<li>202 <code>Accepted - [*]</code>：表示一个请求已经进入后台排队（异步任务）</li>
+<li>204 <code>NO CONTENT - [DELETE]</code>：用户删除数据成功。</li>
+<li>400 <code>INVALID REQUEST - [POST/PUT/PATCH]</code>：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。</li>
+<li>401 <code>Unauthorized - [*]</code>：表示用户没有权限（令牌、用户名、密码错误）。</li>
+<li>403 <code>Forbidden - [*]</code> 表示用户得到授权（与401错误相对），但是访问是被禁止的。</li>
+<li>404 <code>NOT FOUND - [*]</code>：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。</li>
+<li>406 <code>Not Acceptable - [GET]</code>：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。</li>
+<li>410 <code>Gone -[GET]</code>：用户请求的资源被永久删除，且不会再得到的。</li>
+<li>422 <code>Unprocesable entity - [POST/PUT/PATCH]</code> 当创建一个对象时，发生一个验证错误。</li>
+<li>500 <code>INTERNAL SERVER ERROR - [*]</code>：服务器发生错误，用户将无法判断发出的请求是否成功。</li>
+</ul>
 <p>在使用 HTTP Status Code 的基础上，还需要有业务错误码，通过code字段返回。错误码由各业务方自行约定，业务内部自行划分区段。</p>
 <p>针对不同操作，服务器向用户返回数据，而各个团队或公司封装的返回实体类也不同，但都返回JSON格式数据给客户端。</p>
 <p>使用相同的 HTTP 响应结构，推荐使用下列结构：</p>
 <pre tabindex="0"><code>{
 
   &#34;code&#34;: 0,            # 错误码，请求成功时返回0
-  &#34;msg&#34;: &#34;success&#34;,     # 错误信息，请求成功时返回&#34;success&#34;
-  &#34;ok&#34;: true,           # 返回状态是否成功
+  &#34;msg&#34;: &#34;success&#34;,     # 错误信息，请求成功时返回&#34;success&#34;,请求失败返回错误信息
   &#34;data&#34;: {             # 数据内容，结构必须为object，使用 list/string 均不合规范
     &#34;id&#34;: 1,
     &#34;name&#34;: &#34;abc&#34;
   },
-  &#34;extra&#34;: {            # 错误码非0时，data应为空，推荐extra字段返回错误时需要携带的信息
-  
-  }
 }
 </code></pre><p>另外需要强调的是，每一个接口都要可以完成一整个业务逻辑，而不是通过调用方组合多个接口完成一个业务逻辑。</p>
 <p>比如，创建一个员工记录的时候，需要调用政府的一个系统接口对其SIN（社会保险号）进行校验，那么最佳的实现方式是，要有一个创建员工记录接口一次性完成所有的SIN校验以及记录创建，如下，</p>
@@ -794,14 +805,15 @@
 </div><h3 id="git-提交规范">Git 提交规范</h3>
 <p>尽管现在你只是一个人负责后端项目的编写，但是在不久的将来你很有可能在大型公司或者开源社区进行团队协作，因此掌握良好的团队协作能力与 git 提交规范也十分重要</p>
 <p><a href="https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">Commit message</a></p>
+<p><a href="https://github.com/Kirov7/cfc-golang-develop-norms/blob/master/cfc-golang%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83.md">CFC Git 规范</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/23478654">如何使用 git 与 github 进行团队开发</a></p>
 <p>不会现在还有人在用 upload files 上传代码吧😠</p>
 <h2 id="-实操"><strong>🔧 实操</strong></h2>
 <p><img src="/images/lesson11/blue_cat_worm.jpeg" alt="blue_cat_worm"></p>
 <h2 id="一些好的-web-项目"><strong>一些好的 Web 项目</strong></h2>
-<p><a href="https://github.com/flipped-aurora/gin-vue-admin">gin-vue-admin</a></p>
-<p><a href="https://github.com/alist-org/alist">alist</a></p>
-<p><a href="https://github.com/gogf/awesome-gf">awesome-gf</a></p>
+<p><a href="https://github.com/flipped-aurora/gin-vue-admin">gin-vue-admin</a>(管理系统)</p>
+<p><a href="https://github.com/alist-org/alist">alist</a>(通用网盘)</p>
+<p><a href="https://github.com/coze-dev/coze-studio">coze-studio</a>(Open coze 实现)</p>
 <h2 id="作业"><strong>作业</strong></h2>
 <p><strong>Lv.0</strong></p>
 <p>反复阅读本次课件，对项目知识有个大概印象</p>
