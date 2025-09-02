@@ -31,7 +31,7 @@
   <meta itemprop="name" content="Docker 容器化">
   <meta itemprop="description" content="Docker 容器化">
   <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
-  <meta itemprop="wordCount" content="2486">
+  <meta itemprop="wordCount" content="2495">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Docker 容器化">
   <meta name="twitter:description" content="Docker 容器化">
@@ -247,76 +247,76 @@
 	<h2 id="基础入门">基础入门</h2>
 <h3 id="虚拟化介绍">虚拟化介绍</h3>
 <p>虚拟化的核心是对资源的抽象
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702438754171-97bdd4a8-db32-4328-bb3f-9095d25b2360.png#averageHue=%23e7e4df&amp;clientId=u9709a842-eab8-4&amp;from=paste&amp;height=367&amp;id=u5057db18&amp;originHeight=808&amp;originWidth=2160&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=504397&amp;status=done&amp;style=none&amp;taskId=u856ae5dd-554f-4a08-8d27-ffea9210383&amp;title=&amp;width=981.8181605378463" alt="image.png"></p>
+<img src="/images/lesson10/img-1.png" alt="image.png"></p>
 <h3 id="docker-为什么比虚拟化更加轻量">Docker 为什么比虚拟化更加轻量？</h3>
 <p>传统方式是在硬件层面实现虚拟化，需要有额外的虚拟机管理应用和虚拟机操作系统
 层。 Docker 容器是在操作系统层面上实现虚拟化，直接复用本地主机的操作系统，因此更加轻量级。</p>
 <h2 id="核心概念">核心概念</h2>
 <h3 id="docker-镜像">Docker 镜像</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702438912604-824274f5-6a0b-42dd-a4f7-f79ddb293494.png#averageHue=%23e8e3d4&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=265&amp;id=u8ae170cd&amp;originHeight=584&amp;originWidth=1834&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=302120&amp;status=done&amp;style=none&amp;taskId=u55186291-3f16-419f-89ef-cced3e7d6dd&amp;title=&amp;width=833.6363455677824" alt="image.png"></p>
+<p><img src="/images/lesson10/img-2.png" alt="image.png"></p>
 <h3 id="容器">容器</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702438946065-9831bbd6-3ff0-4b81-809e-0a6fd7305cd5.png#averageHue=%23e1ded7&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=263&amp;id=ud8f51fdb&amp;originHeight=578&amp;originWidth=1788&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=532777&amp;status=done&amp;style=none&amp;taskId=ue5e93712-9b28-4bce-b905-de2659bfe55&amp;title=&amp;width=812.7272551118839" alt="image.png"></p>
+<p><img src="/images/lesson10/img-3.png" alt="image.png"></p>
 <h3 id="仓库">仓库</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702439057339-c22ed91f-8fe2-4890-be11-7fc0307eeab0.png#averageHue=%23e1e1e1&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=585&amp;id=ud45343f7&amp;originHeight=1288&amp;originWidth=1778&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=1013233&amp;status=done&amp;style=none&amp;taskId=u715e3888-6c35-472b-ba57-849b8048aab&amp;title=&amp;width=808.1818006649494" alt="image.png"></p>
+<p><img src="/images/lesson10/img-4.png" alt="image.png"></p>
 <h2 id="使用-docker-镜像">使用 Docker 镜像</h2>
 <h3 id="pull">pull</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702439219096-0bbaa35c-1a7f-4678-a92c-184569b7ed23.png#averageHue=%23e7e7e7&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=64&amp;id=u824e9db4&amp;originHeight=140&amp;originWidth=1824&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=66219&amp;status=done&amp;style=none&amp;taskId=u9bd6bf6d-17dc-4a96-be67-f4ccd61fcc1&amp;title=&amp;width=829.090891120848" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702439239294-ee16b5ef-c6a1-4468-b4a9-50c0061e88a8.png#averageHue=%23e9e9e9&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=64&amp;id=u903445dd&amp;originHeight=140&amp;originWidth=1786&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=62599&amp;status=done&amp;style=none&amp;taskId=u88652cbe-c92c-4993-bae4-52c39908ae5&amp;title=&amp;width=811.818164222497" alt="image.png">
+<p><img src="/images/lesson10/img-5.png" alt="image.png">
+<img src="/images/lesson10/img-6.png" alt="image.png">
 加上仓库地址
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702439313494-c9a4c1a8-8c8a-4234-bd34-b6d5c1631bbb.png#averageHue=%23e6e6e6&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=282&amp;id=uc8eb4785&amp;originHeight=620&amp;originWidth=1862&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=320991&amp;status=done&amp;style=none&amp;taskId=u45f6c3d1-6f6a-4d22-9e4d-0ea17bc9301&amp;title=&amp;width=846.363618019199" alt="image.png"></p>
+<img src="/images/lesson10/img-7.png" alt="image.png"></p>
 <h3 id="ls-tag-inspect">ls 、tag、 inspect</h3>
 <h4 id="使用-images-命令列出镜像">使用 images 命令列出镜像</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702439494076-cacb03e7-9a22-4326-84e5-feb4357a7b0b.png#averageHue=%23ececec&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=434&amp;id=uc877359b&amp;originHeight=954&amp;originWidth=1852&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=360135&amp;status=done&amp;style=none&amp;taskId=u6c21b067-9173-4759-8c66-73a6d242f27&amp;title=&amp;width=841.8181635722646" alt="image.png"></p>
+<p><img src="/images/lesson10/img-8.png" alt="image.png"></p>
 <h4 id="使用-tag-命令添加镜像标签">使用 tag 命令添加镜像标签</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702448467481-812a873f-8b58-4c5d-b866-64e1588c89a8.png#averageHue=%23ececec&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=449&amp;id=ua2bb7b0f&amp;originHeight=988&amp;originWidth=1922&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=402577&amp;status=done&amp;style=none&amp;taskId=u05729b1c-193a-47eb-affe-bd17b0a8c12&amp;title=&amp;width=873.6363447008058" alt="image.png"></p>
+<p><img src="/images/lesson10/img-9.png" alt="image.png"></p>
 <h4 id="使用-inspect-命令查看详细信息">使用 inspect 命令查看详细信息</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702448717309-9a4fdfaa-546d-4659-bca6-f29662eb6764.png#averageHue=%23f3f3f3&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=421&amp;id=u2283e557&amp;originHeight=926&amp;originWidth=1792&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=225155&amp;status=done&amp;style=none&amp;taskId=u58a82cdd-f482-4578-bbad-0c38bb43127&amp;title=&amp;width=814.5454368906577" alt="image.png"></p>
+<p><img src="/images/lesson10/img-10.png" alt="image.png"></p>
 <h3 id="docker-search-搜索镜像">docker search 搜索镜像</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702448858978-d851072c-49b0-48bb-9573-e5484da320c1.png#averageHue=%23eeeeee&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=503&amp;id=u37fe0bb5&amp;originHeight=1106&amp;originWidth=1816&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=391684&amp;status=done&amp;style=none&amp;taskId=u5a3505b5-137e-46cb-a3b5-b644d3a00d7&amp;title=&amp;width=825.4545275633004" alt="image.png"></p>
+<p><img src="/images/lesson10/img-11.png" alt="image.png"></p>
 <h3 id="删除和清理镜像-rm-prune">删除和清理镜像 rm 、prune</h3>
 <h4 id="image-rm-rmi">image rm 、rmi</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702448985445-9d37c5b4-0fb9-4c1d-af12-09126562c2dd.png#averageHue=%23ededed&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=446&amp;id=ue1d28f50&amp;originHeight=982&amp;originWidth=1940&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=411714&amp;status=done&amp;style=none&amp;taskId=u4b8ba3fe-cb3d-4dea-97a8-c8e39933995&amp;title=&amp;width=881.8181627052878" alt="image.png"></p>
+<p><img src="/images/lesson10/img-12.png" alt="image.png"></p>
 <h4 id="prune">prune</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702449164655-04ae768a-cf2b-4fc0-b752-a5499fa9f9d7.png#averageHue=%23ececec&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=238&amp;id=u65165132&amp;originHeight=524&amp;originWidth=1790&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=184668&amp;status=done&amp;style=none&amp;taskId=u2c321983-7ab9-40b8-bacc-bdefe711ae7&amp;title=&amp;width=813.6363460012708" alt="image.png"></p>
+<p><img src="/images/lesson10/img-13.png" alt="image.png"></p>
 <h3 id="创建镜像">创建镜像</h3>
 <h4 id="基于现有的容器创建commit">基于现有的容器创建｜commit</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702449363468-5a57c46c-c584-4cf6-aebf-901ac73fc6e5.png#averageHue=%23ececec&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=276&amp;id=u47a661e0&amp;originHeight=608&amp;originWidth=1806&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=212098&amp;status=done&amp;style=none&amp;taskId=ua2a2dbf5-284a-4b2e-821d-aaaf55bedf1&amp;title=&amp;width=820.9090731163659" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702449383541-3cd98212-42cf-449c-9f44-69592cb54ead.png#averageHue=%23ececec&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=436&amp;id=u63688a6c&amp;originHeight=960&amp;originWidth=1830&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=360650&amp;status=done&amp;style=none&amp;taskId=uf61c65e9-4fed-4b4a-8246-a93823b8c2e&amp;title=&amp;width=831.8181637890086" alt="image.png"></p>
+<p><img src="/images/lesson10/img-14.png" alt="image.png">
+<img src="/images/lesson10/img-15.png" alt="image.png"></p>
 <h4 id="基于本地模板导入--import">基于本地模板导入 | import</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702449443582-e8790071-1a3d-4f27-91b5-316fc802d637.png#averageHue=%23e9e9e9&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=364&amp;id=uafb09a65&amp;originHeight=800&amp;originWidth=1806&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=392487&amp;status=done&amp;style=none&amp;taskId=u427e1f7d-f1e2-46c1-8267-f718209c82a&amp;title=&amp;width=820.9090731163659" alt="image.png"></p>
+<p><img src="/images/lesson10/img-16.png" alt="image.png"></p>
 <h4 id="基于dockerfile-创建build">基于Dockerfile 创建｜build</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702449518712-56e61865-07a9-4b25-8f97-f4e497c61e0a.png#averageHue=%23efefef&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=401&amp;id=u6df1f67f&amp;originHeight=882&amp;originWidth=1844&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=364318&amp;status=done&amp;style=none&amp;taskId=uc44fff40-fc35-4bf3-bfc9-24143be88c7&amp;title=&amp;width=838.1818000147169" alt="image.png"></p>
+<p><img src="/images/lesson10/img-17.png" alt="image.png"></p>
 <h3 id="存出和载入镜像-saveload">存出和载入镜像 ｜save、load</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702449579089-1703bc65-4e8d-4ecd-8602-b26cb3f26897.png#averageHue=%23efefef&amp;clientId=uadceb3de-c3ff-4&amp;from=paste&amp;height=599&amp;id=u11544248&amp;originHeight=1318&amp;originWidth=1850&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=479566&amp;status=done&amp;style=none&amp;taskId=u5fba7430-19cf-4349-8932-257154e7a69&amp;title=&amp;width=840.9090726828776" alt="image.png"></p>
+<p><img src="/images/lesson10/img-18.png" alt="image.png"></p>
 <h3 id="上传镜像--push">上传镜像 | push</h3>
 <p>注意要改tag为user/xxx
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702450020380-23ffacef-8e12-4cfc-a5b2-dbb6eec2c01b.png#averageHue=%23ededed&amp;clientId=u5254a251-eff3-4&amp;from=paste&amp;height=489&amp;id=u544de7ca&amp;originHeight=1076&amp;originWidth=1784&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=377203&amp;status=done&amp;style=none&amp;taskId=u3b4dfc28-9c80-48ce-9e6a-aef934eb6b9&amp;title=&amp;width=810.9090733331101" alt="image.png"></p>
+<img src="/images/lesson10/img-19.png" alt="image.png"></p>
 <h2 id="操作-docker-容器">操作 Docker 容器</h2>
 <p>概要
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702450553257-3c16f15d-d2f3-4d5f-a286-d2dab5a47e15.png#averageHue=%23e1e1e1&amp;clientId=u48fb3c54-5bb2-4&amp;from=paste&amp;height=185&amp;id=u1af22ad2&amp;originHeight=406&amp;originWidth=1814&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=246363&amp;status=done&amp;style=none&amp;taskId=udc46e4d7-4b69-492f-a9ae-4a069a440d5&amp;title=&amp;width=824.5454366739135" alt="image.png"></p>
+<img src="/images/lesson10/img-20.png" alt="image.png"></p>
 <h3 id="创建和启动容器">创建和启动容器</h3>
 <h4 id="创建容器-create">创建容器 ｜create</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702450729351-d76b588c-087c-4edf-9f5b-85463c7190b5.png#averageHue=%23e9e9e9&amp;clientId=u48fb3c54-5bb2-4&amp;from=paste&amp;height=159&amp;id=ufa53ab34&amp;originHeight=350&amp;originWidth=1566&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=134025&amp;status=done&amp;style=none&amp;taskId=uce8d8ca0-18d0-4f26-87e8-21e2d7e35e5&amp;title=&amp;width=711.8181663899386" alt="image.png"></p>
+<p><img src="/images/lesson10/img-21.png" alt="image.png"></p>
 <ul>
 <li><strong>-i</strong> 表示“交互式（interactive）”，它使容器的标准输入（stdin）保持打开状态，允许用户与容器进行交互，例如，可以输入命令并查看容器的输出。</li>
 <li><strong>-t</strong> 表示“终端（terminal）”，它为容器分配一个伪终端（pseudo-TTY），使得用户可以在容器内部使用类似终端的功能，如执行命令、查看输出等。</li>
 </ul>
 <h4 id="启动容器-start">启动容器 ｜start</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702450883356-edbbc92c-7e45-4a96-850e-a356501216fb.png#averageHue=%23f0f0f0&amp;clientId=u48fb3c54-5bb2-4&amp;from=paste&amp;height=238&amp;id=ub3ac3f42&amp;originHeight=524&amp;originWidth=1828&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=171312&amp;status=done&amp;style=none&amp;taskId=u0c14020a-50df-417f-9952-27306da339d&amp;title=&amp;width=830.9090728996217" alt="image.png"></p>
+<p><img src="/images/lesson10/img-22.png" alt="image.png"></p>
 <h4 id="新建并启动-run">新建并启动 ｜run</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702450997461-398fa24f-b231-4b60-bded-1216cd0929c2.png#averageHue=%23ececec&amp;clientId=u48fb3c54-5bb2-4&amp;from=paste&amp;height=148&amp;id=u7d63a5b4&amp;originHeight=326&amp;originWidth=1798&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=124436&amp;status=done&amp;style=none&amp;taskId=u1b6f50c5-41d0-4550-99ac-edf90b430ee&amp;title=&amp;width=817.2727095588184" alt="image.png">
+<p><img src="/images/lesson10/img-23.png" alt="image.png">
 当你在创建一个容器时使用 <strong>-it</strong> 选项并指定 <strong>/bin/bash</strong>，这意味着你要在新容器中运行 Bash shell，这样你就可以直接与容器进行交互，并在 Bash 提示符下执行命令和操作。</p>
 <h5 id="run启动程序后台过程详解">run启动程序后台过程详解</h5>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702451033314-62b4a4c4-8655-4507-ad48-889be25b1aa9.png#averageHue=%23e9e9e9&amp;clientId=u48fb3c54-5bb2-4&amp;from=paste&amp;height=275&amp;id=u0fe1b709&amp;originHeight=604&amp;originWidth=1896&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=306930&amp;status=done&amp;style=none&amp;taskId=u42f7e416-fc46-46e7-89bf-925717a0c99&amp;title=&amp;width=861.8181631387762" alt="image.png"></p>
+<p><img src="/images/lesson10/img-24.png" alt="image.png"></p>
 <h4 id="守护态运行---d">守护态运行 | -d</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702451493611-bae0525c-fa44-4da0-bda1-e7080bae31f7.png#averageHue=%23ededed&amp;clientId=u48fb3c54-5bb2-4&amp;from=paste&amp;height=328&amp;id=ue4fcf2dc&amp;originHeight=722&amp;originWidth=1850&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=323102&amp;status=done&amp;style=none&amp;taskId=u1ff75f3d-70d3-49a6-932e-b53778d949b&amp;title=&amp;width=840.9090726828776" alt="image.png"></p>
+<p><img src="/images/lesson10/img-25.png" alt="image.png"></p>
 <h3 id="查看日志-logs">查看日志 ｜logs</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702451585986-18bfecdb-382e-44f7-af77-ccd5139cbd17.png#averageHue=%23eeeeee&amp;clientId=uf75f1899-144d-4&amp;from=paste&amp;height=386&amp;id=u5ef89d74&amp;originHeight=850&amp;originWidth=1472&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=257406&amp;status=done&amp;style=none&amp;taskId=ufb374308-97f6-4012-9c16-67ef4d61339&amp;title=&amp;width=669.0908945887545" alt="image.png"></p>
+<p><img src="/images/lesson10/img-26.png" alt="image.png"></p>
 <h3 id="停止容器-pauseunpause-stop-prune">停止容器 ｜pause/unpause 、stop、 prune</h3>
 <h4 id="暂停容器--pause">暂停容器 | pause</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702451794386-1b58291b-f6bf-432d-be40-f74f7f26cfcd.png#averageHue=%23eeeeee&amp;clientId=uf75f1899-144d-4&amp;from=paste&amp;height=283&amp;id=ufba76311&amp;originHeight=622&amp;originWidth=1804&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=222981&amp;status=done&amp;style=none&amp;taskId=u72431a3a-68c6-4484-b39e-7011ecba61c&amp;title=&amp;width=819.999982226979" alt="image.png"></p>
+<p><img src="/images/lesson10/img-27.png" alt="image.png"></p>
 <h4 id="停止容器-stop">停止容器 ｜stop</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702451900487-689c32a6-59ce-4355-ba13-e373942f0ecc.png#averageHue=%23ececec&amp;clientId=uf75f1899-144d-4&amp;from=paste&amp;height=500&amp;id=ua821ef9e&amp;originHeight=1100&amp;originWidth=1830&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=473652&amp;status=done&amp;style=none&amp;taskId=u18665f40-e1d2-4a9e-ace0-a3cb606ece2&amp;title=&amp;width=831.8181637890086" alt="image.png"></p>
+<p><img src="/images/lesson10/img-28.png" alt="image.png"></p>
 <h4 id="pause和stop区别">pause和stop区别？</h4>
 <p>主要区别在于，<strong>docker pause</strong> 会暂停容器的所有进程，保留容器状态；而 <strong>docker stop</strong> 会发送信号停止容器，允许容器内的进程完成清理并关闭容器。</p>
 <ul>
@@ -325,62 +325,63 @@
 </ul>
 <h3 id="进入容器">进入容器</h3>
 <h4 id="attach">attach</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702459904076-fd84a3ca-e789-41da-83f3-141e20bde143.png#averageHue=%23ececec&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=553&amp;id=u2ea094d9&amp;originHeight=1216&amp;originWidth=1836&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=468484&amp;status=done&amp;style=none&amp;taskId=u55c3549f-cbc1-4a73-a4bc-24c0dca5f6a&amp;title=&amp;width=834.5454364571693" alt="image.png"></p>
+<p><img src="/images/lesson10/img-29.png" alt="image.png"></p>
 <h4 id="exec">exec</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702460092719-06b9d990-f75b-49bd-834b-923d9bd4eab8.png#averageHue=%23ededed&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=247&amp;id=u387a87fa&amp;originHeight=544&amp;originWidth=1930&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=215590&amp;status=done&amp;style=none&amp;taskId=u301aae7e-5210-4379-9c61-10e2d9bda6b&amp;title=&amp;width=877.2727082583534" alt="image.png"></p>
+<p><img src="/images/lesson10/img-30.png" alt="image.png"></p>
 <h3 id="删除容器--rm">删除容器 | rm</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702460174461-43fd99bb-2038-4096-9202-9018bf026db7.png#averageHue=%23ececec&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=260&amp;id=PKe4Y&amp;originHeight=572&amp;originWidth=1936&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=244344&amp;status=done&amp;style=none&amp;taskId=uc88eddc1-3df3-4581-8093-5eea6c5badd&amp;title=&amp;width=879.9999809265141" alt="image.png"> <img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702460204196-23430947-6b43-46ef-a16d-adb221c1c0a1.png#averageHue=%23ededed&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=530&amp;id=u88bfa577&amp;originHeight=1166&amp;originWidth=1844&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=475586&amp;status=done&amp;style=none&amp;taskId=u2b76e3a1-2b20-480f-97d5-6b21e1e0655&amp;title=&amp;width=838.1818000147169" alt="image.png"></p>
+<p><img src="/images/lesson10/img-31.png" alt="image.png">
+<img src="/images/lesson10/img-32.png" alt="image.png"></p>
 <h3 id="导入和导出容器--export-import">导入和导出容器 ｜ export 、import</h3>
 <h4 id="导出容器--export">导出容器 ｜ export</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702460312774-deb1808f-136c-49c5-8401-b5065f02ecde.png#averageHue=%23e6e6e6&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=135&amp;id=u337a1f42&amp;originHeight=298&amp;originWidth=1830&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=159133&amp;status=done&amp;style=none&amp;taskId=uc30cfc02-d347-4d7d-9b30-fdf25bc815e&amp;title=&amp;width=831.8181637890086" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702460380843-b392b87f-db8a-4575-ab90-11ab4599f6ff.png#averageHue=%23f3f3f3&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=193&amp;id=u8a58aecd&amp;originHeight=424&amp;originWidth=1832&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=118896&amp;status=done&amp;style=none&amp;taskId=u469050a9-6461-4afc-9d23-6488c56e83a&amp;title=&amp;width=832.7272546783955" alt="image.png"></p>
+<p><img src="/images/lesson10/img-33.png" alt="image.png">
+<img src="/images/lesson10/img-34.png" alt="image.png"></p>
 <h4 id="导入容器-import">导入容器 ｜import</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702460730639-e42dccd0-07cb-44a4-94be-aefa69e13158.png#averageHue=%23e9e9e9&amp;clientId=u4a7d36d6-916b-4&amp;from=paste&amp;height=536&amp;id=u20acdded&amp;originHeight=1180&amp;originWidth=1840&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=588445&amp;status=done&amp;style=none&amp;taskId=uc470a4af-dcd2-4eab-887e-33d29091591&amp;title=&amp;width=836.3636182359431" alt="image.png"></p>
+<p><img src="/images/lesson10/img-35.png" alt="image.png"></p>
 <h3 id="查看容器--inspecttopstatus">查看容器 ｜ inspect、top、status</h3>
 <h4 id="查看容器详情inspect">查看容器详情｜inspect</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521041420-8e7d40a4-22cb-432d-8a32-e2fdc771fff0.png#averageHue=%23ebebeb&amp;clientId=u37b87d73-07f8-4&amp;from=paste&amp;height=165&amp;id=u2528323c&amp;originHeight=362&amp;originWidth=1826&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=184551&amp;status=done&amp;style=none&amp;taskId=u1f3a1640-fe0a-42cf-914e-7e7d308a5d5&amp;title=&amp;width=829.9999820102349" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521065365-cd8d590d-b50f-4297-99f3-3cecd9c63698.png#averageHue=%23f7f7f7&amp;clientId=u37b87d73-07f8-4&amp;from=paste&amp;height=241&amp;id=ucb0f95ce&amp;originHeight=530&amp;originWidth=1726&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=98410&amp;status=done&amp;style=none&amp;taskId=u5d4be8ff-0221-4875-b057-6875e8b3378&amp;title=&amp;width=784.5454375408901" alt="image.png"></p>
+<p><img src="/images/lesson10/img-36.png" alt="image.png">
+<img src="/images/lesson10/img-37.png" alt="image.png"></p>
 <h4 id="查看容器进程-top">查看容器进程 ｜top</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521127119-2f327876-5ba9-45f0-8606-ccb378f230ae.png#averageHue=%23ececec&amp;clientId=u37b87d73-07f8-4&amp;from=paste&amp;height=195&amp;id=uc4f46b2d&amp;originHeight=430&amp;originWidth=1804&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=173629&amp;status=done&amp;style=none&amp;taskId=u3d6dd129-1887-4c69-9fd7-d27add7adf2&amp;title=&amp;width=819.999982226979" alt="image.png"></p>
+<p><img src="/images/lesson10/img-38.png" alt="image.png"></p>
 <h4 id="查看统计信息stats">查看统计信息｜stats</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521170017-2a5ce87a-b8b9-4a8b-afb7-5dba2028b6f4.png#averageHue=%23eaeaea&amp;clientId=u37b87d73-07f8-4&amp;from=paste&amp;height=305&amp;id=u6f877026&amp;originHeight=670&amp;originWidth=1812&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=308467&amp;status=done&amp;style=none&amp;taskId=u650b4aed-94d8-474b-9b74-505e820a57e&amp;title=&amp;width=823.6363457845266" alt="image.png"></p>
+<p><img src="/images/lesson10/img-39.png" alt="image.png"></p>
 <h3 id="其他容器命令">其他容器命令</h3>
 <h4 id="复制文件cp">复制文件｜cp</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521579741-2da852fd-c22f-4fcc-8dd3-b3cca5b19529.png#averageHue=%23e2e2e2&amp;clientId=u37b87d73-07f8-4&amp;from=paste&amp;height=153&amp;id=udba0e472&amp;originHeight=336&amp;originWidth=1808&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=214319&amp;status=done&amp;style=none&amp;taskId=u25f9a76a-bc2e-45fb-95ee-e9f1c959c86&amp;title=&amp;width=821.8181640057528" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521590896-a2fe04dd-7bc7-4113-bc19-daee240235a0.png#averageHue=%23eaeaea&amp;clientId=u37b87d73-07f8-4&amp;from=paste&amp;height=76&amp;id=u5519f23b&amp;originHeight=168&amp;originWidth=1264&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=49485&amp;status=done&amp;style=none&amp;taskId=u1f278284-569f-4a17-9931-add455c89c6&amp;title=&amp;width=574.5454420925174" alt="image.png"></p>
+<p><img src="/images/lesson10/img-40.png" alt="image.png">
+<img src="/images/lesson10/img-41.png" alt="image.png"></p>
 <h4 id="查看变更diff">查看变更｜diff</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521901615-09a547ae-da7b-4c47-a51c-daedab072c9b.png#averageHue=%23f3f3f3&amp;clientId=u0ce6cdfb-f20e-4&amp;from=paste&amp;height=215&amp;id=u1b44934e&amp;originHeight=472&amp;originWidth=1814&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=139248&amp;status=done&amp;style=none&amp;taskId=u56b34b4d-b93d-4723-88a4-0cfbf6021c4&amp;title=&amp;width=824.5454366739135" alt="image.png"></p>
+<p><img src="/images/lesson10/img-42.png" alt="image.png"></p>
 <h4 id="查看端口映射port">查看端口映射｜port</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702521955916-2922a418-07c5-4bc1-a7ad-459ebe81c307.png#averageHue=%23e6e6e6&amp;clientId=u0ce6cdfb-f20e-4&amp;from=paste&amp;height=105&amp;id=ub934554d&amp;originHeight=230&amp;originWidth=1808&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=116607&amp;status=done&amp;style=none&amp;taskId=u99cea67d-4092-48a1-8f67-257c540dc70&amp;title=&amp;width=821.8181640057528" alt="image.png"></p>
+<p><img src="/images/lesson10/img-43.png" alt="image.png"></p>
 <h4 id="更新配置updata">更新配置｜updata</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702522082383-013ed95e-fe97-4cd4-9b46-f08d4d45f226.png#averageHue=%23e7e7e7&amp;clientId=u0ce6cdfb-f20e-4&amp;from=paste&amp;height=564&amp;id=u264c002b&amp;originHeight=1240&amp;originWidth=1782&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=554058&amp;status=done&amp;style=none&amp;taskId=u67a2ceb8-be21-47a3-8400-1b7dea0b813&amp;title=&amp;width=809.9999824437232" alt="image.png">
+<p><img src="/images/lesson10/img-44.png" alt="image.png">
 例子：
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702522104168-9a18fbeb-366b-441d-9c63-6bb10aa7cd7c.png#averageHue=%23efefef&amp;clientId=u0ce6cdfb-f20e-4&amp;from=paste&amp;height=132&amp;id=u63aa80db&amp;originHeight=290&amp;originWidth=1460&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=79411&amp;status=done&amp;style=none&amp;taskId=ucde654b5-f35c-4fb8-ab71-f77305a5095&amp;title=&amp;width=663.6363492524331" alt="image.png"></p>
+<img src="/images/lesson10/img-45.png" alt="image.png"></p>
 <h2 id="docker-数据管理">Docker 数据管理</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702522963459-210d3af7-db82-4ebf-be03-b0914b51ff58.png#averageHue=%23e2e2e2&amp;clientId=u20b5ecfa-ab26-4&amp;from=paste&amp;height=143&amp;id=u0ca9920a&amp;originHeight=314&amp;originWidth=1650&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=203847&amp;status=done&amp;style=none&amp;taskId=u290d34af-4363-4830-86dd-8f97352e088&amp;title=&amp;width=749.9999837441882" alt="image.png"></p>
+<p><img src="/images/lesson10/img-46.png" alt="image.png"></p>
 <h3 id="数据卷">数据卷</h3>
 <h4 id="创建数据卷volume-create">创建数据卷｜volume create</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702522957791-7e724567-2b13-4d89-b51f-49c420a2a837.png#averageHue=%23ececec&amp;clientId=u20b5ecfa-ab26-4&amp;from=paste&amp;height=208&amp;id=u20c3af2d&amp;originHeight=458&amp;originWidth=1794&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=195827&amp;status=done&amp;style=none&amp;taskId=u613580e5-e89e-4606-8cb2-a3110b0a21e&amp;title=&amp;width=815.4545277800446" alt="image.png"></p>
+<p><img src="/images/lesson10/img-47.png" alt="image.png"></p>
 <h4 id="绑定数据卷run--mount或者-v">绑定数据卷｜run -mount或者-v</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702523064847-9bda3a7b-7824-401e-89e8-0220a59a05b5.png#averageHue=%23e7e7e7&amp;clientId=u20b5ecfa-ab26-4&amp;from=paste&amp;height=472&amp;id=uc3f0cae9&amp;originHeight=1038&amp;originWidth=1802&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=534338&amp;status=done&amp;style=none&amp;taskId=ufed12fe4-fa3b-4ea6-b80f-312b68409b2&amp;title=&amp;width=819.0908913375921" alt="image.png"></p>
+<p><img src="/images/lesson10/img-48.png" alt="image.png"></p>
 <h3 id="数据卷容器">数据卷容器</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702523585149-703f0bbf-0136-4786-98f1-3ce6acbb3445.png#averageHue=%23ececec&amp;clientId=u20b5ecfa-ab26-4&amp;from=paste&amp;height=389&amp;id=u24d3073e&amp;originHeight=856&amp;originWidth=1820&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=349892&amp;status=done&amp;style=none&amp;taskId=ud3a33b4c-8511-434a-a1f4-36e3e5df15b&amp;title=&amp;width=827.2727093420742" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702523614365-3004f8d1-fb11-4cdf-b29d-f79e932c7122.png#averageHue=%23e6e6e6&amp;clientId=u20b5ecfa-ab26-4&amp;from=paste&amp;height=281&amp;id=u4510a09f&amp;originHeight=618&amp;originWidth=1834&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=359923&amp;status=done&amp;style=none&amp;taskId=u47f4c890-39b4-407d-ab9b-b4e139d6433&amp;title=&amp;width=833.6363455677824" alt="image.png"></p>
+<p><img src="/images/lesson10/img-49.png" alt="image.png">
+<img src="/images/lesson10/img-50.png" alt="image.png"></p>
 <h3 id="利用数据卷容器来迁移数据">利用数据卷容器来迁移数据</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702551188638-fb1145c8-81b0-431b-a140-7c1c14a8f330.png#averageHue=%23ececec&amp;clientId=ue1ef0092-d376-4&amp;from=paste&amp;height=592&amp;id=u6099ab78&amp;originHeight=1302&amp;originWidth=1822&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=524655&amp;status=done&amp;style=none&amp;taskId=u1ce434b0-caeb-41ae-aa4f-ed0880a6d3c&amp;title=&amp;width=828.1818002314611" alt="image.png"></p>
+<p><img src="/images/lesson10/img-51.png" alt="image.png"></p>
 <h2 id="端口映射和容器互联">端口映射和容器互联</h2>
 <h3 id="端口映射实现容器访问-p-20012001">端口映射实现容器访问｜-p 2001:2001</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702551428493-04ef6709-777c-4bcc-b30b-baa30455343d.png#averageHue=%23f0f0f0&amp;clientId=ue1ef0092-d376-4&amp;from=paste&amp;height=511&amp;id=ud5e4921f&amp;originHeight=1124&amp;originWidth=1376&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=341801&amp;status=done&amp;style=none&amp;taskId=u556b1d33-3935-4ed7-ab80-af4c19b4674&amp;title=&amp;width=625.4545318981835" alt="image.png"></p>
+<p><img src="/images/lesson10/img-52.png" alt="image.png"></p>
 <h3 id="容器互联实现交互">容器互联实现交互</h3>
 <h4 id="自定义容器命名-namexx1">自定义容器命名｜-name=xx1</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702551666621-47539363-3ab6-46af-bc5d-3bb793c896db.png#averageHue=%23eeeeee&amp;clientId=ue1ef0092-d376-4&amp;from=paste&amp;height=480&amp;id=uf63b3d13&amp;originHeight=1056&amp;originWidth=1940&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=390389&amp;status=done&amp;style=none&amp;taskId=ue0643cc2-b953-4fb2-9036-f9d97bc2e73&amp;title=&amp;width=881.8181627052878" alt="image.png"></p>
+<p><img src="/images/lesson10/img-53.png" alt="image.png"></p>
 <h4 id="容器互联-link-namealias">容器互联｜-link name:alias</h4>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702552063323-54ba5a50-0cb1-4345-a0d8-2b94f7ef6dd1.png#averageHue=%23f2f2f2&amp;clientId=ue1ef0092-d376-4&amp;from=paste&amp;height=385&amp;id=u45bf6295&amp;originHeight=846&amp;originWidth=1830&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=259502&amp;status=done&amp;style=none&amp;taskId=u05b03386-fe3a-4136-a72a-39a95550a5f&amp;title=&amp;width=831.8181637890086" alt="image.png">
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702552612977-b01d2aa3-cf48-4708-8cca-5b0bd1c0e386.png#averageHue=%23eaeaea&amp;clientId=ue1ef0092-d376-4&amp;from=paste&amp;height=330&amp;id=udaebad99&amp;originHeight=726&amp;originWidth=1820&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=315847&amp;status=done&amp;style=none&amp;taskId=udfe6e365-e9bd-43bc-af63-fd7b9f4167c&amp;title=&amp;width=827.2727093420742" alt="image.png"></p>
+<p><img src="/images/lesson10/img-54.png" alt="image.png">
+<img src="/images/lesson10/img-55.png" alt="image.png"></p>
 <h2 id="核心实现技术docker-三大底座">核心实现技术（Docker 三大底座）</h2>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702553172392-a9d57e51-23e2-42d6-bb36-78c5673a48c0.png#averageHue=%23e2e2e2&amp;clientId=u7ed14874-ef7a-4&amp;from=paste&amp;height=132&amp;id=uc1d7f23f&amp;originHeight=290&amp;originWidth=1832&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=178180&amp;status=done&amp;style=none&amp;taskId=u096b283d-a249-4e46-a447-2dbd80f7500&amp;title=&amp;width=832.7272546783955" alt="image.png"></p>
+<p><img src="/images/lesson10/img-56.png" alt="image.png"></p>
 <h3 id="namespace">Namespace</h3>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1702620442745-c2a8f05d-6695-4834-93d0-49571c653cec.png#averageHue=%23dbdbdb&amp;clientId=u8c249d5c-90c7-4&amp;from=paste&amp;height=226&amp;id=u2e5baea6&amp;originHeight=498&amp;originWidth=1766&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=335409&amp;status=done&amp;style=none&amp;taskId=uffb12fa4-b60e-471f-bab8-8cbce1de112&amp;title=&amp;width=802.7272553286281" alt="image.png">
+<p><img src="/images/lesson10/img-57.png" alt="image.png">
 对于docker来说，最为直接的，是PID隔离</p>
 <h4 id="pid的命名空间隔离">PID的命名空间隔离</h4>
 <blockquote>
@@ -514,7 +515,7 @@ The uts namespace: Unix 时间系统隔离. (UTS: Unix Timesharing System).</p>
 <p>所以 Docker 虽然可以通过命名空间创建一个隔离的网络环境，但是 Docker 中的服务仍然需要与外界相连才能发挥作用。
 每一个使用 docker run 启动的容器其实都具有单独的网络命名空间，Docker 为我们提供了四种不同的网络模式，Host、Container、None 和 Bridge 模式。
 Bridge——网桥
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1700202492785-dead605e-4af4-4e3c-85e6-d6e9175fcfb8.png#averageHue=%23e3edee&amp;clientId=u997fcc3a-9b25-4&amp;from=paste&amp;height=354&amp;id=u62aada04&amp;originHeight=710&amp;originWidth=1200&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=57892&amp;status=done&amp;style=none&amp;taskId=u840fa01f-9287-4340-862b-32577f3a5d2&amp;title=&amp;width=598.4545288085938" alt="image.png">
+<img src="/images/lesson10/img-58.png" alt="image.png">
 当 Docker 服务器在主机上启动之后会创建新的虚拟网桥 docker0，随后在该主机上启动的全部服务在默认情况下都与该网桥相连。
 默认情况下，每一个容器在创建时都会创建一对虚拟网卡，两个虚拟网卡组成了数据的通道，其中一个会放在创建的容器中，会加入到名为 docker0 网桥中
 docker0会为每一个容器分配一个新的 IP 地址并将 docker0 的 IP 地址设置为默认的网关。
@@ -734,7 +735,7 @@ Stack 结构 - AUFS 它会根据branch 被 Union 的顺序形成一个 Stack 的
 </div><h4 id="镜像分层">镜像分层</h4>
 <p>Docker Image 是有一个层级结构的，最底层的 Layer 为 BaseImage（一般为一个操作系统的 ISO 镜像），然后顺序执行每一条指令，生成的 Layer 按照入栈的顺序逐渐累加，最终形成一个 Image。
 直观的角度来说，是这个图所示：
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1700183892489-ecc59844-f941-473c-98d4-73c71cc4c55f.png#averageHue=%23c96904&amp;clientId=u997fcc3a-9b25-4&amp;from=paste&amp;height=308&amp;id=u6d619c36&amp;originHeight=678&amp;originWidth=851&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=209903&amp;status=done&amp;style=none&amp;taskId=ued1ae648-b521-4d55-9061-557f4af6b18&amp;title=&amp;width=386.8181734341237" alt="image.png"></p>
+<img src="/images/lesson10/img-59.png" alt="image.png"></p>
 <h4 id="镜像的构建">镜像的构建</h4>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -870,7 +871,7 @@ docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/doc
 <p>而多阶段构建就可以解决上面的问题
 现在来学习一下go-zero生成的dockerfile文件，安装一下goctl，然后输入：
 <code>goctl docker -go main.go</code>
-<img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1700209501772-57807424-8eef-404d-b27e-33b50663a2d9.png#averageHue=%23222427&amp;clientId=u997fcc3a-9b25-4&amp;from=paste&amp;height=718&amp;id=ud5eb914b&amp;originHeight=1580&amp;originWidth=2920&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=113120&amp;status=done&amp;style=none&amp;taskId=ud25ebf34-6d52-4ff2-a966-ec0943baace&amp;title=&amp;width=1327.2726985048662" alt="image.png"></p>
+<img src="/images/lesson10/img-60.png" alt="image.png"></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -985,7 +986,7 @@ docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/doc
 </div>
 </div><h3 id="构建镜像">构建镜像</h3>
 <pre tabindex="0"><code>docker build -t your_dockerhub_username/image_name .
-</code></pre><p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1700212235328-eeca1fbe-2602-4dd1-bb67-2d73bcb12bf9.png#averageHue=%231c272e&amp;clientId=u997fcc3a-9b25-4&amp;from=paste&amp;height=634&amp;id=u3ddf303c&amp;originHeight=1394&amp;originWidth=2810&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=395774&amp;status=done&amp;style=none&amp;taskId=u2d11defa-88c6-4073-a02b-3ade59365c1&amp;title=&amp;width=1277.272699588587" alt="image.png">
+</code></pre><p><img src="/images/lesson10/img-61.png" alt="image.png">
 这里指定用户名才可以推送到dockerhub
 如果dockerfile不在项目根目录，可以指定dockerfile路径，</p>
 <pre tabindex="0"><code>docker build -t your_dockerhub_username/image_name -f ./xxx/Dockerfile .
@@ -1378,7 +1379,7 @@ docker-compose 可以快捷的创建多个容器
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0a3069">&#34;8080:8080&#34;</span><span style="color:#fff">  </span><span style="color:#57606a"># 如果你的 Go 程序在容器中监听的端口是 8080，将其映射到宿主机的 8080 端口</span><span style="color:#fff">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="https://cdn.nlark.com/yuque/0/2023/png/33645769/1700213672744-bceb3822-6fd8-418f-95b0-486fd3f3d542.png#averageHue=%23f3f3f6&amp;clientId=u997fcc3a-9b25-4&amp;from=paste&amp;height=214&amp;id=u4a45686a&amp;originHeight=470&amp;originWidth=1906&amp;originalType=binary&amp;ratio=2.200000047683716&amp;rotation=0&amp;showTitle=false&amp;size=55144&amp;status=done&amp;style=none&amp;taskId=u5ac14e2c-d955-49f1-aa3a-c52b4317c8a&amp;title=&amp;width=866.3636175857107" alt="image.png"></p>
+</div><p><img src="/images/lesson10/img-62.png" alt="image.png"></p>
 <h3 id="简易cicd">简易CI/CD</h3>
 <p>你想想，我们使用docker部署项目首先要编写dockerfile，然后构建镜像，再推送到docerhub，然后登服务器再拉取然后把服务跑起来，这样要是一个服务只搞一次这样做倒是没什么，但是如果是多个服务然后要不断修改，还这样修改一次就重复流程做一次吗，显然这样很搞人，所以我们可以借助一些自动化部署的工具
 你想想，要是有这么一种工具，我们只需要修改后提交代码到github，然后就自动帮我们构建好镜像推送到dockerhub，然后还能远程ssh登录服务器帮我们删除老镜像，拉取新镜像然后重启。相当于我只管修改提交就完事了，构建部署我们完全不用管，它帮你做
@@ -1519,18 +1520,18 @@ action是可以复用的拓展，用来简化workflow 。
 <li>Docker 三大底座的作用是什么，简单的描述一下</li>
 </ol>
 <h3 id="lv1">Lv1</h3>
-<p>使用docker部署自己的go程序</p>
+<p>使用 docker 部署自己的 go 程序</p>
 <ol>
-<li>编写dockerfile</li>
+<li>编写 dockerfile</li>
 <li>构建镜像</li>
-<li>推送镜像到dockerhub</li>
+<li>推送镜像到 dockerhub</li>
 <li>从服务器上拉取镜像并且启动容器</li>
 </ol>
 <h3 id="lv2">Lv2</h3>
-<p>编写多阶段构建的Dockerfile，结合Github Action 和docker-compose 实现简易CI/CD</p>
+<p>编写多阶段构建的 Dockerfile，结合 Github Action 和 docker-compose 实现简易CI/CD</p>
 <h3 id="提交作业">提交作业</h3>
 <p><strong>格式</strong>：第十次作业-学号-姓名-Lv?
-发送到邮箱：<strong><a href="mailto:liu_xian.123@qq.com">liu_xian.123@qq.com</a></strong></p>
+发送到邮箱：<strong><a href="mailto:2926310865@qq.com">2926310865@qq.com</a></strong></p>
 
 	<div class="td-page-meta__lastmod">
   最后修改 August 24, 2025: <a data-proofer-ignore href="https://github.com/CrazyForCode/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1">initial commit (0d79837)</a>

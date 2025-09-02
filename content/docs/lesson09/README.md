@@ -25,27 +25,23 @@ description: >
 ![img](https://pic4.zhimg.com/80/v2-c79ecff3534b9e135aac51673172a7cf_720w.webp)
 
 Linux发行版主要有三个分支：Debian、Slackware、Redhat。
-(1)Debian:（以社区的方式运作）
+1. Debian:（以社区的方式运作） 
+   - Ubuntu:基于 Debian 开发的开源 Linux 操作系统，主要针对桌面和服务器； 
+   - Linux Mint:基于 Debian 和 Ubuntu 的 Linux 发行版，致力于桌面系统对个人用户每天的工作更易用，更高效，且目标是提供一种更完整的即刻可用体验。
 
-1. Ubuntu:基于Debian开发的开源Linux操作系统，主要针对桌面和服务器；
-2. Linux Mint:基于Debian和Ubuntu的Linux发行版，致力于桌面系统对个人用户每天的工作更易用，更高效，且目标是提供一种更完整的即刻可用体验。
+2. slackware
+   - suse：基于Slackware二次开发的一款Linux,主要用于商业桌面、服务器。
+   - SLES(SUSE Linux Enterprise Server(SLES):企业服务器操作系统，是唯一与微软系统兼容的 Linux 操作系统。
+   - OpenSUSE:由suse发展而来，旨在推进 Linux 的广泛使用，主要用于桌面环境，用户界面非常华丽，而且性能良好。
 
-(2)slackware
+3. Redhat
+   - rhel(red hat enterprise Linux):Red Hat公司发布的面向企业用户的Linux操作系统。早起版本主要用于桌面环境，免费：
+   - Fedora:基于Red Hat Linux终止发行后，红帽公司计划以Fedora来取代 Red Hat Linux 在个人领域的应用，而另外发行的 Red Hat Enterprise Linux取代Red Hat Linux在商业应用的领域。Fedora的功能对于用户而言，它是一套功能完备、更新快速的免费操作系统，而对赞助者Red Hat公司而言，它是许多新技术的测试平台，被认为可用的技术最终会加入到Red Hat Enterprise Linux中。Fedora大约每六个月发布新版本。
+   - Centos:基于Red hat Linux提供的可自由使用源代码的企业级Linux发行版本。每个版本的Centos都会获得十年的支持（通过安全更新的方式）。新版本的Centos大约每两年发行一次，而每个版本的Centos会定期（大概6个月）更新一次，以支持新的硬件。这样，建立一个安全、低维护、稳定、高预测性、高重复性的Linux环境。
 
-1. suse：基于Slackware二次开发的一款Linux,主要用于商业桌面、服务器。
-2. SLES(SUSE Linux Enterprise Server(SLES):企业服务器操作系统，是唯一与微软系统兼容的Linux操作系统。
-3. OpenSUSE:由suse发展而来，旨在推进linux的广泛使用，主要用于桌面环境，用户界面非常华丽，而且性能良好。
-
-(3)Redhat
-
-1. rhel(red hat enterprise Linux):Red Hat公司发布的面向企业用户的Linux操作系统。早起版本主要用于桌面环境，免费：
-2. Fedora:基于Red Hat Linux终止发行后，红帽公司计划以Fedora来取代Red Hat Linux在个人领域的应用，而另外发行的Red Hat Enterprise Linux取代Red Hat Linux在商业应用的领域。Fedora的功能对于用户而言，它是一套功能完备、更新快速的免费操作系统，而对赞助者Red Hat公司而言，它是许多新技术的测试平台，被认为可用的技术最终会加入到Red Hat Enterprise Linux中。Fedora大约每六个月发布新版本。
-3. Centos:基于Red hat Linux提供的可自由使用源代码的企业级Linux发行版本。每个版本的Centos都会获得十年的支持（通过安全更新的方式）。新版本的Centos大约每两年发行一次，而每个版本的Centos会定期（大概6个月）更新一次，以支持新的硬件。这样，建立一个安全、低维护、稳定、高预测性、高重复性的Linux环境。
-
-(4)其他发行版本：
-
-1. Gentoo:基于linux的自由操作系统，基于Linux的自由操作系统，它能为几乎任何应用程序或需求自动地作出优化和定制。追求极限的配置、性能，以及顶尖的用户和开发者社区，都是Gentoo体验的标志特点， Gentoo的哲学是自由和选择。得益于一种称为Portage的技术，Gentoo能成为理想的安全服务器、开发工作站、专业桌面、游戏系统、嵌入式解决方案或者别的东西--你想让它成为什么，它就可以成为什么。由于它近乎无限的适应性，可把Gentoo称作元发行版。
-2. Aech Linux(或称Arch):以轻量简洁为设计理念的Linux发行版。其开发团队秉承简洁、优雅和代码最小化的设计宗旨。
+4. 其他发行版本：
+   - Gentoo:基于 Linux 的自由操作系统，基于 Linux 的自由操作系统，它能为几乎任何应用程序或需求自动地作出优化和定制。追求极限的配置、性能，以及顶尖的用户和开发者社区，都是Gentoo体验的标志特点， Gentoo的哲学是自由和选择。得益于一种称为Portage的技术，Gentoo能成为理想的安全服务器、开发工作站、专业桌面、游戏系统、嵌入式解决方案或者别的东西--你想让它成为什么，它就可以成为什么。由于它近乎无限的适应性，可把Gentoo称作元发行版。 
+   - Arch Linux(或称 Arch):以轻量简洁为设计理念的 Linux 发行版。其开发团队秉承简洁、优雅和代码最小化的设计宗旨。
 
 ### linux 目录
 
@@ -249,7 +245,7 @@ vim main.go
 
 
 
-[vim入门到精通]:https://zhuanlan.zhihu.com/p/68111471 .
+[vim入门到精通](https://zhuanlan.zhihu.com/p/68111471).
 
 ##### 删除文件
 
@@ -283,7 +279,7 @@ ls | grep "pattern"
 
 
 
-[进阶]:https://www.lanqiao.cn/courses/1 .
+[进阶](https://www.lanqiao.cn/courses/1).
 
 ### 部署
 
@@ -297,11 +293,11 @@ go 的程序部署非常简单（相比 Java 而言）
 
 1.编译为二进制文件，上传到服务器，服务器直接运行二进制文件
 
-2.将源代码上传到服务器，服务器进行编译(前提是服务器配置好go环境)
+2.将源代码上传到服务器，服务器进行编译(前提是服务器配置好 go 环境)
 
 #### 上传二进制文件到服务器
 
-首先，在goland终端更改环境变量
+首先，在 goland 终端更改环境变量
 
 ```
 go env -w GOOS=linux
@@ -313,9 +309,9 @@ go env -w GOOS=linux
 go build main.go
 ```
 
-等待几秒，你会发现项目中多了一个main文件(注意不是main.exe)
+等待几秒，你会发现项目中多了一个 main 文件(注意不是 main.exe)
 
-这就是编译好的二进制文件，可以在任何linux上运行
+这就是编译好的二进制文件，可以在任何 linux 上运行
 
 我们可以通过以下命令，将此文件上传到服务器
 
@@ -324,7 +320,7 @@ go build main.go
 scp main root@127.0.0.1:/home/
 ```
 
-如果想要免密登录 配置SSH即可
+如果想要免密登录 配置 SSH 即可
 
 1.在主机A创建密钥对
 
@@ -342,9 +338,9 @@ ssh-keygen #创建证书
 
 #### 上传源代码到服务器
 
-通常会先将源码上传到github再拉下来，或者使用goland一键上传
+通常会先将源码上传到 github 再拉下来，或者使用 goland 一键上传
 
-[服务器go安装](https://blog.csdn.net/qq_43098070/article/details/126075629)
+[服务器 go 安装](https://blog.csdn.net/qq_43098070/article/details/126075629)
 
 然后进入项目目录直接编译即可
 
@@ -401,9 +397,14 @@ nohup ./main &
 
 [systemctl 详解](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
 
+##### 使用 linux 方式
+1. WSL (Windows Subsystem for Linux)，具体可以参考 [微软官方文档](https://learn.microsoft.com/en-us/windows/wsl/install)
+2. 虚拟机: VM Ware、Virtual Box（B 站搜索教程进行下载）
+3. 裸机双系统（同上）
+
 ### 作业
 
-发送到 [wanziyu@lanshan.email](mailto:wanziyu@lanshan.email)
+发送到 [2926310865@qq.com](mailto:wanziyu@lanshan.email)
 
 #### lv0
 
