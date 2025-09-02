@@ -31,7 +31,7 @@
   <meta itemprop="name" content="MySQL 数据库">
   <meta itemprop="description" content="MySQL 数据库">
   <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
-  <meta itemprop="wordCount" content="1315">
+  <meta itemprop="wordCount" content="1351">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="MySQL 数据库">
   <meta name="twitter:description" content="MySQL 数据库">
@@ -187,7 +187,6 @@
 		
 </header>
 	<h1 id="mysql">MySQL</h1>
-<p><img src="https://camo.githubusercontent.com/0d321bc853789843d8659f9d694de2f1d5149d5cba6b792a114824ec98e2ebf5/68747470733a2f2f73312e617831782e636f6d2f323032322f31312f31372f7a6d6e5556732e706e67" alt="img"></p>
 <h2 id="概念篇">概念篇</h2>
 <h3 id="什么是数据库">什么是数据库？</h3>
 <p>数据库（Database）是指存储数据的容器，也被称为数据存储库（Data Store）。数据库能够存储大量结构化和非结构化的数据，包括文本、数字、图像、音频等各种类型的数据。</p>
@@ -197,7 +196,40 @@
 <p>MySQL是一个<strong>关系型数据库</strong>，一种开源关系数据库管理系统（RDBMS），它使用最常用的数据库管理语言-结构化查询语言（SQL）进行数据库管理</p></blockquote>
 <p>关系型数据库的数据都以<strong>数据表</strong>的形式进行存储和管理。</p>
 <p>表是一种二维行列表格，关系型数据库中的数据通常以表的形式存储，如图所示</p>
-<p><img src="https://camo.githubusercontent.com/e04f85a224ede31a3e08285692578a8f99b5b5b80d550fbf9e0fa2b6eaadebfe/68747470733a2f2f73312e617831782e636f6d2f323032322f31312f31392f7a4b39394a672e706e67" alt="img"></p>
+<table>
+  <thead>
+      <tr>
+          <th>patient_id</th>
+          <th>name</th>
+          <th>age</th>
+          <th>height(cm)</th>
+          <th>weight(kg)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>P001</td>
+          <td>小红</td>
+          <td>25</td>
+          <td>165</td>
+          <td>55</td>
+      </tr>
+      <tr>
+          <td>P002</td>
+          <td>小蓝</td>
+          <td>30</td>
+          <td>180</td>
+          <td>70</td>
+      </tr>
+      <tr>
+          <td>P003</td>
+          <td>小绿</td>
+          <td>28</td>
+          <td>170</td>
+          <td>65</td>
+      </tr>
+  </tbody>
+</table>
 <ul>
 <li>
 <p><code>列（column）</code> - 表中的一个字段 ，如图中<code>patient_id</code> 。所有表都是由一个或多个列组成的</p>
@@ -1068,15 +1100,15 @@
 <li>Gorm的使用并不是我们这节课的重点，所以这里就不介绍Gorm的具体用法。</li>
 </ul>
 <h5 id="什么是gorm">什么是Gorm</h5>
-<p>GORM 是 Go 语言中的一个强大的对象关系映射（ORM）库，它提供了一种简单且优雅的方式来进行数据库操作。ORM 是一种编程技术，它将数据库表与程序中的对象进行映射，使得开发者可以使用面向对象的方式进行数据库的增删改查操作，而无需直接编写 SQL 语句。（关于什么是ORM，大家可以在课下阅读相关文章了解）</p>
-<h5 id="为什么我们需要gorm">为什么我们需要Gorm</h5>
-<p>ORM的作用是在关系型数据库和对象之间作一个映射，这样，我们在具体的操作数据库的时候，就不需要再去和复杂的SQL语句打交道，只要像平时操作对象一样操作它就可以了 。</p>
+<p>GORM 是 Go 语言中的一个强大的对象关系映射（ORM）库，它提供了一种简单且优雅的方式来进行数据库操作。ORM 是一种编程技术，它将数据库表与程序中的对象进行映射，使得开发者可以使用面向对象的方式进行数据库的增删改查操作，而无需直接编写 SQL 语句。（关于什么是 ORM，大家可以在课下阅读相关文章了解）</p>
+<h5 id="为什么我们需要-gorm">为什么我们需要 Gorm</h5>
+<p>ORM 的作用是在关系型数据库和对象之间作一个映射，这样，我们在具体的操作数据库的时候，就不需要再去和复杂的 SQL 语句打交道，只要像平时操作对象一样操作它就可以了 。</p>
 <p>使用 ORM带来的好处有</p>
 <ul>
 <li><strong>减少我们重复的写sql语句的实践，提高我们的工作效率，降低开发成本</strong></li>
 <li><strong>访问数据的时候，可以使用抽象的方式，用起来非常简洁</strong></li>
 </ul>
-<p>以使用sqlx和Gorm进行查询进行对比：</p>
+<p>以使用 sqlx 和 Gorm 进行查询进行对比：</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1130,13 +1162,11 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里看起来我们写出的代码并差不了几行，但在一个正式的项目开发中 我们如果使用 sqlx 进行开发 我们会大量编写sql 语句 此时的时间成本就会远高于使用 Gorm 进行开发。</p>
-<h5 id="gorm学习">Gorm学习</h5>
+<h5 id="gorm-学习">Gorm 学习</h5>
 <p>Gorm官方有详尽的中文文档:<a href="https://gorm.io/zh_CN/docs/">GORM 指南 | GORM - The fantastic ORM library for Golang, aims to be developer friendly.</a></p>
 <p>阅读官方文档是我们提高能力的有效方法🥰</p>
 <h2 id="作业">作业</h2>
-<p>发送到邮箱nanach0@qq.com</p>
-<p>提交格式：第七次作业-2022214012-罗一尧-Lv？</p>
-<p><strong>截止时间</strong>：下一次上课之前</p>
+<p>发送到邮箱 <a href="mailto:29263108650@qq.com">29263108650@qq.com</a></p>
 <h3 id="lv0">Lv0</h3>
 <p>在MySQL中创建一个database，在里面创建一张数据表student，然后使用go语言操作MySQL，向里面插入十条记录，然后全部读出并打印</p>
 <h3 id="lv1">Lv1</h3>
@@ -1144,7 +1174,7 @@
 <h3 id="lv2">Lv2</h3>
 <p>学习MySQL与SQL理论知识（无需提交）</p>
 <h3 id="lv3">Lv3</h3>
-<p>如果你学有余力，使用gin框架+MySQL实现QQ的好友功能</p>
+<p>如果你学有余力，使用 Gin 框架 + MySQL 实现 QQ 的好友功能</p>
 <ul>
 <li>登录与创建账号</li>
 <li>加好友</li>

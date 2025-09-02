@@ -31,7 +31,7 @@
   <meta itemprop="name" content="HTTP 服务简单案例">
   <meta itemprop="description" content="HTTP 服务简单案例">
   <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
-  <meta itemprop="wordCount" content="4666">
+  <meta itemprop="wordCount" content="4667">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HTTP 服务简单案例">
   <meta name="twitter:description" content="HTTP 服务简单案例">
@@ -208,7 +208,7 @@ func main() {
 <p>用于http协议交互的信息称为http报文</p>
 <h2 id="请求报文">请求报文</h2>
 <p>一个HTTP请求报文由请求行（request line） 、请求头部（header）、空行和请求数据4个部分组成。</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/143dae14a2294bf9ab8884cd819ccece~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="请求报文"></p>
+<p><img src="/images/lesson06/img-1.png" alt="请求报文"></p>
 <p><strong>请求头部由关键字/值对组成，每行一对</strong></p>
 <p>典型的请求头有：</p>
 <p>● User-Agent：产生请求的浏览器类型;</p>
@@ -222,7 +222,7 @@ func main() {
 <p>● Content-Type：发送端发送的实体数据的数据类型。 比如，Content-Type：text/html（application/json）表示发送的是html类型。</p>
 <h2 id="响应报文">响应报文</h2>
 <p>由状态行，响应首部，响应实体组成</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ef274265b1643af8252a0cb3ef2c673~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="响应报文"></p>
+<p><img src="/images/lesson06/img-2.png" alt="响应报文"></p>
 <h4 id="状态行">状态行</h4>
 <p>状态行由三部分组成：<strong>服务器HTTP协议版本</strong>，<strong>响应状态码</strong>，<strong>状态码的文本描述</strong></p>
 <p>格式：HTTP-Version Status-Code Reason-Phrase CRLF</p>
@@ -239,9 +239,9 @@ func main() {
 <p>协商首部： Accept-Ranges: 对当前资源来讲，服务器所能够接受的范围类型 Vary: 首部列表，服务器会根据列表中的内容挑选出最适合的版本发送给客户端 跟安全相关的响应首部： Set-Cookie: 服务器端在某客户端第一次请求时发给令牌 WWW-Authentication: 质询，即要求客户提供帐号和密码</p>
 <h4 id="响应实体位于响应首部首部行之后">响应实体：位于响应首部（首部行）之后</h4>
 <p>实体包含了Web客户端请求的对象。Content-Length标头及Content-Type标头用于计算实体的位置、数据类型和数据长度。当Web服务器接收到Web客户端的请求报文后，对HTTP请求报文进行解析，并将Web客户端的请求的对象取出打包，通过HTTP响应报文将数据传回给Web客户端，如果出现错误则返回包含对应错误的错误代码和错误原因的HTTP响应报文。</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0933ac26e2f846b1b5c1ff279507d6c6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="TCP/IP 五层模型"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69631e098bca4db086f277c6a12a025b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="socket建立过程"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d080de3e3e904c79a82e52f105a2e5a0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=867&amp;h=659&amp;s=72702&amp;e=png&amp;b=f5f5f5" alt="socket-第 1 页.png"></p>
+<p><img src="/images/lesson06/img-3.png" alt="TCP/IP 五层模型"></p>
+<p><img src="/images/lesson06/img-4.png" alt="socket建立过程"></p>
+<p><img src="/images/lesson06/img-5.png" alt="socket-第 1 页.png"></p>
 <p>在<code>TCP/IP五层模型下</code>, <code>HTTP</code>位于<code>应用层</code>, 需要有<code>传输层</code>来承载<code>HTTP</code>协议. 传输层比较常见的协议是<code>TCP</code>,<code>UDP</code>, <code>SCTP</code>等. 由于<code>UDP</code>不可靠, <code>SCTP</code>有自己特殊的运用场景, 所以一般情况下<code>HTTP</code>是由<code>TCP</code>协议承载的(可以使用wireshark抓包然后查看各层协议)</p>
 <p>使用<code>TCP</code>协议的话, 就会涉及到<code>TCP</code>是如何建立起来的. 面试中能够常遇到的名词<code>三次握手</code>, <code>四次挥手</code>就是在这里产生的. 具体的建立流程就不在陈述了, 大概流程就是图中左半边</p>
 <p>所以说, 要想能够对客户端http请求进行回应的话, 就首先需要建立起来TCP连接, 也就是<code>socket</code>. 下面要看下<code>net/http</code>是如何建立起来<code>socket</code></p>
@@ -1153,7 +1153,7 @@ mid3 before
 mid3 after
 1
 </code></pre><p>所以一直next就变成洋葱模型了</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ac438f813874d989e3540abbb76213b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=478&amp;h=435&amp;s=28134&amp;e=webp&amp;b=fdfdfd" alt=""></p>
+<p><img src="/images/lesson06/img-6.png" alt=""></p>
 <pre tabindex="0"><code>在 Gin 框架中，路由规则被分成了最多 9 棵前缀树，每一个 HTTP Method对应一棵「前缀树」，树的节点按照 URL 中的 / 符号进行层级划分，URL 支持 :name 形式的名称匹配，还支持 *subpath 形式的路径通配符 。
 
 每个节点都会挂接若干请求处理函数构成一个请求处理链 HandlersChain。当一个请求到来时，在这棵树上找到请求 URL 对应的节点，拿到对应的请求处理链来执行就完成了请求的处理。
@@ -1770,7 +1770,7 @@ func getUsernameFromToken(c *gin.Context) {
 <h3 id="lvx">LvX</h3>
 <p>发挥你天马行空的想象力，实现你力所能及的任何功能。</p>
 <p>提交格式照旧</p>
-<p>提交至284662907@qq.com</p>
+<p>提交至 <a href="mailto:2926310865@qq.com">2926310865@qq.com</a></p>
 
 	<div class="td-page-meta__lastmod">
   最后修改 August 24, 2025: <a data-proofer-ignore href="https://github.com/CrazyForCode/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1">initial commit (0d79837)</a>

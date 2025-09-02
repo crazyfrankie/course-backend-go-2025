@@ -45,7 +45,7 @@ func main() {
 
 一个HTTP请求报文由请求行（request line） 、请求头部（header）、空行和请求数据4个部分组成。
 
-![请求报文](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/143dae14a2294bf9ab8884cd819ccece~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![请求报文](/images/lesson06/img-1.png)
 
 
 **请求头部由关键字/值对组成，每行一对**
@@ -76,7 +76,7 @@ func main() {
 
 
 
-![响应报文](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ef274265b1643af8252a0cb3ef2c673~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![响应报文](/images/lesson06/img-2.png)
 
 
 
@@ -114,11 +114,11 @@ Content-Tyep标头：实体的媒体类型
 
 
 
-![TCP/IP 五层模型](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0933ac26e2f846b1b5c1ff279507d6c6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![TCP/IP 五层模型](/images/lesson06/img-3.png)
 
-![socket建立过程](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69631e098bca4db086f277c6a12a025b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![socket建立过程](/images/lesson06/img-4.png)
 
-![socket-第 1 页.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d080de3e3e904c79a82e52f105a2e5a0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=867&h=659&s=72702&e=png&b=f5f5f5)
+![socket-第 1 页.png](/images/lesson06/img-5.png)
 
 在`TCP/IP五层模型下`, `HTTP`位于`应用层`, 需要有`传输层`来承载`HTTP`协议. 传输层比较常见的协议是`TCP`,`UDP`, `SCTP`等. 由于`UDP`不可靠, `SCTP`有自己特殊的运用场景, 所以一般情况下`HTTP`是由`TCP`协议承载的(可以使用wireshark抓包然后查看各层协议)
 
@@ -1021,7 +1021,7 @@ mid3 after
 
 所以一直next就变成洋葱模型了
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ac438f813874d989e3540abbb76213b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=478&h=435&s=28134&e=webp&b=fdfdfd)
+![](/images/lesson06/img-6.png)
 
 ```
 在 Gin 框架中，路由规则被分成了最多 9 棵前缀树，每一个 HTTP Method对应一棵「前缀树」，树的节点按照 URL 中的 / 符号进行层级划分，URL 支持 :name 形式的名称匹配，还支持 *subpath 形式的路径通配符 。
@@ -1584,4 +1584,4 @@ func InitRouter() {
 
 提交格式照旧
 
-提交至284662907@qq.com
+提交至 2926310865@qq.com

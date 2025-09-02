@@ -29,7 +29,7 @@
 
   <meta itemprop="name" content="并发编程">
   <meta itemprop="description" content="并发编程">
-  <meta itemprop="wordCount" content="3266">
+  <meta itemprop="wordCount" content="3264">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="并发编程">
   <meta name="twitter:description" content="并发编程">
@@ -190,10 +190,9 @@
 	<h1 id="并发">并发</h1>
 <blockquote>
 <p>本节课讲的基本都是基于单 CPU 的</p>
-<p>因为概念太多了，我在课件中肯定有遗漏，有问题的自己网上查一下或者在群里面问都可以</p></blockquote>
+<p>因为概念太多了，我在课件中肯定有遗漏，有问题的自己网上查一下或者私下问都可以</p></blockquote>
 <h2 id="写在前面">写在前面</h2>
-<p>能够坚持到这里已经很厉害了，大家也能看到从第一节课到第四节课人数的变化，其实大家学到这里现在已经超越年级 80% 以上的人了，相信大家只要坚持学下去都能够成功通过考核的。</p>
-<p>这节课的内容是并发，并发很常见的，生活中充满了并发，而我们使用计算机就是为了解决现实生活中的问题，所以计算机中有并发就很自然了。但计算机世界中的并发可比现实世界复杂得多，这节课会带领大家了解并发的实质是什么，为什么并发控制这么难，我们要怎么解决并发过程中出现的种种问题&hellip;&hellip;</p>
+<p>这节课的内容是并发，内容比较进阶，并发将贯穿程序员的职业生涯，大家可以多多注意。并发很常见的，生活中充满了并发，而我们使用计算机就是为了解决现实生活中的问题，所以计算机中有并发就很自然了。但计算机世界中的并发可比现实世界复杂得多，这节课会带领大家了解并发的实质是什么，为什么并发控制这么难，我们要怎么解决并发过程中出现的种种问题&hellip;&hellip;</p>
 <p>希望大家能够真正的认识、理解并解决一系列并发问题，而不是只会使用别人提供的 API。我认为CFC Studio后端研发组如果以后出去还是从事后端行业的话，大家都是往架构师方向发展的，我们是给别人提供解决方案的，而不是只会做一个 API Programmer。所以建议大家还是多探寻一下本质而不是停留在会用的阶段。</p>
 <p><strong>基本要求（这节课达到基本要求就成功了）：</strong></p>
 <ul>
@@ -205,8 +204,6 @@
 </li>
 </ul>
 <p>进阶要求：课件中除了基本要求相关的全是进阶要求</p>
-<blockquote>
-<p>课件很长，基本全是我自己一个字一个字敲出来的，图也是我自己画的，有错是在所难免的，如果大家发现错别字或者讲的有问题的话麻烦大家谅解一下并及时向我反馈（可以直接在飞书文档中评论）🙏🙏🏻🙏🏼🙏🏽🙏🏾🙏🏿</p></blockquote>
 <h2 id="操作系统基础知识">操作系统基础知识</h2>
 <p>操作系统也是一种软件，它为用户提供了一系列的接口帮助我们管理和使用硬件，我们使用的软件，编写的程序都是运行在操作系统上的，常见的操作系统有 Windows 、Linux 和 MacOS&hellip;</p>
 <p><img src="/images/lesson05/1.png" alt=""></p>
@@ -1920,7 +1917,7 @@
 <p><a href="https://mp.weixin.qq.com/s/AavRL-xezwsiQLQ1OpLKmA">https://mp.weixin.qq.com/s/AavRL-xezwsiQLQ1OpLKmA</a></p>
 </li>
 </ul>
-<p>GMP：https://www.bilibili.com/video/BV1oT411Y7m3</p>
+<p>GMP： <a href="https://www.bilibili.com/video/BV1oT411Y7m3">https://www.bilibili.com/video/BV1oT411Y7m3</a></p>
 <blockquote>
 <p>GMP 是 Go 语言特有的调度模型，正是这个模型使得 Go 语言天然支持高并发</p></blockquote>
 <p>再贴一个实用的工具网站：https://go.godbolt.org/</p>
@@ -1964,7 +1961,7 @@
 </ol>
 <blockquote>
 <p>提示一下，关闭 channel 的时候会唤醒所有因为 channel 的操作而阻塞的线程</p></blockquote>
-<p>  接口定义如下</p>
+<p>接口定义如下</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -1997,7 +1994,7 @@
 <p>序号不代表难度，一道也做不出来都是正常的，但只要去认真思考了，我相信对你的能力，对并发的理解，对 Go 语言的理解都会更深的，大家加油。</p>
 <p>计算机其实也是状态机，分析并发 bug 时，把每个可能的程序执行流，状态列出来问题往往就迎刃而解了</p>
 <p>runtime.GOMAXPROCS(1) 可以设置只使用一个 CPU 核心跑代码</p>
-<p>提交方式：zhaoxijun@lanshan.email</p>
+<p>提交方式： <a href="mailto:2926310865@qq.com">2926310865@qq.com</a></p>
 
 	
 </div>

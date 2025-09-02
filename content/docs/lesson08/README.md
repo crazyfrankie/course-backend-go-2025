@@ -5,45 +5,56 @@ weight: 9
 description: >
   Redis 和 MongoDB
 ---
+#### 写在前面
+本文对于 Redis 和 Mongo 的介绍还是比较浅显的。对于 Redis，可以参考 [命令文档](http://doc.redisfans.com/)、[小林 coding](https://www.xiaolincoding.com/redis), Mongo 的话参考官方文档 [mongodb](https://www.mongodb.com/docs/drivers/go/current/)
 
 # lesson8：redis, mangodb
 
-上节课讲了关系型数据库**mysql**，这节课我们来了解一下非关系型数据库**redis** 和 **mangodb**
+
+上节课讲了关系型数据库**mysql**，这节课我们来了解一下非关系型数据库**redis** 和 **mongodb**
 
 ## 非关系型数据库
-NoSQL：非关系型数据库，主要指那些非关系型的、分布式的，且一般不保证ACID的数据存储系统，常见的有**Redis / HBase /MongoDB /CouchDB /Neo4J**
+NoSQL：非关系型数据库，主要指那些非关系型的、分布式的，且一般不保证ACID的数据存储系统，常见的有**Redis / HBase / MongoDB / CouchDB / Neo4J**
 >**优点：**
->1、格式灵活：存储数据的格式可以是key,value形式、文档形式、图片形式。2、速度快：NoSQL可以使用硬盘或者随机存储器作为载体，而关系型数据库只能使用硬盘；3、高扩展性；4、成本低。
+  > 
+  > 1、格式灵活：存储数据的格式可以是 key,value 形式、文档形式、图片形式。
+  > 
+  > 2、速度快：NoSQL可以使用硬盘或者随机存储器作为载体，而关系型数据库只能使用硬盘；
+  >
+  > 3、高扩展性；
+  > 
+  > 4、成本低。
 >
 >**缺点：**
->1、一般而言没有太强的事务处理能力；2、数据结构相对复杂，复杂查询方面稍欠。
+>
+> 1、一般而言没有太强的事务处理能力；
+> 
+> 2、数据结构相对复杂，复杂查询方面稍欠。
 
 ## Redis
-Redis全称为：Remote Dictionary Server（远程数据服务），该软件使用C语言编写，Redis是一个key-value存储系统，其有以下特点。
+Redis 全称为：Remote Dictionary Server（远程数据服务），该软件使用 C 语言编写，Redis 是一个 key-value 存储系统，其有以下特点。
 
 - 1:性能高,单线程非常适合**读多写少**的场景,可以减轻数据库压力,
 - 2.集群分布式存储,可以横向拓展,可以做到高可用.
 - 3.数据结构类型丰富数据类型 
 - 4.支持数据持久化
-- 5.支持事务（一般不用）一般通过lua脚本去实现
+- 5.支持事务（一般不用）一般通过 lua 脚本去实现
 
 ## Redis数据类型和命令
 
-Redis 目前有9种数据类型和
-
-**5种常见类型：**String（字符串），Hash（哈希），List（列表），Set（集合）、Zset（有序集合）
-
-**4种新增类型：**BitMap（2.2 版新增）、HyperLogLog（2.8 版新增）、GEO（3.2 版新增）、Stream（5.0 版新增）
+Redis 目前有 9 种数据类型 
+- 5种常见类型：String（字符串），Hash（哈希），List（列表），Set（集合）、Zset（有序集合） 
+- 4种新增类型：BitMap（2.2 版新增）、HyperLogLog（2.8 版新增）、GEO（3.2 版新增）、Stream（5.0 版新增）
 
 ### **基本命令**
 
-`redis-cli` 进入Redis命令行界面
+`redis-cli` 进入 Redis 命令行界面
 
 ```
 root@bc2c25de5155:/data# redis-cli
 127.0.0.1:6379>
 ```
-如果设置了密码需要auth认证
+如果设置了密码需要 auth 认证
 `auth [username] password ` 默认用户是`default`
 
 ```
@@ -53,7 +64,7 @@ OK
 OK
 ```
 
-`dbsize` 查看数据库的key数量
+`dbsize` 查看数据库的 key 数量
 
 ```
 127.0.0.1:6379> dbsize
@@ -73,9 +84,9 @@ OK
 127.0.0.1:6379> help @string
 ```
 
-`flushall` 删除所有key
+`flushall` 删除所有 key
 
-`keys *`  查看所有的key
+`keys *`  查看所有的 key
 
 `exit` or ` quit`退出命令行
 
@@ -83,7 +94,7 @@ OK
 
 String 是最基本的 key-value 结构，key 是唯一标识，value 是具体的值，value其实不仅是字符串， 也可以是数字（整数或浮点数），value 最多可以容纳的数据长度是 `512M`。
 
-**底层实现：**String 类型的底层的数据结构实现主要是 int 和 SDS（简单动态字符串）。
+**底层实现**：**String** 类型的底层的数据结构实现主要是 int 和 [SDS（简单动态字符串）](https://axlgrep.github.io/tech/redis-sds.html)。
 
 #### 基本命令
 
@@ -1330,13 +1341,13 @@ Cache Aside 策略适合**读多写少**的场景，不适合写多的场景，�
 
 ## mongodb
 ### 数据存储结构
-在MongoDB中数据存储的基本概念是数据库、集合、文档。
+在 MongoDB 中数据存储的基本概念是数据库、集合、文档。
 
 文档（document）是MongoDB中数据的基本存储单元，非常类似与关系型数据库管理系统中的行，但更有表现力。
 
 集合（collection）可以看作是一个拥有动态模式（dynamic schema）的表。
 
-MongoDB的一个实例可以拥有多个相互独立的数据库（database），每一个数据库都拥有自己的集合。
+MongoDB 的一个实例可以拥有多个相互独立的数据库（database），每一个数据库都拥有自己的集合。
 
 MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。
 
@@ -1352,13 +1363,13 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组
 
 #### 数据库
 
-在MongoDB中，多个文档组成集合，而多个集合可以组成数据库，一个MongoDB实例可以建立多个数据库。
+在 MongoDB 中，多个文档组成集合，而多个集合可以组成数据库，一个 MongoDB 实例可以建立多个数据库。
 
 有一些数据库名是保留的，可以直接访问这些有特殊作用的数据库。
 
 * admin： 从权限的角度来看，这是"root"数据库。要是将一个用户添加到这个数据库，这个用户自动继承所有数据库的权限。一些特定的服务器端命令也只能从这个数据库运行，比如列出所有的数据库或者关闭服务器。
 * local: 这个数据永远不会被复制，可以用来存储限于本地单台服务器的任意集合
-* config: 当Mongo用于分片设置时，config数据库在内部使用，用于保存分片的相关信息。
+* config: 当 Mongo 用于分片设置时，config 数据库在内部使用，用于保存分片的相关信息。
 
 **show dbs** 命令可以显示所有数据的列表。
 
@@ -1385,7 +1396,7 @@ local
 
 #### 3.文档（Document）
 
-文档MongoDB核心概念。文档就是键值对的一个有序集合。MongoDB 的文档不需要设置相同的字段，并且相同的字段不需要相同的数据类型，这与关系型数据库有很大的区别，也是 MongoDB 非常突出的特点。
+文档 MongoDB 核心概念。文档就是键值对的一个有序集合。MongoDB 的文档不需要设置相同的字段，并且相同的字段不需要相同的数据类型，这与关系型数据库有很大的区别，也是 MongoDB 非常突出的特点。
 
 一个简单的文档例子如下：
 ```
@@ -1420,13 +1431,13 @@ MongoDB不但区分类型，而且区分大小写。
 
 
 
-## Go 操作Redis
+## Go 操作 Redis
 
 
 
-我这里使用的是 `github.com/go-redis/redis/v8` 这个库
+我这里使用的是 `github.com/redis/go-redis/v9` 这个库
 
-当然也可以用 ` github.com/gomodule/redigo/redis` 
+当然也可以用 `github.com/gomodule/redigo/redis` 
 
 
 
@@ -1526,7 +1537,7 @@ func SetRedisValue(ctx context.Context, key string, value string, expiration tim
 
 ### 集合
 
-```GO
+```go
 type RedisSet struct {
 	Id      int64
 	Object  string
@@ -1556,13 +1567,13 @@ func Set() {
 
 ## Go操作mongodb
 
-go操作mongodb离不开BSON
+go 操作 mongodb 离不开 BSON
 
-BSON是JSON的二进制格式。
+BSON 是 JSON 的二进制格式。
 
-在Go中mongo-driver/bson包下，有一个bson.go，里面描述了MongoDB中关于BSON得几种格式。
+在 Go 中 mongo-driver/bson 包下，有一个 bson.go，里面描述了 MongoDB 中关于 BSON 的几种格式。
 
-* 第一种：bson.D：D（Document）格式代表了一个BSON文档。也是使用比较多的一种格式。
+* 第一种：`bson.D`：D（Document）格式代表了一个 BSON 文档。也是使用比较多的一种格式。
 ```
 bson.D{
     {"foo", "bar"},
@@ -1570,7 +1581,7 @@ bson.D{
     {"pi", 3.14159},
 }
 ```
-* 第二种：bson.E：E（Element）格式代表了一个BSON文档的一个元素，通常在D内进行使用。
+* 第二种：`bson.E`：E（Element）格式代表了一个 BSON 文档的一个元素，通常在D内进行使用。
 ```
 bson.D{
   bson.E{Key: "foo", Value: "bar"},
@@ -1578,7 +1589,7 @@ bson.D{
   bson.E{Key: "pi", Value: 3.14159},
 }
 ```
-* 第三种：bson.M：M（Map）格式也代表了一个BSON文档，与D不同的是，D是有序的，M是无序的（可以理解为Map）。
+* 第三种：`bson.M`：M（Map）格式也代表了一个 BSON 文档，与 D 不同的是，D 是有序的，M 是无序的（可以理解为 Map）。
 ```
 bson.M{
   "foo": "bar",
@@ -1586,7 +1597,7 @@ bson.M{
   "pi": 3.14159,
 }
 ```
-* 第四种：bson.A：A（Array）格式代表了一个BSON数组。
+* 第四种：`bson.A`：A（Array）格式代表了一个 BSON 数组。
 ```
 bson.A{
   "bar",
@@ -1596,10 +1607,10 @@ bson.A{
 }
 ```
 
-安装MongoDB的Go驱动
+安装 Mongo DB的 Go 驱动
 ```
-go get go.mongodb.org/mongo-driver/mongo
-go get go.mongodb.org/mongo-driver/bson
+go get go.mongodb.org/mongo-driver/v2/mongo
+go get go.mongodb.org/mongo-driver/v2/bson
 ```
 
 创建一个MongoDB客户端实例
@@ -1628,68 +1639,68 @@ client, err := mongo.Connect(context.TODO(),
 
 ```
 
-创建一个MongoDB集合实例
+创建一个 MongoDB 集合实例
 
-连接到MongoDB数据库后，你需要从client 实例中创建一个Collection 实例，你将使用它来执行查询。
+连接到 MongoDB 数据库后，你需要从 client 实例中创建一个 Collection 实例，你将使用它来执行查询。
 
 ```
 collection := client.Database("test").Collection("people")
 ```
-这段代码从我们本地MongoDB数据库的"testing" 数据库中检索"users" 集合。如果在检索数据库或集合之前不存在，MongoDB将自动创建它。
+这段代码从我们本地 MongoDB 数据库的`"testing"`数据库中检索`"users"`集合。如果在检索数据库或集合之前不存在，MongoDB 将自动创建它。
 
-#### 在MongoDB中创建新文档
+#### 在 MongoDB中创建新文档
 
-为了在MongoDB集合中创建新文档，数据库客户端提供了一个`InsertOne()` 方法，允许插入单个文档，以及一个`InsertMany()` 方法来插入多个文档。
-```
-插入单个文档
-	user := bson.D{{"Name", "zhangsan"}, {"age", 30}}
-	res, err := collection.InsertOne(context.Background(), user)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	fmt.Println(res.InsertedID)
+为了在`MongoDB`集合中创建新文档，数据库客户端提供了一个`InsertOne()` 方法，允许插入单个文档，以及一个`InsertMany()` 方法来插入多个文档。
+```go
+// 插入单个文档
+user := bson.D{{"Name", "zhangsan"}, {"age", 30}}
+res, err := collection.InsertOne(context.Background(), user)
+if err != nil {
+	log.Fatalln(err)
+}
+fmt.Println(res.InsertedID)
 
 
-插入多个文档
-	users := []interface{}{
-		bson.D{{"Name", "lisi"}, {"age", 25}},
-		bson.D{{"Name", "wangwu"}, {"age", 20}},
-		bson.D{{"Name", "zhaoliu"}, {"age", 28}},
-	}
-	result, err := collection.InsertMany(context.Background(), users)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	fmt.Println(result.InsertedIDs)
+// 插入多个文档
+users := []interface{}{
+	bson.D{{"Name", "lisi"}, {"age", 25}},
+	bson.D{{"Name", "wangwu"}, {"age", 20}},
+	bson.D{{"Name", "zhaoliu"}, {"age", 28}},
+}
+result, err := collection.InsertMany(context.Background(), users)
+if err != nil {
+	log.Fatalln(err)
+}
+fmt.Println(result.InsertedIDs)
 ```
 
 #### 从MongoDB读取文档
 
-为了从MongoDB集合中检索文档，数据库客户端提供了一个Find() 方法，用于返回符合搜索过滤器的所有文档，以及一个FindOne() 方法，仅返回符合过滤器的第一个文档。
-```
-	// 建立查询 （无查询条件）
-	cursor, err := collection.Find(context.Background(), bson.D{})
-	if err != nil {
-		log.Println(err)
-		return
-	}
-	var results []bson.M
-	if err = cursor.All(context.TODO(), &results); err != nil {
-		panic(err)
-	}
+为了从 MongoDB 集合中检索文档，数据库客户端提供了一个 `Find()` 方法，用于返回符合搜索过滤器的所有文档，以及一个 `FindOne()` 方法，仅返回符合过滤器的第一个文档。
+```go
+// 建立查询 （无查询条件）
+cursor, err := collection.Find(context.Background(), bson.D{})
+if err != nil {
+	log.Println(err)
+	return
+}
+var results []bson.M
+if err = cursor.All(context.TODO(), &results); err != nil {
+	panic(err)
+}
 
-	for _, result := range results {
-		fmt.Println(result)
-	}
+for _, result := range results {
+	fmt.Println(result)
+}
 
 filter := bson.D{
-        {"$and",
-                bson.A{
-                        bson.D{
-                                {"age", bson.D{{"$gt", 25}}},
-                        },
-                },
-        },
+	{"$and",
+		bson.A{
+			bson.D{
+				{"age", bson.D{{"$gt", 25}}},
+			},
+		},
+	},
 }
 
 cursor, err := usersCollection.Find(context.TODO(), filter)
@@ -1701,22 +1712,22 @@ cursor, err := usersCollection.Find(context.TODO(), filter)
 
 ### Lv0
 
-将课上的redis 命令 和代码 自己敲一遍
+将课上的 redis 命令 和代码 自己敲一遍
 
 ### Lv1
 
-结合Gin 的作业
+结合 Gin 的作业
 
 写一个获取用户信息的接口 做简单的缓存处理
 
 ### Lv2
 
-结合gin redis 写一个点赞功能的接口（只能点赞一次）
+结合 Gin redis 写一个点赞功能的接口（只能点赞一次）
 
 
 ### Lv3
 
-结合Gin 的作业, 写一个获取用户信息的接口 做缓存层的处理在
+结合 Gin 的作业, 写一个获取用户信息的接口 做缓存层的处理在
 
 结合场景思考这里的缓存适合什么策略。
 
@@ -1728,4 +1739,4 @@ cursor, err := usersCollection.Find(context.TODO(), filter)
 
 **格式** `第八次作业-学号-姓名-Lv？` 
 
-发送到邮箱 2147584810@qq.com 
+发送到邮箱 2926310865@qq.com 
