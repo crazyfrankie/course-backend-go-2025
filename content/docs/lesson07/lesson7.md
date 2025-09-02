@@ -619,7 +619,7 @@ Gorm官方有详尽的中文文档:[GORM 指南 | GORM - The fantastic ORM libra
 
 ## 作业
 
-发送到邮箱 29263108650@qq.com
+发送到邮箱 2926310865@qq.com
 
 ### Lv0
 
