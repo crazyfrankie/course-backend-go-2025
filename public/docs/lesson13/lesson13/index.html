@@ -31,7 +31,7 @@
   <meta itemprop="name" content="微服务入门">
   <meta itemprop="description" content="微服务入门">
   <meta itemprop="dateModified" content="2025-08-24T17:26:13+08:00">
-  <meta itemprop="wordCount" content="302">
+  <meta itemprop="wordCount" content="340">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="微服务入门">
   <meta name="twitter:description" content="微服务入门">
@@ -167,6 +167,7 @@
     </li>
     <li><a href="#框架推荐">框架推荐</a>
       <ul>
+        <li><a href="#grpc">gRPC</a></li>
         <li><a href="#go-zero">Go-zero</a></li>
         <li><a href="#kitex">Kitex</a></li>
         <li><a href="#学习项目推荐">学习项目推荐</a></li>
@@ -343,18 +344,32 @@
 </ul>
 <p>当服务发现服务（比如 etcd, consul, nacos等）出现问题的时候，我们不要去修改已经获取到的 endpoints 列表，从而可以更好的确保 etcd 等宕机后所依赖的服务依然可以正常交互。</p>
 <h4 id="存量获取">存量获取</h4>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2fc0a889be0421883d707493e327527~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p><img src="/images/lesson13/img-1.png" alt="img"></p>
 <p>当 <code>Service A</code> 启动时，需要从 <code>Service Registry</code> 获取 <code>Service B</code> 的已有节点列表：<code>Service B1</code>, <code>Service B2</code>, <code>Service B3</code>，然后根据自己的负载均衡算法来选择合适的节点发送请求。</p>
 <h4 id="增量侦听">增量侦听</h4>
 <p>上图已经有了 <code>Service B1</code>, <code>Service B2</code>, <code>Service B3</code>，如果此时又启动了 <code>Service B4</code>，那么我们就需要通知 <code>Service A</code> 有个新增的节点。如图：</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71497af0435442e3acffff9dfd67cb86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p><img src="/images/lesson13/img-2.png" alt="img"></p>
 <h4 id="应对服务发现故障">应对服务发现故障</h4>
 <p>对于服务调用方来说，我们都会在内存里缓存一个可用节点列表。不管是使用 <code>etcd</code>，<code>consul</code> 或者 <code>nacos</code> 等，我们都可能面临服务发现集群故障，以 <code>etcd</code> 为例，当遇到 <code>etcd</code> 故障时，我们就需要冻结 <code>Service B</code> 的节点信息而不去变更，此时一定不能去清空节点信息，一旦清空就无法获取了，而此时 <code>Service B</code> 的节点很可能都是正常的，并且 <code>go-zero</code> 会自动隔离和恢复故障节点。</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5af33ecc71dc44639825092ea0a81e4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<p><img src="/images/lesson13/img-3.png" alt="img"></p>
 <p>对服务发现模式的介绍：<a href="https://juejin.cn/post/7028348724447281189?searchId=202403092351383768936C87D074711FFA">微服务中服务注册和发现的可行性方案 - 掘金 (juejin.cn)</a></p>
 <h2 id="框架推荐">框架推荐</h2>
+<h3 id="grpc">gRPC</h3>
+<p>gRPC 是 Google 开源的高性能、开源通用的 RPC 框架，其核心设计目标是提供一种高效、语言中立的方式，实现分布式系统内不同服务间的通信。它的两大核心支柱是：</p>
+<ol>
+<li>HTTP/2： 作为其传输协议，为 gRPC 带来了多路复用、头部压缩等现代特性，奠定了其低延迟和高吞吐量的基础。</li>
+<li>Protocol Buffers： 作为其默认的接口定义语言（IDL）和序列化机制。通过 .proto 文件定义服务和数据结构，并利用其编译器生成多语言客户端和服务端代码，实现了严格的API契约和高效的二进制编码。</li>
+</ol>
+<p>后面提到的 go-zero 的底层通信协议就是 gRPC，同时还有很多微服务框架都是基于 gRPC 进行适配的，现代分布式基础架构组件之间的通信基本上都使用的是 gRPC： <code>etcd</code>、<code>kubernetes</code>等，可以说是在 Go、在云原生领域使用范围最广的 RPC 框架。</p>
+<p><img src="/images/lesson13/img-4.png" alt="img"></p>
+<p><a href="https://github.com/grpc/grpc-go">Github</a></p>
+<p><a href="https://grpc.io/docs/languages/go/quickstart/">官方文档</a></p>
+<p>生态：</p>
+<p><a href="https://github.com/grpc-ecosystem/grpc-gateway">grpc-gateway</a></p>
+<p><a href="https://github.com/grpc-ecosystem/go-grpc-middleware">grpc-go-middleware</a></p>
+<p><a href="https://github.com/grpc-ecosystem/awesome-grpc">awesome-grpc</a></p>
 <h3 id="go-zero">Go-zero</h3>
-<p>go-zero（收录于 CNCF 云原生技术全景图：https://landscape.cncf.io/?selected=go-zero）是一个集成了各种工程实践的 web 和 rpc 框架。通过弹性设计保障了大并发服务端的稳定性，经受了充分的实战检验。</p>
+<p>go-zero 是一个集成了各种工程实践的 web 和 rpc 框架。通过弹性设计保障了大并发服务端的稳定性，经受了充分的实战检验。</p>
 <p><img src="https://raw.githubusercontent.com/zeromicro/zero-doc/main/doc/images/go-zero.png" alt="img"></p>
 <p><a href="https://github.com/zeromicro/go-zero">GitHub</a></p>
 <p><a href="https://go-zero.dev/">官方文档</a></p>
@@ -365,15 +380,15 @@
 <p><a href="https://www.cloudwego.io/zh/docs/kitex/">官方文档</a></p>
 <p><a href="https://github.com/cloudwego/biz-demo">biz-demo</a></p>
 <h3 id="学习项目推荐">学习项目推荐</h3>
-<p>Herzt&amp;Kitex：<a href="https://github.com/ViolaPioggia/GoYin">ViolaPioggia/GoYin: 第六届字节跳动青训营后端极简版抖音（二等奖🥈） (github.com)</a></p>
-<p>（万神🤩）</p>
-<p>Go-zero：<a href="https://github.com/GophersTeam/GopherTok">GophersTeam/GopherTok: Gopher小队的极简抖音 (github.com)</a> （显哥🥰）</p>
+<p>gRPC: <a href="https://github.com/CocaineCong/grpc-todoList">grpc-todolist</a></p>
+<p>Hertz&amp;Kitex：<a href="https://github.com/ViolaPioggia/GoYin">ViolaPioggia/GoYin: 第六届字节跳动青训营后端极简版抖音（二等奖🥈） (github.com)</a></p>
+<p>Go-zero：<a href="https://github.com/GophersTeam/GopherTok">GophersTeam/GopherTok: Gopher小队的极简抖音 (github.com)</a></p>
 <h2 id="阅读">阅读</h2>
 <p><a href="https://juejin.cn/post/6844903971086139400">Thrift &amp; IDL 介绍 - 掘金 (juejin.cn)</a></p>
-<p><a href="https://juejin.cn/post/7191008929986379836">写给go开发者的gRPC教程-protobuf基础 - 掘金 (juejin.cn)</a></p>
+<p><a href="https://juejin.cn/post/7191008929986379836">写给 go 开发者的 gRPC 教程-protobuf基础 - 掘金 (juejin.cn)</a></p>
 <h2 id="作业">作业</h2>
 <p>阅读你感兴趣的框架文档 尝试读懂推荐项目代码 学会写IDL文件</p>
-<p>学有余力可以写demo练手 :) （无需提交）</p>
+<p>学有余力可以写 demo 练手 :) （无需提交）</p>
 
 	<div class="td-page-meta__lastmod">
   最后修改 August 24, 2025: <a data-proofer-ignore href="https://github.com/CrazyForCode/course-backend-go-2025/commit/0d79837c8692ba47820417bcd58d28aa0731afd1">initial commit (0d79837)</a>

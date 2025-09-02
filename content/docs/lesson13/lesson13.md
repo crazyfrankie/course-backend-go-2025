@@ -227,7 +227,7 @@ RPC框架需要的最基本的三个要素：
 
 #### 存量获取
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2fc0a889be0421883d707493e327527~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](/images/lesson13/img-1.png)
 
 当 `Service A` 启动时，需要从 `Service Registry` 获取 `Service B` 的已有节点列表：`Service B1`, `Service B2`, `Service B3`，然后根据自己的负载均衡算法来选择合适的节点发送请求。
 
@@ -235,21 +235,43 @@ RPC框架需要的最基本的三个要素：
 
 上图已经有了 `Service B1`, `Service B2`, `Service B3`，如果此时又启动了 `Service B4`，那么我们就需要通知 `Service A` 有个新增的节点。如图：
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71497af0435442e3acffff9dfd67cb86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](/images/lesson13/img-2.png)
 
 #### 应对服务发现故障
 
 对于服务调用方来说，我们都会在内存里缓存一个可用节点列表。不管是使用 `etcd`，`consul` 或者 `nacos` 等，我们都可能面临服务发现集群故障，以 `etcd` 为例，当遇到 `etcd` 故障时，我们就需要冻结 `Service B` 的节点信息而不去变更，此时一定不能去清空节点信息，一旦清空就无法获取了，而此时 `Service B` 的节点很可能都是正常的，并且 `go-zero` 会自动隔离和恢复故障节点。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5af33ecc71dc44639825092ea0a81e4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![img](/images/lesson13/img-3.png)
 
 对服务发现模式的介绍：[微服务中服务注册和发现的可行性方案 - 掘金 (juejin.cn)](https://juejin.cn/post/7028348724447281189?searchId=202403092351383768936C87D074711FFA)
 
 ## 框架推荐
 
+### gRPC
+gRPC 是 Google 开源的高性能、开源通用的 RPC 框架，其核心设计目标是提供一种高效、语言中立的方式，实现分布式系统内不同服务间的通信。它的两大核心支柱是：
+
+1. HTTP/2： 作为其传输协议，为 gRPC 带来了多路复用、头部压缩等现代特性，奠定了其低延迟和高吞吐量的基础。
+2. Protocol Buffers： 作为其默认的接口定义语言（IDL）和序列化机制。通过 .proto 文件定义服务和数据结构，并利用其编译器生成多语言客户端和服务端代码，实现了严格的API契约和高效的二进制编码。
+
+后面提到的 go-zero 的底层通信协议就是 gRPC，同时还有很多微服务框架都是基于 gRPC 进行适配的，现代分布式基础架构组件之间的通信基本上都使用的是 gRPC： `etcd`、`kubernetes`等，可以说是在 Go、在云原生领域使用范围最广的 RPC 框架。
+
+![img](/images/lesson13/img-4.png)
+
+[Github](https://github.com/grpc/grpc-go)
+
+[官方文档](https://grpc.io/docs/languages/go/quickstart/)
+
+生态：
+
+[grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
+
+[grpc-go-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware)
+
+[awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc)
+
 ### Go-zero
 
-go-zero（收录于 CNCF 云原生技术全景图：https://landscape.cncf.io/?selected=go-zero）是一个集成了各种工程实践的 web 和 rpc 框架。通过弹性设计保障了大并发服务端的稳定性，经受了充分的实战检验。
+go-zero 是一个集成了各种工程实践的 web 和 rpc 框架。通过弹性设计保障了大并发服务端的稳定性，经受了充分的实战检验。
 
 ![img](https://raw.githubusercontent.com/zeromicro/zero-doc/main/doc/images/go-zero.png)
 
@@ -271,21 +293,21 @@ Kitex [kaɪt’eks] 字节跳动内部的 Golang 微服务 RPC 框架，具有**
 
 ### 学习项目推荐
 
-Herzt&Kitex：[ViolaPioggia/GoYin: 第六届字节跳动青训营后端极简版抖音（二等奖🥈） (github.com)](https://github.com/ViolaPioggia/GoYin)
+gRPC: [grpc-todolist](https://github.com/CocaineCong/grpc-todoList)
 
-（万神🤩）
+Hertz&Kitex：[ViolaPioggia/GoYin: 第六届字节跳动青训营后端极简版抖音（二等奖🥈） (github.com)](https://github.com/ViolaPioggia/GoYin)
 
-Go-zero：[GophersTeam/GopherTok: Gopher小队的极简抖音 (github.com)](https://github.com/GophersTeam/GopherTok) （显哥🥰）
+Go-zero：[GophersTeam/GopherTok: Gopher小队的极简抖音 (github.com)](https://github.com/GophersTeam/GopherTok)
 
 ## 阅读
 
 [Thrift & IDL 介绍 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903971086139400)
 
-[写给go开发者的gRPC教程-protobuf基础 - 掘金 (juejin.cn)](https://juejin.cn/post/7191008929986379836)
+[写给 go 开发者的 gRPC 教程-protobuf基础 - 掘金 (juejin.cn)](https://juejin.cn/post/7191008929986379836)
 
 ## 作业
 
 阅读你感兴趣的框架文档 尝试读懂推荐项目代码 学会写IDL文件
 
-学有余力可以写demo练手 :) （无需提交）
+学有余力可以写 demo 练手 :) （无需提交）
 
