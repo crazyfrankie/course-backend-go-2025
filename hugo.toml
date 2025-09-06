@@ -17,8 +17,6 @@ enableGitInfo = true
     disable = false
 
 [params]
-  github_repo = 'https://github.com/your-username/course-backend-go-2025'
-  github_branch = 'main'
   logo = "/logo.png"
 
   # User interface configuration
@@ -29,20 +27,6 @@ enableGitInfo = true
     navbar_logo = true
     footer_about_enable = true
     navbar_translucent_over_cover_disable = false
-
-  # Links to user social networks
-  [params.links]
-    [[params.links.user]]
-      name = "GitHub"
-      url = "https://github.com/your-username/course-backend-go-2025"
-      icon = "fab fa-github"
-      desc = "Development takes place here!"
-    
-    [[params.links.developer]]
-      name = "GitHub"
-      url = "https://github.com/your-username/course-backend-go-2025"
-      icon = "fab fa-github"
-      desc = "Development takes place here!"
 
 [markup]
   [markup.goldmark]
