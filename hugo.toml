@@ -19,7 +19,8 @@ enableGitInfo = true
 [params]
   github_repo = 'https://github.com/your-username/course-backend-go-2025'
   github_branch = 'main'
-  
+  logo = "/logo.png"
+
   # User interface configuration
   [params.ui]
     sidebar_menu_compact = false
