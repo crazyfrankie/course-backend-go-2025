@@ -7,9 +7,6 @@ linkTitle: "Go 后端开发教程"
 <a class="btn btn-lg btn-primary me-3 mb-4" href="/docs/">
   开始学习 <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
-<a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/CrazyForCode/course-backend-go-2025">
-  查看源码 <i class="fab fa-github ms-2 "></i>
-</a>
 <p class="lead mt-5">从零开始学习 Go 语言后端开发的完整课程</p>
 {{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
@@ -47,7 +44,7 @@ CFC Studio Go 后端开发课程
 {{% /blocks/section %}}
 
 {{% blocks/section type="row" %}}
-{{% blocks/feature icon="fab fa-github" title="开源项目" url="https://github.com/CrazyForCode/course-backend-go-2025" %}}
+{{% blocks/feature icon="fab fa-github" title="开源项目" url="https://github.com/crazyfrankie/course-backend-go-2025" %}}
 所有课程代码和资料都在 GitHub 上开源，欢迎 Star 和贡献。
 {{% /blocks/feature %}}
 
