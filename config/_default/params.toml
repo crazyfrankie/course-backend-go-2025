@@ -1,7 +1,7 @@
 # Docsy theme parameters
 
 # Repository configuration
-github_repo = "https://github.com/CrazyForCode/course-backend-go-2025"
+github_repo = "https://github.com/crazyfrankie/course-backend-go-2025"
 github_branch = "main"
 
 # User interface configuration
@@ -19,13 +19,13 @@ enable = false
 # Links to user social networks
 [[links.user]]
 name = "GitHub"
-url = "https://github.com/CrazyForCode/course-backend-go-2025"
+url = "https://github.com/crazyfrankie/course-backend-go-2025"
 icon = "fab fa-github"
 desc = "Development takes place here!"
 
 # Developer relevant links
 [[links.developer]]
 name = "GitHub"
-url = "https://github.com/CrazyForCode/course-backend-go-2025"
+url = "https://github.com/crazyfrankie/course-backend-go-2025"
 icon = "fab fa-github"
 desc = "Development takes place here!"

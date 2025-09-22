@@ -10,5 +10,5 @@ weight = 20
 
 [[main]]
 name = "GitHub"
-url = "https://github.com/CrazyForCode/course-backend-go-2025"
+url = "https://github.com/crazyfrankie/course-backend-go-2025"
 weight = 30
